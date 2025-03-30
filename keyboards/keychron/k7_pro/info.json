@@ -28,7 +28,7 @@
         "custom_lite": true
     },
     "dynamic_keymap": {
-        "layer_count": 5
+        "layer_count": 10
     },
     "layouts": {
         "LAYOUT_ansi_68": {
