@@ -115,8 +115,8 @@
     {"name": "Coding quote pair (\"\")", "title": "Pair: \"\"", "shortName": "\"\""},
     {"name": "CO EMDASH", "title": "Compose emdash (—)", "shortName": "emdash"},
     {"name": "CO DEGREE", "title": "Compose gedree (°)", "shortName": "degree"},
-    {"name": "S_DOT", "title": ", on tap ? on shift smart quotes on ctrl", "shortName": ",? sm q"},
-    {"name": "S_COMMA", "title": ". on tap ! on shift emdash on ctrl", "shortName": ".! emdash"},
+    {"name": "S_DOT", "title": ". on tap ! on shift emdash on ctrl", "shortName": ".! emdash"},
+    {"name": "S_COMMA", "title": ", on tap ? on shift smart quotes on ctrl", "shortName": ",? sm q"},
     {"name": "QUOP", "title": "Getreuer's Quopostrokey", "shortName": "QUOP"}
   ],
   "matrix": {"rows": 5, "cols": 16},
