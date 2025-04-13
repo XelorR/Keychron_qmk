@@ -40,7 +40,7 @@
         "on_state": 1
     },
     "dynamic_keymap": {
-        "layer_count": 10
+        "layer_count": 6
     },
     "eeprom": {
         "wear_leveling": {
