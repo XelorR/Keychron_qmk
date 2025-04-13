@@ -46,8 +46,8 @@
 // Modifiers to shortcut layer
 #define SH_LCTL LM(SHORTCUT,MOD_LCTL)
 #define SH_RCTL LM(SHORTCUT,MOD_RCTL)
-#define SH_LWIN LM(SHORTCUT,MOD_LWIN)
-#define SH_RWIN LM(SHORTCUT,MOD_RWIN)
+#define SH_LWIN LM(SHORTCUT,MOD_LGUI)
+#define SH_RWIN LM(SHORTCUT,MOD_RGUI)
 #define SH_LALT LM(SHORTCUT,MOD_LALT)
 #define SH_RALT LM(SHORTCUT,MOD_RALT)
 
@@ -128,7 +128,8 @@ enum custom_keycodes {
     SUPER_COMMA, // , ? «» “” 102
     QUOP, // https://getreuer.info/posts/keyboards/macros3/index.html#quopostrokey 103
 
-
+    // Launchers
+    TERMINAL,
 };
 
 enum layers {
@@ -157,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         SH_LCTL,  SH_LWIN,  SH_RWIN,  KC_LALT,  SPC_NAV,  LG_ENG,             LG_RUS,   SPC_NAV,  SH_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [SHORTCUT] = LAYOUT_73_jis(
-        KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
+        KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_LBRC,  KC_RBRC,                      KC_DEL,
-        KC_CAPS,  KC_A,     KC_R,     KC_S,     KC_T,     KC_D,               KC_H,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
+        KC_ESC,   KC_A,     KC_R,     KC_S,     KC_T,     KC_D,               KC_H,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_K,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
         KC_LCTL,  KC_LWIN,  KC_RCMMD, KC_LALT,  KC_SPC,   LG_ENG,             LG_RUS,   KC_SPC,   KC_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
@@ -172,16 +173,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NAVIGATION] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        KC_TAB,  A(KC_F4), C(S(KC_TAB)), KC_TAB, C(KC_TAB), _______,          KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   _______,  _______,            MS_WHLU,
-        KC_ESC,   KC_LWIN, KC_LALT, OSM(MOD_LCTL), KC_LSFT, KC_PSCR,        S(KC_RSFT), KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  _______,  _______,  KC_ENT,   MS_WHLD,
-        KC_RSFT,  UNDO,     CUT,      COPY,     PASTE,    REDO1,    REDO2,    G(KC_E),  KC_PGUP,  KC_APP,   KC_PGDN,  KC_ENT,   MS_BTN2,  MS_BTN1,  MS_UP,
-        KC_RCTL,  KC_RWIN,  KC_RCMMD, KC_RALT,  KC_SPC,             LG_RUS,   LG_RUS,             KC_SPC,   KC_RALT,  LG_GAME,            MS_LEFT,  MS_DOWN,  MS_RGHT),
+        KC_TAB,  A(KC_F4), C(S(KC_TAB)), KC_TAB, C(KC_TAB), TERMINAL,         KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   CO_QU_SMART_PAIR,   _______,  _______,
+        KC_ESC,   KC_LWIN, KC_LALT, OSM(MOD_LCTL), KC_LSFT, KC_PSCR,        S(KC_RSFT), KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  CO_EMDASH, _______, KC_ENT,   _______,
+        KC_RSFT,  UNDO,     CUT,      COPY,     PASTE,    REDO1,    REDO2,    G(KC_E),  KC_PGUP,  KC_APP,   KC_PGDN,  KC_ENT,   _______,  _______,  _______,
+        KC_RCTL,  KC_RWIN,  KC_RCMMD, KC_RALT,  KC_SPC,             LG_RUS,   LG_RUS,             KC_SPC,   KC_RALT,  LG_GAME,            _______,  _______,  _______),
 
     [MACRO] = LAYOUT_73_jis(
         KC_GRV,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_FILE,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
-        RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,            _______,  _______,  _______,  _______,  _______, QK_MACRO_1, _______, KC_ENT,   KC_END,
-        _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,  BAT_LVL,  NK_TOGG,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
+        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  QK_MACRO_2,  QK_MACRO_3,                    KC_INS,
+        RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,            _______,  _______,  _______,  _______,  QK_MACRO_6, QK_MACRO_1, QK_MACRO_0, KC_ENT, KC_END,
+        _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,  BAT_LVL,  NK_TOGG,  _______,  _______,  _______,  _______,  QK_MACRO_4,  QK_MACRO_5,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______)
 };
 
@@ -265,7 +266,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case LG_GAME:
         if (record->event.pressed) {
             tap_code16(LANG_ENG);
-            default_layer_set(1 << 2);
+            default_layer_set(1 << 3);
         }
         return false;
 
@@ -992,6 +993,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 wait_ms(10);
                 tap_code16(KC_LEFT);
             }
+        }
+        return false;
+
+        case TERMINAL:
+        if (record->event.pressed) {
+            bool is_russian = (get_highest_layer(default_layer_state) == 1);
+            if (is_russian) {
+                tap_code16(LANG_ENG);
+                wait_ms(50);
+                tap_code16(KC_LGUI);
+                wait_ms(250);
+                SEND_STRING("Terminal");
+                wait_ms(350);
+                tap_code16(KC_ENT);
+                wait_ms(50);
+                tap_code16(LANG_RUS);
+            } else {
+                tap_code16(LANG_ENG);
+                wait_ms(50);
+                tap_code16(KC_LGUI);
+                wait_ms(250);
+                SEND_STRING("Terminal");
+                wait_ms(350);
+                tap_code16(KC_ENT);
+                wait_ms(50);            }
         }
         return false;
 

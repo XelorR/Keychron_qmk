@@ -120,7 +120,8 @@
     {"name": "CO DEGREE", "title": "Compose gedree (°)", "shortName": "degree"},
     {"name": "S_DOT", "title": ". on tap ! on shift emdash on ctrl", "shortName": ".! emdash"},
     {"name": "S_COMMA", "title": ", on tap ? on shift smart quotes on ctrl", "shortName": ",? sm q"},
-    {"name": "QUOP", "title": "Getreuer's Quopostrokey", "shortName": "QUOP"}
+    {"name": "QUOP", "title": "Getreuer's Quopostrokey", "shortName": "QUOP"},
+    {"name": "TERMINAL", "title": "Launch terminal - press Super, type Terminal, press Enter", "shortName": "TERM"}
   ],
   "matrix": {"rows": 5, "cols": 16},
   "layouts": {
