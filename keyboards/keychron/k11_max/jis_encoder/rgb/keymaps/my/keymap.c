@@ -17,6 +17,7 @@
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
 
+// Hardcoding language switching combinations
 #define LANG_ENG C(KC_8)
 #define LANG_RUS C(KC_9)
 
