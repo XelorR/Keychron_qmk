@@ -176,7 +176,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  A(KC_F4), C(S(KC_TAB)), KC_TAB, C(KC_TAB), TERMINAL,         KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   CO_QU_SMART_PAIR,   _______,  _______,
         KC_ESC,   KC_LWIN, KC_LALT, OSM(MOD_LCTL), KC_LSFT, KC_PSCR,        S(KC_RSFT), KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  CO_EMDASH, _______, KC_ENT,   _______,
         KC_RSFT,  UNDO,     CUT,      COPY,     PASTE,    REDO1,    REDO2,    G(KC_E),  KC_PGUP,  KC_APP,   KC_PGDN,  KC_ENT,   _______,  _______,  _______,
-        KC_RCTL,  KC_RWIN,  KC_RCMMD, KC_RALT,  KC_SPC,             LG_RUS,   LG_RUS,             KC_SPC,   KC_RALT,  LG_GAME,            _______,  _______,  _______),
+        KC_RCTL,  KC_RWIN,  KC_RCMMD, KC_RALT,  KC_SPC,             LG_ENG,   LG_RUS,             KC_SPC,   KC_RALT,  LG_GAME,            _______,  _______,  _______),
 
     [MACRO] = LAYOUT_73_jis(
         KC_GRV,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_FILE,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
