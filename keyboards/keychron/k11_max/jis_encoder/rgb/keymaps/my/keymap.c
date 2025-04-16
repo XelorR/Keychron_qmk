@@ -140,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  QK_MACRO_2,  QK_MACRO_3,                    KC_INS,
         RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,            _______,  _______,  _______,  _______,  QK_MACRO_6, QK_MACRO_1, QK_MACRO_0, KC_ENT, KC_END,
         _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,  BAT_LVL,  NK_TOGG,  _______,  _______,  _______,  _______,  QK_MACRO_4,  QK_MACRO_5,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______)
+        DM_REC1,  DM_RSTP,  DM_PLY1,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______)
 };
 
 #if defined(ENCODER_MAP_ENABLE)
