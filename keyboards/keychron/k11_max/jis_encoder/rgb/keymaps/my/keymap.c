@@ -204,21 +204,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case LG_ENG:
         if (record->event.pressed) {
             tap_code16(LANG_ENG);
-            default_layer_set(1 << 0);
+            default_layer_set(1 << ENGLISH_COLEMAC);
         }
         return false;
 
         case LG_RUS:
         if (record->event.pressed) {
             tap_code16(LANG_RUS);
-            default_layer_set(1 << 1);
+            default_layer_set(1 << RUSSIAN_DIKTOR);
         }
         return false;
 
         case LG_GAME:
         if (record->event.pressed) {
             tap_code16(LANG_ENG);
-            default_layer_set(1 << 3);
+            default_layer_set(1 << GAMING);
         }
         return false;
 
