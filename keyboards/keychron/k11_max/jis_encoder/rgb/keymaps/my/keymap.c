@@ -438,7 +438,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case CO_DEGREE:
         if (record->event.pressed) {
-            bool is_russian = (get_highest_layer(default_layer_state) == 1);
+            bool is_russian = is_russian_layout();
             if (is_russian) {
                 tap_code16(LANG_ENG);
                 wait_ms(20);
