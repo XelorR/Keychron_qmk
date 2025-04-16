@@ -424,26 +424,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case TERMINAL:
         if (record->event.pressed) {
-            bool is_russian = (get_highest_layer(default_layer_state) == 1);
-            if (is_russian) {
-                tap_code16(LANG_ENG);
-                wait_ms(50);
-                tap_code16(KC_LGUI);
+            with_english_layout([]{
+                tap_code(KC_LGUI);
                 wait_ms(250);
                 SEND_STRING("Terminal");
                 wait_ms(350);
-                tap_code16(KC_ENT);
-                wait_ms(50);
-                tap_code16(LANG_RUS);
-            } else {
-                tap_code16(LANG_ENG);
-                wait_ms(50);
-                tap_code16(KC_LGUI);
-                wait_ms(250);
-                SEND_STRING("Terminal");
-                wait_ms(350);
-                tap_code16(KC_ENT);
-                wait_ms(50);            }
+                tap_code(KC_ENT);
+            });
         }
         return false;
 
