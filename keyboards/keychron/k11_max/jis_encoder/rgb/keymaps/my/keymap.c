@@ -174,7 +174,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Helper function to handle shift-based string sending
 void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, const char *normal, const char *shifted) {
     clear_oneshot_mods();
-    unregister_mods(MOD_MASK_CSAG);
+    unregister_mods(MOD_MASK_SHIFT);
     if ((saved_mods | saved_oneshot_mods) & MOD_MASK_SHIFT) {
         SEND_STRING(shifted);
     } else {
