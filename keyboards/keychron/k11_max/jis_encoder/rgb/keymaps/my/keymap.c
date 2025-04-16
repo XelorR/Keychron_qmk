@@ -154,10 +154,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     };
 #endif // ENCODER_MAP_ENABLE
 
+// Helper function to handle shift-based string sending
+void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, const char *normal, const char *shifted) {
+    clear_oneshot_mods();
+    unregister_mods(MOD_MASK_CSAG);
+    if ((saved_mods | saved_oneshot_mods) & MOD_MASK_SHIFT) {
+        SEND_STRING(shifted);
+    } else {
+        SEND_STRING(normal);
+    }
+    register_mods(saved_mods);
+}
+
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    const uint8_t mods = get_mods();
-    const uint8_t oneshot_mods = get_oneshot_mods();
+    const uint8_t saved_mods = get_mods();
+    const uint8_t saved_oneshot_mods = get_oneshot_mods();
 
     if (!process_record_keychron_common(keycode, record)) { return false; }
 
@@ -185,147 +197,70 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
 
         case DI_1:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("}");
-          } else {
-            SEND_STRING("1");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "1", "}");
+            }
+            return false;
 
         case DI_2:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("M");
-          } else {
-            SEND_STRING("2");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "2", "M");
+            }
+            return false;
 
         case DI_4:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("%");
-          } else {
-            SEND_STRING("4");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "4", "%");
+            }
+            return false;
 
         case DI_5:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("^");
-          } else {
-            SEND_STRING("5");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "5", "^");
+            }
+            return false;
 
         case DI_6:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("$");
-          } else {
-            SEND_STRING("6");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "6", "$");
+            }
+            return false;
 
         case DI_7:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("-");
-          } else {
-            SEND_STRING("7");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "7", "-");
+            }
+            return false;
 
         case DI_8:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("@");
-          } else {
-            SEND_STRING("8");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "8", "@");
+            }
+            return false;
 
         case DI_STAR:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("_");
-          } else {
-            SEND_STRING("*");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "*", "_");
+            }
+            return false;
 
         case DI_DOT:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("!");
-          } else {
-            SEND_STRING("/");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "/", "!");
+            }
+            return false;
 
         case DI_COMMA:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("&");
-          } else {
-            SEND_STRING("?");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "?", "&");
+            }
+            return false;
 
         case DI_HARD:
-        if (record->event.pressed) {
-          clear_oneshot_mods();  // Temporarily disable mods.
-          unregister_mods(MOD_MASK_CSAG);
-          if ((mods | oneshot_mods) & MOD_MASK_SHIFT) {
-            SEND_STRING("]");
-          } else {
-            SEND_STRING("m");
-          }
-          register_mods(mods);  // Restore mods.
-        }
-        return false;
+            if (record->event.pressed) {
+                send_shift_based_string(saved_mods, saved_oneshot_mods, "m", "]");
+            }
+            return false;
 
         case CO_QU_SMART_PAIR:
         if (record->event.pressed) {
