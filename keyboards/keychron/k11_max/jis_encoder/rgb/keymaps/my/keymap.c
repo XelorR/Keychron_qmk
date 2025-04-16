@@ -143,6 +143,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DM_REC1,  DM_RSTP,  DM_PLY1,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______)
 };
 
+// ----------------------------------------------
+// Mapping encoder
 #if defined(ENCODER_MAP_ENABLE)
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [ENGLISH_COLEMAC] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
@@ -154,6 +156,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     };
 #endif // ENCODER_MAP_ENABLE
 
+// ----------------------------------------------
+// Handling HRM shortcuts similarly for Both Layouts
 static bool mod_layer_on = false;
 static bool alpha_layer_active = true;
 uint16_t shortcut_layer = SHORTCUT;
@@ -171,7 +175,29 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return state;
 }
 
+// ----------------------------------------------
+// Handling English Symbols in Russian layout
+static bool is_russian_layout(void) {
+    return (get_highest_layer(default_layer_state) == RUSSIAN_DIKTOR);
+}
+
+// Temporary switching layout
+void with_english_layout(void (*action)(void)) {
+    bool was_russian = is_russian_layout();
+    if (was_russian) tap_code16(LANG_ENG);
+    wait_ms(20);
+    
+    action();
+    
+    if (was_russian) {
+        wait_ms(20);
+        tap_code16(LANG_RUS);
+    }
+}
+
+// ----------------------------------------------
 // Helper function to handle shift-based string sending
+// Simple, to use with Russian only
 void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, const char *normal, const char *shifted) {
     bool shift_active = (saved_mods | saved_oneshot_mods) & MOD_MASK_SHIFT;
     unregister_code(KC_LSFT);
@@ -191,6 +217,8 @@ void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, con
     }
 }
 
+// ==============================================
+// Magic starts here
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     const uint8_t saved_mods = get_mods();
