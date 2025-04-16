@@ -380,25 +380,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case CO_RUB:
         if (record->event.pressed) {
-            bool is_russian = is_russian_layout();
-            if (is_russian) {
-                tap_code16(LANG_ENG);
-                wait_ms(20);
+            with_english_layout([]{
                 tap_code16(KC_RALT);
                 wait_ms(10);
                 tap_code16(KC_EQL);
                 wait_ms(10);
                 tap_code16(KC_P);
-                wait_ms(20);
-                tap_code16(LANG_RUS);
-            } else {
-                tap_code16(LANG_ENG);
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(KC_EQL);
-                wait_ms(10);
-                tap_code16(KC_P);
-            }
+            });
         }
         return false;
 
@@ -438,25 +426,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case CO_DEGREE:
         if (record->event.pressed) {
-            bool is_russian = is_russian_layout();
-            if (is_russian) {
-                tap_code16(LANG_ENG);
-                wait_ms(20);
+            with_english_layout([]{
                 tap_code16(KC_RALT);
                 wait_ms(10);
                 tap_code16(KC_O);
                 wait_ms(10);
                 tap_code16(KC_O);
-                wait_ms(20);
-                tap_code16(LANG_RUS);
-            } else {
-                tap_code16(LANG_ENG);
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(KC_O);
-                wait_ms(10);
-                tap_code16(KC_O);
-            }
+            });
         }
         return false;
 
