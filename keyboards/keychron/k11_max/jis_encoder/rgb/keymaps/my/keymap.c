@@ -105,21 +105,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_ESC,   HG_A,     HA_R,     HC_S,     HS_T,     KC_D,               KC_H,     HS_N,     HC_E,     HA_I,     HG_O,     KC_QUOT,  KC_BSLS,  ENT_MAC,  KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_K,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        SH_LCTL,  SH_LWIN,  SH_RWIN,  KC_LALT,  SPC_NAV,  LG_ENG,             LG_RUS,   SPC_NAV,  SH_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        SH_LCTL,  SH_LWIN,  SH_LWIN,  KC_LALT,  SPC_NAV,  LG_ENG,             LG_RUS,   SPC_NAV,  SH_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [RUSSIAN_DIKTOR] = LAYOUT_73_jis(
         KC_GRV,   DI_1,     DI_2,     KC_3,     DI_4,     DI_5,     DI_6,     DI_7,     DI_8,     KC_9,     KC_0,     DI_STAR,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_W,     DI_HARD,  KC_Z,     DI_COMMA, DI_DOT,   KC_P,     KC_D,     KC_R,     KC_L,     KC_X,     KC_I,     KC_O,                         KC_DEL,
         KC_ESC,   HG_E,     HA_B,     HC_T,     HS_J,     KC_F,               KC_K,     HS_Y,     HC_N,     HA_C,     HG_H,     KC_Q,     KC_BSLS,  ENT_MAC,  KC_HOME,
         KC_LSFT,  KC_A,     KC_QUOT,  KC_LBRC,  KC_S,     KC_DOT,   KC_DOT,   KC_COMM,  KC_V,     KC_G,     KC_U,     KC_SCLN,  KC_RSFT,  KC_RSFT,  KC_UP,
-        SH_LCTL,  SH_LWIN,  SH_RWIN,  KC_LALT,  SPC_NAV,  LG_ENG,             LG_RUS,   SPC_NAV,  SH_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        SH_LCTL,  SH_LWIN,  SH_LWIN,  KC_LALT,  SPC_NAV,  LG_ENG,             LG_RUS,   SPC_NAV,  SH_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [SHORTCUT] = LAYOUT_73_jis(
         KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_LBRC,  KC_RBRC,                      KC_DEL,
-        KC_ESC,   KC_A,     KC_R,     KC_S,     KC_T,     KC_D,               KC_H,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
+        KC_ESC,   HG_A,     HA_R,     HC_S,     HS_T,     KC_D,               KC_H,     HS_N,     HC_E,     HA_I,     HG_O,     KC_QUOT,  KC_BSLS,  ENT_MAC,  KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_K,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_RCMMD, KC_LALT,  KC_SPC,   LG_ENG,             LG_RUS,   KC_SPC,   KC_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,  KC_LWIN,  KC_LWIN,  KC_LALT,  KC_SPC,   LG_ENG,             LG_RUS,   KC_SPC,   KC_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [GAMING] = LAYOUT_73_jis(
         KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
