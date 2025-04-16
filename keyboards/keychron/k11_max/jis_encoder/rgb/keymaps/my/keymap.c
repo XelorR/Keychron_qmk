@@ -173,14 +173,22 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 // Helper function to handle shift-based string sending
 void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, const char *normal, const char *shifted) {
-    clear_oneshot_mods();
-    unregister_mods(MOD_MASK_SHIFT);
-    if ((saved_mods | saved_oneshot_mods) & MOD_MASK_SHIFT) {
+    bool shift_active = (saved_mods | saved_oneshot_mods) & MOD_MASK_SHIFT;
+    unregister_code(KC_LSFT);
+    unregister_code(KC_RSFT);
+    if (shift_active) {
         SEND_STRING(shifted);
     } else {
         SEND_STRING(normal);
     }
-    register_mods(saved_mods);
+    if (shift_active) {
+        if (saved_mods & MOD_BIT(KC_LSFT)) {
+            register_code(KC_LSFT);
+        }
+        if (saved_mods & MOD_BIT(KC_RSFT)) {
+            register_code(KC_RSFT);
+        }
+    }
 }
 
 // clang-format on
