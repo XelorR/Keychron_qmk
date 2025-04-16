@@ -184,13 +184,15 @@ static bool is_russian_layout(void) {
 // Temporary switching layout
 void with_english_layout(void (*action)(void)) {
     bool was_russian = is_russian_layout();
-    if (was_russian) tap_code16(LANG_ENG);
-    wait_ms(20);
-    
+    if (was_russian) {
+        tap_code16(LANG_ENG);
+        wait_ms(30);
+    }
+
     action();
     
     if (was_russian) {
-        wait_ms(20);
+        wait_ms(30);
         tap_code16(LANG_RUS);
     }
 }
@@ -326,7 +328,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case CO_QU_SMART_PAIR:
         if (record->event.pressed) {
-            bool is_russian = (get_highest_layer(default_layer_state) == 1);
+            bool is_russian = is_russian_layout();
             if (is_russian) {
                 tap_code16(LANG_ENG);
                 wait_ms(20);
@@ -378,7 +380,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case CO_RUB:
         if (record->event.pressed) {
-            bool is_russian = (get_highest_layer(default_layer_state) == 1);
+            bool is_russian = is_russian_layout();
             if (is_russian) {
                 tap_code16(LANG_ENG);
                 wait_ms(20);
@@ -402,7 +404,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case QU_COMP_PAIR:
         if (record->event.pressed) {
-            bool is_russian = (get_highest_layer(default_layer_state) == 1);
+            bool is_russian = is_russian_layout();
             if (is_russian) {
                 tap_code16(LANG_RUS);
                 tap_code16(KC_AT);
