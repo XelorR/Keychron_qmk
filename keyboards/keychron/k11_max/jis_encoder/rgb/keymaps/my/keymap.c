@@ -154,6 +154,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     };
 #endif // ENCODER_MAP_ENABLE
 
+static bool mod_layer_on = false;
+static bool alpha_layer_active = true;
+uint16_t shortcut_layer = SHORTCUT;
+bool modifiersPressed(void) {
+    return (get_mods() | get_oneshot_mods() | get_weak_mods()) & MOD_MASK_CAG; // (MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    // printf("changed layer to %u", get_highest_layer(state));
+    if(get_highest_layer(state) > 1) {
+        alpha_layer_active = false;
+    } else {
+        alpha_layer_active = true;
+    }
+    return state;
+}
+
 // Helper function to handle shift-based string sending
 void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, const char *normal, const char *shifted) {
     clear_oneshot_mods();
@@ -172,6 +189,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     const uint8_t saved_oneshot_mods = get_oneshot_mods();
 
     if (!process_record_keychron_common(keycode, record)) { return false; }
+    if (modifiersPressed()) {
+        if(alpha_layer_active) {
+            layer_on(shortcut_layer);
+            mod_layer_on = true;
+        }
+    } else if (mod_layer_on && IS_LAYER_ON(shortcut_layer)) {
+        layer_off(shortcut_layer);
+        mod_layer_on = false;
+    }
 
     switch (keycode)
     {
