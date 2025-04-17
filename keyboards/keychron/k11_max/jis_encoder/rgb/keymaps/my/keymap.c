@@ -205,7 +205,7 @@ static bool is_russian_layout(void) {
         } \
         \
         if (shift_pressed) { \
-            unregister_mods(MOD_MASK_ALL); \
+            unregister_mods(MOD_MASK_CSAG); \
             clear_oneshot_mods(); \
         } \
         \
