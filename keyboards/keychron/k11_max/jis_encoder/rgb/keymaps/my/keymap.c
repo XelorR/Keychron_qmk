@@ -90,7 +90,7 @@ enum custom_keycodes {
 };
 
 enum layers {
-    ENGLISH_COLEMAC,
+    ENGLISH_COLEMAK,
     RUSSIAN_DIKTOR,
     SHORTCUT,
     GAMING,
@@ -100,7 +100,7 @@ enum layers {
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [ENGLISH_COLEMAC] = LAYOUT_73_jis(
+    [ENGLISH_COLEMAK] = LAYOUT_73_jis(
         KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_ESC,   HG_A,     HA_R,     HC_S,     HS_T,     KC_D,               KC_H,     HS_N,     HC_E,     HA_I,     HG_O,     KC_QUOT,  KC_BSLS,  ENT_MAC,  KC_HOME,
@@ -147,7 +147,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Mapping encoder
 #if defined(ENCODER_MAP_ENABLE)
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [ENGLISH_COLEMAC] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [ENGLISH_COLEMAK] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [RUSSIAN_DIKTOR] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [SHORTCUT] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [GAMING] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
@@ -266,7 +266,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case LG_ENG:
         if (record->event.pressed) {
             tap_code16(LANG_ENG);
-            default_layer_set(1 << ENGLISH_COLEMAC);
+            default_layer_set(1 << ENGLISH_COLEMAK);
         }
         return false;
 
