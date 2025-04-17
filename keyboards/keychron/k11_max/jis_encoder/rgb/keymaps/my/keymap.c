@@ -193,6 +193,17 @@ static bool is_russian_layout(void) {
 
 // ----------------------------------------------
 // Helper functions to handle shift-based string sending
+
+static uint8_t _saved_mods;
+static uint8_t _saved_oneshot_mods;
+
+#define SEND_SHIFT_STR(normal, shifted) \
+    do { \
+        _saved_mods = get_mods(); \
+        _saved_oneshot_mods = get_oneshot_mods(); \
+        send_shift_based_string(normal, shifted); \
+    } while(0)
+
 // Check if character requires shift reset
 bool is_shift_reset_needed(char c) {
     switch (c) {
@@ -212,27 +223,23 @@ bool is_shift_reset_needed(char c) {
 }
 
 // Shift-aware string sending with shift management
-void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, const char *normal, const char *shifted) {
-    bool shift_active = (saved_mods | saved_oneshot_mods) & MOD_MASK_SHIFT;
+void send_shift_based_string(const char *normal, const char *shifted) {
+    bool shift_active = (_saved_mods | _saved_oneshot_mods) & MOD_MASK_SHIFT;
     bool needs_shift_reset = (strlen(shifted) == 1 && is_shift_reset_needed(shifted[0]));
 
-    // Save original shift state
-    uint8_t original_shift = get_mods() & MOD_MASK_SHIFT;
-    
-    // Clear shift modifiers
+    uint8_t original_shift = _saved_mods & MOD_MASK_SHIFT;
+
     if (needs_shift_reset) {
         unregister_mods(MOD_MASK_SHIFT);
         clear_oneshot_mods();
     }
 
-    // Send appropriate string
     if (shift_active) {
         SEND_STRING(shifted);
     } else {
         SEND_STRING(normal);
     }
 
-    // Restore shift state
     if (original_shift) {
         register_mods(original_shift);
     }
@@ -242,8 +249,6 @@ void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, con
 // Magic starts here
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    const uint8_t saved_mods = get_mods();
-    const uint8_t saved_oneshot_mods = get_oneshot_mods();
 
     if (!process_record_keychron_common(keycode, record)) { return false; }
     if (modifiersPressed()) {
@@ -281,67 +286,67 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case DI_1:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "1", "}");
+                SEND_SHIFT_STR("1", "}");
             }
             return false;
 
         case DI_2:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "2", "M");
+                SEND_SHIFT_STR("2", "M");
             }
             return false;
 
         case DI_4:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "4", "%");
+                SEND_SHIFT_STR("4", "%");
             }
             return false;
 
         case DI_5:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "5", "^");
+                SEND_SHIFT_STR("5", "^");
             }
             return false;
 
         case DI_6:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "6", "$");
+                SEND_SHIFT_STR("6", "$");
             }
             return false;
 
         case DI_7:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "7", "-");
+                SEND_SHIFT_STR("7", "-");
             }
             return false;
 
         case DI_8:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "8", "@");
+                SEND_SHIFT_STR("8", "@");
             }
             return false;
 
         case DI_STAR:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "*", "_");
+                SEND_SHIFT_STR("*", "_");
             }
             return false;
 
         case DI_DOT:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "/", "!");
+                SEND_SHIFT_STR("/", "!");
             }
             return false;
 
         case DI_COMMA:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "?", "&");
+                SEND_SHIFT_STR("?", "&");
             }
             return false;
 
         case DI_HARD:
             if (record->event.pressed) {
-                send_shift_based_string(saved_mods, saved_oneshot_mods, "m", "]");
+                SEND_SHIFT_STR("m", "]");
             }
             return false;
 
