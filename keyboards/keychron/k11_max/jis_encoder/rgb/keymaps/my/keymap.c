@@ -199,24 +199,49 @@ void with_english_layout(void (*action)(void)) {
 }
 
 // ----------------------------------------------
-// Helper function to handle shift-based string sending
-// Simple, to use with Russian only
+// Helper functions to handle shift-based string sending
+// Check if character requires shift reset
+bool is_shift_reset_needed(char c) {
+    switch (c) {
+        case '[':
+        case ']':
+        case '-':
+        case '\'':
+        case ';':
+        case ',':
+        case '.':
+        case '`':
+        case '\\':
+            return true;
+        default:
+            return false;
+    }
+}
+
+// Shift-aware string sending with shift management
 void send_shift_based_string(uint8_t saved_mods, uint8_t saved_oneshot_mods, const char *normal, const char *shifted) {
     bool shift_active = (saved_mods | saved_oneshot_mods) & MOD_MASK_SHIFT;
-    unregister_code(KC_LSFT);
-    unregister_code(KC_RSFT);
+    bool needs_shift_reset = (strlen(shifted) == 1 && is_shift_reset_needed(shifted[0]));
+
+    // Save original shift state
+    uint8_t original_shift = get_mods() & MOD_MASK_SHIFT;
+    
+    // Clear shift modifiers
+    if (needs_shift_reset) {
+        unregister_mods(MOD_MASK_SHIFT);
+        clear_oneshot_mods();
+    }
+
+    // Send appropriate string
     if (shift_active) {
         SEND_STRING(shifted);
     } else {
         SEND_STRING(normal);
     }
-    if (shift_active) {
-        if (saved_mods & MOD_BIT(KC_LSFT)) {
-            register_code(KC_LSFT);
-        }
-        if (saved_mods & MOD_BIT(KC_RSFT)) {
-            register_code(KC_RSFT);
-        }
+
+    // Restore shift state
+    if (original_shift) {
+        register_mods(original_shift);
     }
 }
 
