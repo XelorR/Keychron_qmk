@@ -191,6 +191,39 @@ static bool is_russian_layout(void) {
         if (was_russian) { wait_ms(20); tap_code16(LANG_RUS); } \
     } while (0)
 
+// Same as above but with alternat8ve command set with Shift
+#define WITH_ENGLISH_LAYOUT_PLUS_SHIFTED(normal_action, shifted_action) \
+    do { \
+        bool was_russian = is_russian_layout(); \
+        uint8_t original_mods = get_mods(); \
+        uint8_t original_oneshot = get_oneshot_mods(); \
+        bool shift_pressed = (original_mods | original_oneshot) & MOD_MASK_SHIFT; \
+        \
+        if (was_russian) { \
+            tap_code16(LANG_ENG); \
+            wait_ms(20); \
+        } \
+        \
+        if (shift_pressed) { \
+            unregister_mods(MOD_MASK_ALL); \
+            clear_oneshot_mods(); \
+        } \
+        \
+        if (shift_pressed) { \
+            shifted_action; \
+        } else { \
+            normal_action; \
+        } \
+        \
+        if (was_russian) { \
+            wait_ms(20); \
+            tap_code16(LANG_RUS); \
+        } \
+        \
+        set_mods(original_mods); \
+        set_oneshot_mods(original_oneshot); \
+    } while(0)
+
 // ----------------------------------------------
 // Helper functions to handle shift-based string sending
 
@@ -438,10 +471,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case TERMINAL:
         if (record->event.pressed) {
-            WITH_ENGLISH_LAYOUT({
+            WITH_ENGLISH_LAYOUT_PLUS_SHIFTED({
                 tap_code(KC_LGUI);
                 wait_ms(250);
                 SEND_STRING("Terminal");
+                wait_ms(350);
+                tap_code(KC_ENT);
+            },
+            {
+                tap_code(KC_LGUI);
+                wait_ms(250);
+                SEND_STRING("Visual ");
+                wait_ms(10);
+                SEND_STRING("Studio ");
+                wait_ms(10);
+                SEND_STRING("Code");
                 wait_ms(350);
                 tap_code(KC_ENT);
             });
