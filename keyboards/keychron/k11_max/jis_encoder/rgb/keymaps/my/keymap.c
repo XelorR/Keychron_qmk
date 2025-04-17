@@ -183,20 +183,13 @@ static bool is_russian_layout(void) {
 }
 
 // Temporary switching layout
-void with_english_layout(void (*action)(void)) {
-    bool was_russian = is_russian_layout();
-    if (was_russian) {
-        tap_code16(LANG_ENG);
-        wait_ms(30);
-    }
-
-    action();
-    
-    if (was_russian) {
-        wait_ms(30);
-        tap_code16(LANG_RUS);
-    }
-}
+#define WITH_ENGLISH_LAYOUT(action) \
+    do { \
+        bool was_russian = (get_highest_layer(default_layer_state) == RUSSIAN_DIKTOR); \
+        if (was_russian) { tap_code16(LANG_ENG); wait_ms(20); } \
+        action; \
+        if (was_russian) { wait_ms(20); tap_code16(LANG_RUS); } \
+    } while (0)
 
 // ----------------------------------------------
 // Helper functions to handle shift-based string sending
@@ -406,7 +399,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case CO_RUB:
         if (record->event.pressed) {
-            with_english_layout([]{
+            WITH_ENGLISH_LAYOUT({
                 tap_code16(KC_RALT);
                 wait_ms(10);
                 tap_code16(KC_EQL);
@@ -440,7 +433,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case TERMINAL:
         if (record->event.pressed) {
-            with_english_layout([]{
+            WITH_ENGLISH_LAYOUT({
                 tap_code(KC_LGUI);
                 wait_ms(250);
                 SEND_STRING("Terminal");
@@ -452,7 +445,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case CO_DEGREE:
         if (record->event.pressed) {
-            with_english_layout([]{
+            WITH_ENGLISH_LAYOUT({
                 tap_code16(KC_RALT);
                 wait_ms(10);
                 tap_code16(KC_O);
