@@ -161,13 +161,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 static bool mod_layer_on = false;
 static bool alpha_layer_active = true;
 uint16_t shortcut_layer = SHORTCUT;
+
 bool modifiersPressed(void) {
     return (get_mods() | get_oneshot_mods() | get_weak_mods()) & MOD_MASK_CAG; // (MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     // printf("changed layer to %u", get_highest_layer(state));
-    if(get_highest_layer(state) > 1) {
+    if(get_highest_layer(state) > RUSSIAN_DIKTOR) {
         alpha_layer_active = false;
     } else {
         alpha_layer_active = true;
