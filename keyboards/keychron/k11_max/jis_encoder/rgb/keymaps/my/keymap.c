@@ -130,9 +130,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NAVIGATION] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        KC_TAB,  A(KC_F4), C(S(KC_TAB)), KC_TAB, C(KC_TAB), TERMINAL,         KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   CO_QU_SMART_PAIR,   CO_RUB,  _______,
+        KC_TAB,  A(KC_F4), C(S(KC_TAB)), KC_TAB, C(KC_TAB), TERMINAL,         KC_INS,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   CO_QU_SMART_PAIR,   CO_RUB,  _______,
         KC_ESC,   KC_LWIN, KC_LALT, OSM(MOD_LCTL), KC_LSFT, KC_PSCR,        S(KC_RSFT), KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  CO_EMDASH, CO_DEGREE, KC_ENT,   _______,
-        KC_RSFT,  UNDO,     CUT,      COPY,     PASTE,    REDO1,    REDO2,    G(KC_E),  KC_PGUP,  KC_APP,   KC_PGDN,  KC_ENT,   QU_COMP_PAIR, _______,  _______,
+        KC_RSFT,  UNDO,     CUT,      COPY,     PASTE,    REDO1,    REDO2,    KC_RALT,  KC_PGUP,  KC_APP,   KC_PGDN,  KC_ENT,   QU_COMP_PAIR, _______,  _______,
         KC_RCTL,  KC_RWIN,  KC_RCMMD, KC_RALT,  KC_SPC,             LG_ENG,   LG_RUS,             KC_SPC,   KC_RALT,  LG_GAME,            _______,  _______,  _______),
 
     [MACRO] = LAYOUT_73_jis(
