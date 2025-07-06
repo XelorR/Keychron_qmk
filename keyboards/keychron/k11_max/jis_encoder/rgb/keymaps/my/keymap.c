@@ -18,12 +18,14 @@
 #include "keychron_common.h"
 
 // Hardcoding language switching combinations
-#define LANG_ENG C(KC_8)
-#define LANG_RUS C(KC_9)
+#define LANG_ENG_MAC C(S(KC_8))
+#define LANG_RUS_MAC C(S(KC_9))
+#define LANG_ENG_WIN C(KC_8)
+#define LANG_RUS_WIN C(KC_9)
 
 // Layers
-#define SPC_NAV LT(NAVIGATION,KC_SPC)
-#define ENT_MAC LT(MACRO,KC_ENT)
+#define SPC_NAV LT(NAV_WIN,KC_SPC)
+#define ENT_MAC LT(NUM,KC_ENT)
 
 // Mod-taps
 #define HG_A LGUI_T(KC_A)
@@ -45,12 +47,12 @@
 #define HG_H LGUI_T(KC_H)
 
 // Modifiers to shortcut layer
-#define SH_LCTL LM(SHORTCUT,MOD_LCTL)
-#define SH_RCTL LM(SHORTCUT,MOD_RCTL)
-#define SH_LWIN LM(SHORTCUT,MOD_LGUI)
-#define SH_RWIN LM(SHORTCUT,MOD_RGUI)
-#define SH_LALT LM(SHORTCUT,MOD_LALT)
-#define SH_RALT LM(SHORTCUT,MOD_RALT)
+#define SH_LCTL LM(SHORTCUT_WIN,MOD_LCTL)
+#define SH_RCTL LM(SHORTCUT_WIN,MOD_RCTL)
+#define SH_LWIN LM(SHORTCUT_WIN,MOD_LGUI)
+#define SH_RWIN LM(SHORTCUT_WIN,MOD_RGUI)
+#define SH_LALT LM(SHORTCUT_WIN,MOD_LALT)
+#define SH_RALT LM(SHORTCUT_WIN,MOD_RALT)
 
 // CUA
 
@@ -62,80 +64,66 @@
 #define REDO2 C(KC_Y)
 
 enum custom_keycodes {
-    LG_ENG = NEW_SAFE_RANGE, // layer and system layout to english - 64
-    LG_RUS,  // layer and system layout to russian - 65
-    LG_GAME, // layer to gaming, layout to english - 66
-
-    CO_RUB, // ₽ 96
-    CO_QU_SMART_PAIR, // «» for russian and “” for english 97
-    QU_COMP_PAIR, // "" 98
-    CO_EMDASH, // — 99
-    CO_DEGREE, // ° 100
-
-    // Diktor
-    DI_1,
-    DI_2,
-    DI_4,
-    DI_5,
-    DI_6,
-    DI_7,
-    DI_8,
-    DI_STAR,
-    DI_DOT,
-    DI_COMMA,
-    DI_HARD,
-
-    // Launchers
-    TERMINAL,
+   LG_ENG_MAC = NEW_SAFE_RANGE, // layer and system layout to english - 64
+   LG_RUS_MAC,  // layer and system layout to russian - 65
+   LG_GAME_MAC, // layer to gaming, layout to english - 66
+   LG_ENG_WIN, // layer and system layout to english - 67
+   LG_RUS_WIN, // layer and system layout to english - 67
+   LG_GAME_WIN, // layer to gaming, layout to english - 66
 };
 
 enum layers {
-    ENGLISH_COLEMAK,
-    RUSSIAN_DIKTOR,
-    SHORTCUT,
-    GAMING,
-    NAVIGATION,
-    MACRO,
+    EN_MAC,
+    EN_WIN,
+    RU_MAC,
+    RU_WIN,
+    SHORTCUT_MAC,
+    SHORTCUT_WIN,
+    GAMING_MAC,
+    GAMING_WIN,
+    NUM,
+    NAV_MAC,
+    NAV_WIN,
 };
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [ENGLISH_COLEMAK] = LAYOUT_73_jis(
+    [EN_WIN] = LAYOUT_73_jis(
         KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_ESC,   HG_A,     HA_R,     HC_S,     HS_T,     KC_D,               KC_H,     HS_N,     HC_E,     HA_I,     HG_O,     KC_QUOT,  KC_BSLS,  ENT_MAC,  KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_K,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        SH_LCTL,  SH_LWIN,  SH_LWIN,  KC_LALT,  SPC_NAV,  LG_ENG,             LG_RUS,   SPC_NAV,  SH_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        SH_LCTL,  SH_LWIN,  SH_LWIN,  KC_LALT,  SPC_NAV,  KC_NO,             KC_NO,   SPC_NAV,  SH_RALT,  KC_NO,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [RUSSIAN_DIKTOR] = LAYOUT_73_jis(
-        KC_GRV,   DI_1,     DI_2,     KC_3,     DI_4,     DI_5,     DI_6,     DI_7,     DI_8,     KC_9,     KC_0,     DI_STAR,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
-        KC_TAB,   KC_W,     DI_HARD,  KC_Z,     DI_COMMA, DI_DOT,   KC_P,     KC_D,     KC_R,     KC_L,     KC_X,     KC_I,     KC_O,                         KC_DEL,
+    [RU_WIN] = LAYOUT_73_jis(
+        KC_GRV,   KC_NO,     KC_NO,     KC_3,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_NO,     KC_9,     KC_0,     KC_NO,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
+        KC_TAB,   KC_W,     KC_NO,  KC_Z,     KC_NO, KC_NO,   KC_P,     KC_D,     KC_R,     KC_L,     KC_X,     KC_I,     KC_O,                         KC_DEL,
         KC_ESC,   HG_E,     HA_B,     HC_T,     HS_J,     KC_F,               KC_K,     HS_Y,     HC_N,     HA_C,     HG_H,     KC_Q,     KC_BSLS,  ENT_MAC,  KC_HOME,
         KC_LSFT,  KC_A,     KC_QUOT,  KC_LBRC,  KC_S,     KC_DOT,   KC_DOT,   KC_COMM,  KC_V,     KC_G,     KC_U,     KC_SCLN,  KC_RSFT,  KC_RSFT,  KC_UP,
-        SH_LCTL,  SH_LWIN,  SH_LWIN,  KC_LALT,  SPC_NAV,  LG_ENG,             LG_RUS,   SPC_NAV,  SH_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        SH_LCTL,  SH_LWIN,  SH_LWIN,  KC_LALT,  SPC_NAV,  KC_NO,             KC_NO,   SPC_NAV,  SH_RALT,  KC_NO,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [SHORTCUT] = LAYOUT_73_jis(
+    [SHORTCUT_WIN] = LAYOUT_73_jis(
         KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_G,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_ESC,   HG_A,     HA_R,     HC_S,     HS_T,     KC_D,               KC_H,     HS_N,     HC_E,     HA_I,     HG_O,     KC_QUOT,  KC_BSLS,  ENT_MAC,  KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_K,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_LWIN,  KC_LALT,  KC_SPC,   LG_ENG,             LG_RUS,   KC_SPC,   KC_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,  KC_LWIN,  KC_LWIN,  KC_LALT,  KC_SPC,   KC_NO,             KC_NO,   KC_SPC,   KC_RALT,  KC_NO,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [GAMING] = LAYOUT_73_jis(
+    [GAMING_WIN] = LAYOUT_73_jis(
         KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_LCMMD, KC_LALT,  KC_SPC,   LG_ENG,             LG_RUS,   KC_SPC,   KC_RALT,  LG_GAME,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,  KC_LWIN,  KC_LCMMD, KC_LALT,  KC_SPC,   KC_NO,             KC_NO,   KC_SPC,   KC_RALT,  KC_NO,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [NAVIGATION] = LAYOUT_73_jis(
+    [NAV_WIN] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        KC_TAB,  A(KC_F4), C(S(KC_TAB)), KC_TAB, C(KC_TAB), TERMINAL,         KC_INS,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   CO_QU_SMART_PAIR,   CO_RUB,  _______,
-        KC_ESC,   KC_LWIN, KC_LALT, OSM(MOD_LCTL), KC_LSFT, KC_PSCR,        S(KC_RSFT), KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  CO_EMDASH, CO_DEGREE, KC_ENT,   _______,
-        KC_RSFT,  UNDO,     CUT,      COPY,     PASTE,    REDO1,    REDO2,    KC_RALT,  KC_PGUP,  KC_APP,   KC_PGDN,  KC_ENT,   QU_COMP_PAIR, _______,  _______,
-        KC_RCTL,  KC_RWIN,  KC_RCMMD, KC_RALT,  KC_SPC,             LG_ENG,   LG_RUS,             KC_SPC,   KC_RALT,  LG_GAME,            _______,  _______,  _______),
+        KC_TAB,  A(KC_F4), C(S(KC_TAB)), KC_TAB, C(KC_TAB), KC_NO,         KC_INS,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   KC_NO,   KC_NO,  _______,
+        KC_ESC,   KC_LWIN, KC_LALT, OSM(MOD_LCTL), KC_LSFT, KC_PSCR,        S(KC_RSFT), KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  KC_NO, KC_NO, KC_ENT,   _______,
+        KC_RSFT,  UNDO,     CUT,      COPY,     PASTE,    REDO1,    REDO2,    KC_RALT,  KC_PGUP,  KC_APP,   KC_PGDN,  KC_ENT,   KC_NO, _______,  _______,
+        KC_RCTL,  KC_RWIN,  KC_RCMMD, KC_RALT,  KC_SPC,             KC_NO,   KC_NO,             KC_SPC,   KC_RALT,  KC_NO,            _______,  _______,  _______),
 
-    [MACRO] = LAYOUT_73_jis(
+    [NUM] = LAYOUT_73_jis(
         KC_GRV,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_FILE,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  QK_MACRO_2,  QK_MACRO_3,                    KC_INS,
         RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,            _______,  _______,  _______,  _______,  QK_MACRO_6, QK_MACRO_1, QK_MACRO_0, KC_ENT, KC_END,
@@ -147,136 +135,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Mapping encoder
 #if defined(ENCODER_MAP_ENABLE)
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [ENGLISH_COLEMAK] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [RUSSIAN_DIKTOR] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [SHORTCUT] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [GAMING] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [NAVIGATION] = { ENCODER_CCW_CW(_______, _______)},
-        [MACRO]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [EN_MAC] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [EN_WIN] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [RU_MAC] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [RU_WIN] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [SHORTCUT_MAC] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [SHORTCUT_WIN] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [GAMING_MAC] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [GAMING_WIN] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [NUM] = { ENCODER_CCW_CW(_______, _______)},
+        [NAV_MAC]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [NAV_WIN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     };
 #endif // ENCODER_MAP_ENABLE
-
-// ----------------------------------------------
-// Handling HRM shortcuts similarly for Both Layouts
-static bool mod_layer_on = false;
-static bool alpha_layer_active = true;
-uint16_t shortcut_layer = SHORTCUT;
-
-bool modifiersPressed(void) {
-    return (get_mods() | get_oneshot_mods() | get_weak_mods()) & MOD_MASK_CAG; // (MOD_BIT(KC_LCTL) | MOD_BIT(KC_LALT) | MOD_BIT(KC_LGUI))
-}
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-    // printf("changed layer to %u", get_highest_layer(state));
-    if(get_highest_layer(state) > RUSSIAN_DIKTOR) {
-        alpha_layer_active = false;
-    } else {
-        alpha_layer_active = true;
-    }
-    return state;
-}
-
-// ----------------------------------------------
-// Handling English Symbols in Russian layout
-static bool is_russian_layout(void) {
-    return (get_highest_layer(default_layer_state) == RUSSIAN_DIKTOR);
-}
-
-// Temporary switching layout
-#define WITH_ENGLISH_LAYOUT(action) \
-    do { \
-        bool was_russian = (get_highest_layer(default_layer_state) == RUSSIAN_DIKTOR); \
-        if (was_russian) { tap_code16(LANG_ENG); wait_ms(20); } \
-        action; \
-        if (was_russian) { wait_ms(20); tap_code16(LANG_RUS); } \
-    } while (0)
-
-// Same as above but with alternat8ve command set with Shift
-#define WITH_ENGLISH_LAYOUT_PLUS_SHIFTED(normal_action, shifted_action) \
-    do { \
-        bool was_russian = is_russian_layout(); \
-        uint8_t original_mods = get_mods(); \
-        uint8_t original_oneshot = get_oneshot_mods(); \
-        bool shift_pressed = (original_mods | original_oneshot) & MOD_MASK_SHIFT; \
-        \
-        if (was_russian) { \
-            tap_code16(LANG_ENG); \
-            wait_ms(20); \
-        } \
-        \
-        if (shift_pressed) { \
-            unregister_mods(MOD_MASK_CSAG); \
-            clear_oneshot_mods(); \
-        } \
-        \
-        if (shift_pressed) { \
-            shifted_action; \
-        } else { \
-            normal_action; \
-        } \
-        \
-        if (was_russian) { \
-            wait_ms(20); \
-            tap_code16(LANG_RUS); \
-        } \
-        \
-        set_mods(original_mods); \
-        set_oneshot_mods(original_oneshot); \
-    } while(0)
-
-// ----------------------------------------------
-// Helper functions to handle shift-based string sending
-
-static uint8_t _saved_mods;
-static uint8_t _saved_oneshot_mods;
-
-#define SEND_SHIFT_STR(normal, shifted) \
-    do { \
-        _saved_mods = get_mods(); \
-        _saved_oneshot_mods = get_oneshot_mods(); \
-        send_shift_based_string(normal, shifted); \
-    } while(0)
-
-// Check if character requires shift reset
-bool is_shift_reset_needed(char c) {
-    switch (c) {
-        case '[':
-        case ']':
-        case '-':
-        case '\'':
-        case ';':
-        case ',':
-        case '.':
-        case '`':
-        case '\\':
-            return true;
-        default:
-            return false;
-    }
-}
-
-// Shift-aware string sending with shift management
-void send_shift_based_string(const char *normal, const char *shifted) {
-    bool shift_active = (_saved_mods | _saved_oneshot_mods) & MOD_MASK_SHIFT;
-    bool needs_shift_reset = (strlen(shifted) == 1 && is_shift_reset_needed(shifted[0]));
-
-    uint8_t original_shift = _saved_mods & MOD_MASK_SHIFT;
-
-    if (needs_shift_reset) {
-        unregister_mods(MOD_MASK_SHIFT);
-        clear_oneshot_mods();
-    }
-
-    if (shift_active) {
-        SEND_STRING(shifted);
-    } else {
-        SEND_STRING(normal);
-    }
-
-    if (original_shift) {
-        register_mods(original_shift);
-    }
-}
 
 // ==============================================
 // Magic starts here
@@ -284,223 +155,48 @@ void send_shift_based_string(const char *normal, const char *shifted) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (!process_record_keychron_common(keycode, record)) { return false; }
-    if (modifiersPressed()) {
-        if(alpha_layer_active) {
-            layer_on(shortcut_layer);
-            mod_layer_on = true;
-        }
-    } else if (mod_layer_on && IS_LAYER_ON(shortcut_layer)) {
-        layer_off(shortcut_layer);
-        mod_layer_on = false;
-    }
 
     switch (keycode)
     {
-        case LG_ENG:
+        case LG_ENG_MAC:
         if (record->event.pressed) {
-            tap_code16(LANG_ENG);
-            default_layer_set(1 << ENGLISH_COLEMAK);
+            tap_code16(LANG_ENG_MAC);
+            default_layer_set(1 << EN_MAC);
         }
         return false;
 
-        case LG_RUS:
+        case LG_RUS_MAC:
         if (record->event.pressed) {
-            tap_code16(LANG_RUS);
-            default_layer_set(1 << RUSSIAN_DIKTOR);
+            tap_code16(LANG_RUS_MAC);
+            default_layer_set(1 << RU_MAC);
         }
         return false;
 
-        case LG_GAME:
+        case LG_GAME_MAC:
         if (record->event.pressed) {
-            tap_code16(LANG_ENG);
-            default_layer_set(1 << GAMING);
+            tap_code16(LANG_ENG_MAC);
+            default_layer_set(1 << GAMING_MAC);
         }
         return false;
 
-        case DI_1:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("1", "}");
-            }
-            return false;
-
-        case DI_2:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("2", "M");
-            }
-            return false;
-
-        case DI_4:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("4", "%");
-            }
-            return false;
-
-        case DI_5:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("5", "^");
-            }
-            return false;
-
-        case DI_6:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("6", "$");
-            }
-            return false;
-
-        case DI_7:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("7", "-");
-            }
-            return false;
-
-        case DI_8:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("8", "@");
-            }
-            return false;
-
-        case DI_STAR:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("*", "_");
-            }
-            return false;
-
-        case DI_DOT:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("/", "!");
-            }
-            return false;
-
-        case DI_COMMA:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("?", "&");
-            }
-            return false;
-
-        case DI_HARD:
-            if (record->event.pressed) {
-                SEND_SHIFT_STR("m", "]");
-            }
-            return false;
-
-        case CO_QU_SMART_PAIR:
+        case LG_ENG_WIN:
         if (record->event.pressed) {
-            bool is_russian = is_russian_layout();
-            if (is_russian) {
-                tap_code16(LANG_ENG);
-                wait_ms(20);
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(S(KC_COMMA));
-                wait_ms(10);
-                tap_code16(S(KC_COMMA));
-                wait_ms(10);
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(S(KC_DOT));
-                wait_ms(10);
-                tap_code16(S(KC_DOT));
-                wait_ms(10);
-                tap_code16(KC_LEFT);
-                wait_ms(20);
-                tap_code16(LANG_RUS);
-            } else {
-                tap_code16(LANG_ENG);
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(KC_DQUO);
-                wait_ms(10);
-                tap_code16(KC_LT);
-                wait_ms(10);
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(KC_DQUO);
-                wait_ms(10);
-                tap_code16(KC_GT);
-                wait_ms(10);
-                tap_code16(KC_LEFT);
-            }
+            tap_code16(LANG_ENG_WIN);
+            default_layer_set(1 << EN_WIN);
         }
         return false;
 
-        case CO_EMDASH:
+        case LG_RUS_WIN:
         if (record->event.pressed) {
-            tap_code16(KC_RALT);
-            wait_ms(10);
-            tap_code16(KC_MINS);
-            wait_ms(10);
-            tap_code16(KC_MINS);
-            wait_ms(10);
-            tap_code16(KC_MINS);
+            tap_code16(LANG_RUS_WIN);
+            default_layer_set(1 << RU_WIN);
         }
         return false;
 
-        case CO_RUB:
+        case LG_GAME_WIN:
         if (record->event.pressed) {
-            WITH_ENGLISH_LAYOUT({
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(KC_EQL);
-                wait_ms(10);
-                tap_code16(KC_P);
-            });
-        }
-        return false;
-
-        case QU_COMP_PAIR:
-        if (record->event.pressed) {
-            bool is_russian = is_russian_layout();
-            if (is_russian) {
-                tap_code16(LANG_RUS);
-                tap_code16(KC_AT);
-                wait_ms(10);
-                tap_code16(KC_AT);
-                wait_ms(10);
-                tap_code16(KC_LEFT);
-                wait_ms(20);
-            } else {
-                tap_code16(LANG_ENG);
-                tap_code16(KC_DQUO);
-                wait_ms(10);
-                tap_code16(KC_DQUO);
-                wait_ms(10);
-                tap_code16(KC_LEFT);
-            }
-        }
-        return false;
-
-        case TERMINAL:
-        if (record->event.pressed) {
-            WITH_ENGLISH_LAYOUT_PLUS_SHIFTED({
-                tap_code(KC_LGUI);
-                wait_ms(250);
-                SEND_STRING("Terminal");
-                wait_ms(350);
-                tap_code(KC_ENT);
-            },
-            {
-                tap_code(KC_LGUI);
-                wait_ms(250);
-                SEND_STRING("Visual ");
-                wait_ms(10);
-                SEND_STRING("Studio ");
-                wait_ms(10);
-                SEND_STRING("Code");
-                wait_ms(350);
-                tap_code(KC_ENT);
-            });
-        }
-        return false;
-
-        case CO_DEGREE:
-        if (record->event.pressed) {
-            WITH_ENGLISH_LAYOUT({
-                tap_code16(KC_RALT);
-                wait_ms(10);
-                tap_code16(KC_O);
-                wait_ms(10);
-                tap_code16(KC_O);
-            });
+            tap_code16(LANG_ENG_WIN);
+            default_layer_set(1 << GAMING_WIN);
         }
         return false;
 
