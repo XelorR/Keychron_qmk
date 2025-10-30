@@ -118,6 +118,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [MAC_FN1]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [WIN_FN1]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [FN2]      = { ENCODER_CCW_CW(_______, _______)},
+        [SYM]      = { ENCODER_CCW_CW(_______, _______)},
+        [MAC_GAME] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [WIN_GAME] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [MAC_NAV]  = { ENCODER_CCW_CW(_______, _______)},
+        [WIN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
+        [MOUSE]    = { ENCODER_CCW_CW(_______, _______)},
     };
 #endif // ENCODER_MAP_ENABLE
 
