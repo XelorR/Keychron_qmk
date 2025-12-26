@@ -17,11 +17,16 @@
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
 
+#define LA_NAV_M MO(MAC_NAV)
+#define LA_NAV_W MO(WIN_NAV)
+#define LA_SYM_M MO(MAC_SYM)
+#define LA_SYM_W MO(WIN_SYM)
+
 enum layers {
     MAC_BASE,
     WIN_BASE,
-    MAC_MED,
-    WIN_MED,
+    MAC_SYM,
+    WIN_SYM,
     MAC_NAV,
     WIN_NAV,
     MAC_NUM,
@@ -29,7 +34,12 @@ enum layers {
 };
 
 enum custom_keycodes {
-   JIGGLE = NEW_SAFE_RANGE,
+    JIGGLE = NEW_SAFE_RANGE,
+
+    OS_SHFT,
+    OS_CTRL,
+    OS_ALT,
+    OS_CMD,
 };
 
 // clang-format off
@@ -39,23 +49,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INT1,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LOPTN, KC_LCMMD, KC_LNG2,  KC_SPC,          MO(MAC_NAV), MO(MAC_MED),        KC_SPC,   KC_LNG1,  KC_RCMMD,           KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,  KC_LOPTN, KC_LCMMD, KC_LNG2,  KC_SPC,   LA_NAV_M,           LA_SYM_M,           KC_SPC,   KC_LNG1,  KC_RCMMD,           KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [WIN_BASE] = LAYOUT_73_jis(
         KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_INT3,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INT1,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_LALT,  KC_INT5,  KC_SPC,          MO(WIN_NAV), MO(WIN_MED),        KC_SPC,   KC_INT4,  KC_RALT,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,  KC_LWIN,  KC_LALT,  KC_INT5,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_SPC,   KC_INT4,  KC_RALT,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [MAC_MED] = LAYOUT_73_jis(
+    [MAC_SYM] = LAYOUT_73_jis(
         KC_GRV,   KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
         RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_END,
         _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,  _______,  NK_TOGG,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
-    [WIN_MED] = LAYOUT_73_jis(
+    [WIN_SYM] = LAYOUT_73_jis(
         KC_GRV,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_FILE,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
         RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_END,
@@ -95,8 +105,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [MAC_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [MAC_MED]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [WIN_MED]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [MAC_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [MAC_NAV]      = { ENCODER_CCW_CW(_______, _______)},
     };
 #endif // ENCODER_MAP_ENABLE
