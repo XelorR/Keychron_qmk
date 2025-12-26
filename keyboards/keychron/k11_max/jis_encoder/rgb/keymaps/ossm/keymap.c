@@ -33,6 +33,8 @@
 #define MC_TABR G(S(KC_RBRC))
 #define UC_HYPR G(C(S(KC_LALT))) // Copylot/Office365 button
 
+#define MC_GBSP
+
 enum layers {
     MAC_BASE,
     WIN_BASE,
@@ -40,8 +42,8 @@ enum layers {
     WIN_SYM,
     MAC_NAV,
     WIN_NAV,
-    MAC_NUM,
-    WIN_NUM,
+    MAC_MACRO,
+    WIN_MACRO,
 };
 
 enum custom_keycodes {
@@ -87,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR,  _______,  _______,  _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
         _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  MC_SNAP,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
-        _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL, KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,  _______,
+        _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL, KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   MC_GBSP,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [WIN_NAV] = LAYOUT_73_jis(
@@ -97,18 +99,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  C(KC_Z),  C(KC_X),  C(KC_C),  C(KC_V),  C(KC_Y),  BAT_LVL,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
-    [MAC_NUM] = LAYOUT_73_jis(
+    [MAC_MACRO] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  KC_F13,   KC_F14,   KC_15,    KC_F16,   KC_F17,   KC_F18,   KC_F19,   KC_F20,   KC_F21,   KC_F22,   KC_F23,   KC_F24,                       _______,
         _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  _______,            _______,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  JIGGLE,   _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  BAT_LVL,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
-    [WIN_NUM] = LAYOUT_73_jis(
+    [WIN_MACRO] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  KC_F13,   KC_F14,   KC_15,    KC_F16,   KC_F17,   KC_F18,   KC_F19,   KC_F20,   KC_F21,   KC_F22,   KC_F23,   KC_F24,                       _______,
         _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  _______,            _______,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  JIGGLE,   _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  BAT_LVL,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______)
 };
 
@@ -120,8 +122,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [MAC_NAV]  = { ENCODER_CCW_CW(_______, _______)},
         [WIN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
-        [MAC_NUM]  = { ENCODER_CCW_CW(_______, _______)},
-        [WIN_NUM]  = { ENCODER_CCW_CW(_______, _______)},
+        [MAC_MACRO]  = { ENCODER_CCW_CW(_______, _______)},
+        [WIN_MACRO]  = { ENCODER_CCW_CW(_______, _______)},
     };
 #endif // ENCODER_MAP_ENABLE
 
@@ -215,7 +217,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_NUM);
-    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_NUM);
+    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_MACRO);
+    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_MACRO);
     return state;
 }
