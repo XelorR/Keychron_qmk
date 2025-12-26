@@ -202,3 +202,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
     return true;
 }
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_NUM);
+    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_NUM);
+    return state;
+}
