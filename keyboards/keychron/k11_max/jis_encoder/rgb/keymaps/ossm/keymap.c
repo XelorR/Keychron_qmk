@@ -33,7 +33,7 @@
 #define MC_TABR G(S(KC_RBRC))
 #define UC_HYPR G(C(S(KC_LALT))) // Copylot/Office365 button
 
-#define MC_GBSP
+#define MC_GBSP G(KC_BSPC)
 
 enum layers {
     MAC_BASE,
