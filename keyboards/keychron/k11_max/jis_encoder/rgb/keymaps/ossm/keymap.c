@@ -31,7 +31,7 @@
 #define WN_TABR (C(KC_TAB))
 #define MC_TABL G(S(KC_LBRC))
 #define MC_TABR G(S(KC_RBRC))
-#define UC_HYPR G(C(S(KC_LALT)))
+#define UC_HYPR G(C(S(KC_LALT))) // Copylot/Office365 button
 
 enum layers {
     MAC_BASE,
