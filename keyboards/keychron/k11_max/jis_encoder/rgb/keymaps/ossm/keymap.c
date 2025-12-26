@@ -16,6 +16,7 @@
 
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
+#include "oneshot.h"
 
 #define LA_NAV_M MO(MAC_NAV)
 #define LA_NAV_W MO(WIN_NAV)
@@ -25,6 +26,11 @@
 #define WN_SNAP G(S(KC_S))
 #define MC_SNAP G(S(KC_4))
 #define MC_PSCR G(S(KC_3))
+
+#define WN_TABL (G(S(KC_TAB)))
+#define WN_TABR (G(KC_TAB))
+#define MC_TABL G(S(KC_LBRC))
+#define MC_TABR G(S(KC_RBRC))
 
 enum layers {
     MAC_BASE,
@@ -70,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
-        KC_TILD,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_COMM,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
+        KC_TILD,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
         RGB_TOG,  RGB_MOD,  RGB_VAI,  RGB_HUI,  RGB_SAI,  RGB_SPI,            _______,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  KC_PSCR,  KC_END,
         _______,  RGB_RMOD, RGB_VAD,  RGB_HUD,  RGB_SAD,  RGB_SPD,  _______,  NK_TOGG,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
@@ -78,16 +84,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_DEL,                       _______,
-        _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  WN_SNAP,            _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  MC_PSCR,  _______,
-        _______,  _______,  _______,  _______,  _______,  BAT_LVL,  BAT_LVL,  _______,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,
+        _______,  _______,  MC_TABL,  KC_TAB,   MC_TABR,  _______,  _______,  _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
+        _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  MC_SNAP,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
+        _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_DEL,                       _______,
-        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  MC_SNAP,            _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  KC_PSCR,  _______,
-        _______,  _______,  _______,  _______,  _______,  BAT_LVL,  BAT_LVL,  _______,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,
+        _______,  _______,  WN_TABL,  KC_TAB,   WN_TABR,  _______,  _______,  _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
+        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  WN_SNAP,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  KC_PSCR,  _______,
+        _______,  C(KC_Z),  C(KC_X),  C(KC_C),  C(KC_V),  C(KC_Y),  BAT_LVL,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [MAC_NUM] = LAYOUT_73_jis(
