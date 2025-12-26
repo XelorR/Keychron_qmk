@@ -81,12 +81,11 @@
     {"name": "Bluetooth Host 3", "title": "Bluetooth Host 3", "shortName": "BTH3"},
     {"name": "2.4G", "title": "2.4G", "shortName": "2.4G"},
     {"name": "Battery Level", "title": "Show battery level", "shortName": "Batt"},
-    {"name": "LG_ENG_MAC", "title": "Switch to English mode (Mac)", "shortName": "EN_M"},
-    {"name": "LG_RUS_MAC", "title": "Switch to Russian mode (Mac)", "shortName": "RU_M"},
-    {"name": "LG_GAME_MAC", "title": "Switch to Game control mode (Mac)", "shortName": "GM_M"},
-    {"name": "LG_ENG_WIN", "title": "Switch to English mode (Win)", "shortName": "EN_W"},
-    {"name": "LG_RUS_WIN", "title": "Switch to Russian mode (Win)", "shortName": "RU_W"},
-    {"name": "LG_GAME_WIN", "title": "Switch to Game control mode (Win)", "shortName": "GM_W"}
+    {"name": "MOUSE_JIGGLER", "title": "Jiggle moise until any key pressed", "shortName": "JIG"},
+    {"name": "OS_SHFT", "title": "OSSM Shift", "shortName": "SHFT"},
+    {"name": "OS_CTRL", "title": "OSSM Control", "shortName": "CTRL"},
+    {"name": "OS_ALT", "title": "OSSM Option", "shortName": "ALT"},
+    {"name": "OS_CMD", "title": "OSSM Command", "shortName": "CMD"}
   ],
   "matrix": {"rows": 5, "cols": 16},
   "layouts": {
