@@ -27,8 +27,8 @@
 #define MC_SNAP G(S(KC_4))
 #define MC_PSCR G(S(KC_3))
 
-#define WN_TABL (G(S(KC_TAB)))
-#define WN_TABR (G(KC_TAB))
+#define WN_TABL (C(S(KC_TAB)))
+#define WN_TABR (C(KC_TAB))
 #define MC_TABL G(S(KC_LBRC))
 #define MC_TABR G(S(KC_RBRC))
 
