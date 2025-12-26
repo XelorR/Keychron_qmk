@@ -148,9 +148,6 @@ bool is_oneshot_ignored_key(uint16_t keycode) {
     }
 }
 
-bool sw_win_active = false;
-bool sw_tab_active = false;
-
 oneshot_state os_shft_state = os_up_unqueued;
 oneshot_state os_ctrl_state = os_up_unqueued;
 oneshot_state os_alt_state = os_up_unqueued;
