@@ -30,7 +30,6 @@
 #    define RGB_MATRIX_TIMEOUT RGB_MATRIX_TIMEOUT_INFINITE
 /* Allow shutdown of led driver to save power */
 #    define RGB_MATRIX_DRIVER_SHUTDOWN_ENABLE
-#    define RGB_MATRIX_DRIVER_LOAD_ENABLE
 /* Turn off backlight on low brightness to save power */
 #    define RGB_MATRIX_BRIGHTNESS_TURN_OFF_VAL 48
 
@@ -44,3 +43,9 @@
 #    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 
 #endif
+
+#define TAPPING_TERM 200
+#define QUICK_TAP_TERM 100
+#define HOLD_ON_OTHER_KEY_PRESS
+
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD

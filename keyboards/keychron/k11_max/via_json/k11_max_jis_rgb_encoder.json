@@ -81,6 +81,11 @@
     {"name": "Bluetooth Host 3", "title": "Bluetooth Host 3", "shortName": "BTH3"},
     {"name": "2.4G", "title": "2.4G", "shortName": "2.4G"},
     {"name": "Battery Level", "title": "Show battery level", "shortName": "Batt"}
+    {"name": "MOUSE_JIGGLER", "title": "Jiggle moise until any key pressed", "shortName": "JIG"},
+    {"name": "OS_SHFT", "title": "OSSM Shift", "shortName": "SHFT"},
+    {"name": "OS_CTRL", "title": "OSSM Control", "shortName": "CTRL"},
+    {"name": "OS_ALT", "title": "OSSM Option", "shortName": "ALT"},
+    {"name": "OS_CMD", "title": "OSSM Command", "shortName": "CMD"}
   ],
   "matrix": {"rows": 5, "cols": 16},
   "layouts": {
