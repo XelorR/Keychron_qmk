@@ -230,3 +230,15 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         '*',  'L',  'L',  'L',  'L',  'L',     '*',     'R',  'R',  'R',  'R',  'R',  '*',  '*',  '*',
         '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*'
     );
+
+const uint16_t PROGMEM combo_eng[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_rus[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_grave[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_backslash[] = {KC_Y, KC_U, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(combo_eng, KC_CAPS),
+    COMBO(combo_rus, S(KC_CAPS)),
+    COMBO(combo_grave, KC_GRV),
+    COMBO(combo_backslash, KC_BSLS),
+};
+
