@@ -1,4 +1,4 @@
-/*/* Copyright 2022 ~ 2025 @ lokher (https://www.keychron.com)
+/* Copyright 2022~2023 @ lokher (https://www.keychron.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -51,6 +51,10 @@
 #    define VOLTAGE_TRIM_RGB_MATRIX 60
 #endif
 
+#if defined(LED_MATRIX_ENABLE) || defined(RGB_MATRIX_ENABLE)
+extern uint8_t g_pwm_buffer[DRIVER_COUNT][192];
+#endif
+
 static uint32_t bat_monitor_timer_buffer = 0;
 static uint16_t voltage                  = FULL_VOLTAGE_VALUE;
 static uint8_t  bat_empty                = 0;
@@ -70,7 +74,7 @@ void battery_init(void) {
 
 #ifdef BAT_ADC_ENABLE_PIN
     palSetLineMode(BAT_ADC_ENABLE_PIN, PAL_MODE_OUTPUT_PUSHPULL);
-    gpio_write_pin(BAT_ADC_ENABLE_PIN, 1);
+    writePin(BAT_ADC_ENABLE_PIN, 1);
 #endif
 #ifdef BAT_ADC_PIN
     palSetLineMode(BAT_ADC_PIN, PAL_MODE_INPUT_ANALOG);
@@ -80,7 +84,7 @@ void battery_init(void) {
 void battery_stop(void) {
 #if (HAL_USE_ADC)
 #    ifdef BAT_ADC_ENABLE_PIN
-    gpio_write_pin(BAT_ADC_ENABLE_PIN, 0);
+    writePin(BAT_ADC_ENABLE_PIN, 0);
 #    endif
 #    ifdef BAT_ADC_PIN
     palSetLineMode(BAT_ADC_PIN, PAL_MODE_INPUT_ANALOG);
@@ -189,7 +193,7 @@ void battery_task(void) {
     if ((get_transport() & TRANSPORT_WIRELESS) && (wireless_get_state() == WT_CONNECTED || battery_power_on_sample())) {
 #if defined(BAT_CHARGING_PIN)
         if (usb_power_connected() && t > VOLTAGE_MEASURE_INTERVAL) {
-            if (gpio_read_pin(BAT_CHARGING_PIN) == BAT_CHARGING_LEVEL)
+            if (readPin(BAT_CHARGING_PIN) == BAT_CHARGING_LEVEL)
                 lkbt51_update_bat_state(BAT_CHARGING);
             else
                 lkbt51_update_bat_state(BAT_FULL_CHARGED);
