@@ -46,12 +46,15 @@
 #endif
 
 #define DEBOUNCE_TYPE asym_eager_defer_pk
+#define DEBOUNCE 2
 #define USB_POLLING_INTERVAL_MS 1
 
 #define TAPPING_TERM 250
+#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 #define CHORDAL_HOLD
 #define QUICK_TAP_TERM 120
+#define QUICK_TAP_TERM_PER_KEY
 
 /* following are unavailable in the current fork */
 // #define FLOW_TAP_TERM 150
