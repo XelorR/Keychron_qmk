@@ -18,6 +18,7 @@
 
 #ifdef RGB_MATRIX_ENABLE
 /* RGB Matrix driver configuration */
+#    define DRIVER_COUNT 2
 #    define RGB_MATRIX_LED_COUNT 72
 #    define DRIVER_CS_PINS \
         { B8, B9 }
