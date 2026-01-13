@@ -45,8 +45,13 @@
 
 #endif
 
-#define TAPPING_TERM 200
-#define QUICK_TAP_TERM 100
-#define HOLD_ON_OTHER_KEY_PRESS
+#define TAPPING_TERM 250
+#define PERMISSIVE_HOLD
+#define CHORDAL_HOLD
 
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+/* following are unavailable in the current fork */
+// #define FLOW_TAP_TERM 150
+// #define SPECULATIVE_HOLD
+
+/* not needed now but keeping commented to enable in future */
+// #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
