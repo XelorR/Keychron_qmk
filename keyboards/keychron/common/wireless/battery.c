@@ -118,17 +118,17 @@ __attribute__((weak)) void battery_calculate_voltage(bool vol_src_bt, uint16_t v
     }
 #endif
 #ifdef RGB_MATRIX_ENABLE
-    if (rgb_matrix_is_enabled()) {
-        uint32_t totalBuf = 0;
-
-        for (uint8_t i = 0; i < DRIVER_COUNT; i++)
-            for (uint8_t j = 0; j < 192; j++)
-                totalBuf += g_pwm_buffer[i][j];
-        /* We assumpt it is linear relationship*/
-        uint32_t compensation = VOLTAGE_TRIM_RGB_MATRIX * totalBuf / RGB_MATRIX_LED_COUNT / 255 / 3;
-
-        voltage += compensation;
-    }
+    // if (rgb_matrix_is_enabled()) {
+    //     uint32_t totalBuf = 0;
+    //
+    //     for (uint8_t i = 0; i < DRIVER_COUNT; i++)
+    //         for (uint8_t j = 0; j < 192; j++)
+    //             totalBuf += g_pwm_buffer[i][j];
+    //     /* We assumpt it is linear relationship*/
+    //     uint32_t compensation = VOLTAGE_TRIM_RGB_MATRIX * totalBuf / RGB_MATRIX_LED_COUNT / 255 / 3;
+    //
+    //     voltage += compensation;
+    // }
 #endif
 
     battery_set_voltage(voltage);
