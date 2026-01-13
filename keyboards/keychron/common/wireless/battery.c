@@ -104,9 +104,13 @@ __attribute__((weak)) void battery_calculate_voltage(bool vol_src_bt, uint16_t v
 
 #ifdef LED_MATRIX_ENABLE
     if (led_matrix_is_enabled()) {
+        uint32_t totalBuf = 0;
+
+        for (uint8_t i = 0; i < DRIVER_COUNT; i++)
+            for (uint8_t j = 0; j < 192; j++)
+                totalBuf += g_pwm_buffer[i][j];
         /* We assumpt it is linear relationship*/
-        uint32_t compensation = (VOLTAGE_TRIM_LED_MATRIX * led_matrix_driver.get_load_ratio());
-        voltage += compensation;
+        voltage += (VOLTAGE_TRIM_LED_MATRIX * totalBuf / LED_MATRIX_LED_COUNT / 255);
     }
 #endif
 #ifdef RGB_MATRIX_ENABLE
