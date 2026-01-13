@@ -20,8 +20,8 @@
 
 #define LA_NAV_M MO(MAC_NAV)
 #define LA_NAV_W MO(WIN_NAV)
-#define LA_SYM_M MO(MAC_SYM)
-#define LA_SYM_W MO(WIN_SYM)
+#define LA_SYM_M LT(MAC_SYM,KC_ENT)
+#define LA_SYM_W LT(WIN_SYM,KC_ENT)
 
 #define WN_SNAP G(S(KC_S))
 #define MC_SNAP G(S(KC_4))
