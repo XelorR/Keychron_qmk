@@ -231,25 +231,48 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*'
     );
 
+// Combo definitions
 enum combos {
     COMBO_WIN_ENG,
     COMBO_WIN_RUS,
     COMBO_GRAVE,
     COMBO_BACKSLASH,
+    COMBO_WIN_UNDO,
+    COMBO_WIN_CUT,
+    COMBO_WIN_COPY,
+    COMBO_WIN_PASTE,
+    COMBO_WIN_REDO,
+    COMBO_WIN_SELECTALL,
 };
 
-const uint16_t PROGMEM combo_eng[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_rus[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_grave[] = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_backslash[] = {KC_Y, KC_U, COMBO_END};
+// Combo positions
+const uint16_t PROGMEM combo_eng[]           = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_rus[]           = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_grave[]         = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM combo_backslash[]     = {KC_Y, KC_U, COMBO_END};
+const uint16_t PROGMEM combo_win_undo[]      = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_win_cut[]       = {KC_X, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_win_copy[]      = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_win_paste[]     = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_win_redo[]      = {KC_Z, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_win_selectall[] = {KC_Z, KC_V, COMBO_END};
+
+// Combo assignments
 combo_t key_combos[] = {
-    [COMBO_WIN_ENG]   = COMBO(combo_eng, KC_CAPS),
-    [COMBO_WIN_RUS]   = COMBO(combo_rus, S(KC_CAPS)),
-    [COMBO_GRAVE]     = COMBO(combo_grave, KC_GRV),
-    [COMBO_BACKSLASH] = COMBO(combo_backslash, KC_BSLS),
+    [COMBO_WIN_ENG]       = COMBO(combo_eng, KC_CAPS),
+    [COMBO_WIN_RUS]       = COMBO(combo_rus, S(KC_CAPS)),
+    [COMBO_GRAVE]         = COMBO(combo_grave, KC_GRV),
+    [COMBO_BACKSLASH]     = COMBO(combo_backslash, KC_BSLS),
+    [COMBO_WIN_UNDO]      = COMBO(combo_win_undo, C(KC_Z)),
+    [COMBO_WIN_CUT]       = COMBO(combo_win_cut, C(KC_X)),
+    [COMBO_WIN_COPY]      = COMBO(combo_win_copy, C(KC_C)),
+    [COMBO_WIN_PASTE]     = COMBO(combo_win_paste, C(KC_V)),
+    [COMBO_WIN_REDO]      = COMBO(combo_win_redo, C(KC_Y)),
+    [COMBO_WIN_SELECTALL] = COMBO(combo_win_selectall, C(KC_A)),
 };
 
 /*
+// Combo restrictions
 bool combo_should_trigger(uint16_t combo_index,
                           combo_t *combo,
                           uint16_t keycode,
