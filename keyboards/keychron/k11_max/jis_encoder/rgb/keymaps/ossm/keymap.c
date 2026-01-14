@@ -54,8 +54,8 @@ enum custom_keycodes {
     OS_ALT,
     OS_CMD,
 
-    IN_ROW_WIN,
     IN_ROW_MAC,
+    IN_ROW_WIN,
 };
 
 // clang-format off

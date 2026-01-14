@@ -85,7 +85,9 @@
     {"name": "OS_SHFT", "title": "OSSM Shift", "shortName": "SHFT"},
     {"name": "OS_CTRL", "title": "OSSM Control", "shortName": "CTRL"},
     {"name": "OS_ALT", "title": "OSSM Option", "shortName": "ALT"},
-    {"name": "OS_CMD", "title": "OSSM Command", "shortName": "CMD"}
+    {"name": "OS_CMD", "title": "OSSM Command", "shortName": "CMD"},
+    {"name": "Insert row, Mac", "title": "Insert row, Mac", "shortName": "+rowM"},
+    {"name": "Insert row, Win", "title": "Insert row, Win", "shortName": "+rowW"}
   ],
   "matrix": {"rows": 5, "cols": 16},
   "layouts": {
