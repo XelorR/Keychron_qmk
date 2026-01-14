@@ -73,16 +73,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_SYM] = LAYOUT_73_jis(
         KC_TILD,  KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
-        RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  MC_PSCR,  KC_END,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
+        _______,  _______,  KC_LBRC,  KC_BSLS,  KC_RBRC,  _______,  _______,  _______,  KC_LCBR,  KC_BSLS,  KC_RCBR,  _______,  _______,                      KC_INS,
+        RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_PIPE,            KC_PIPE,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  MC_PSCR,  KC_END,
+        _______,  _______,  KC_MINS,  KC_0,     KC_EQL,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
         KC_TILD,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
-        RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  KC_PSCR,  KC_END,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
+        _______,  _______,  KC_LBRC,  KC_BSLS,  KC_RBRC,  _______,  _______,  _______,  KC_LCBR,  KC_BSLS,  KC_RCBR,  _______,  _______,                      KC_INS,
+        RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_PIPE,            KC_PIPE,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  KC_PSCR,  KC_END,
+        _______,  _______,  KC_MINS,  KC_0,     KC_EQL,   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
