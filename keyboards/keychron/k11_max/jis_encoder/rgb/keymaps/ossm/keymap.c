@@ -214,7 +214,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         token = defer_exec(1, jiggler_callback, NULL);  // Schedule callback.
         } else if (keycode == IN_ROW_WIN) {
             if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_END) SS_LSFT(X_ENT));
+                SEND_STRING(SS_TAP(X_END) SS_LSFT(KC_ENT));
             }
         }
     }
