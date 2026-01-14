@@ -87,7 +87,8 @@
     {"name": "OS_ALT", "title": "OSSM Option", "shortName": "ALT"},
     {"name": "OS_CMD", "title": "OSSM Command", "shortName": "CMD"},
     {"name": "Insert row, Mac", "title": "Insert row, Mac", "shortName": "+rowM"},
-    {"name": "Insert row, Win", "title": "Insert row, Win", "shortName": "+rowW"}
+    {"name": "Insert row, Win", "title": "Insert row, Win", "shortName": "+rowW"},
+    {"name": "Cmd-Backspace Win", "title": "Windows version of Mac's Cmd-Backspace", "shortName": "GBSP"}
   ],
   "matrix": {"rows": 5, "cols": 16},
   "layouts": {
