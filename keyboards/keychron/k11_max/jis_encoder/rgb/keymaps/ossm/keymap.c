@@ -62,14 +62,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_ESC,   KC_A,     KC_S,     KC_D, MT(MOD_LSFT,KC_F),      KC_G,     KC_H, MT(MOD_LSFT,KC_J), KC_K, KC_L,    KC_SCLN,  KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LOPTN, KC_LOPTN, KC_LCMMD, KC_SPC,   LA_NAV_M,           LA_SYM_M,           KC_SPC,   KC_RCMMD, KC_RCMMD,           KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,  KC_LOPTN, KC_LOPTN, KC_LCMMD, KC_SPC,   LA_NAV_M,           LA_SYM_M,           KC_RSFT,  KC_RCMMD, KC_RCMMD,           KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [WIN_BASE] = LAYOUT_73_jis(
         KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_ESC,   KC_A,     KC_S,     KC_D, MT(MOD_LSFT,KC_F),      KC_G,     KC_H, MT(MOD_LSFT,KC_J), KC_K, KC_L,    KC_SCLN,  KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_LWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_SPC,   KC_APP,   UC_HYPR,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,  KC_LWIN,  KC_LWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_RSFT,  KC_APP,   UC_HYPR,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [MAC_SYM] = LAYOUT_73_jis(
         KC_TILD,  KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
@@ -87,15 +87,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR,  _______,  _______,  _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
+        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR, G(KC_SPC), KC_INS,   _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
         _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  MC_SNAP,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
         _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL, KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   MC_GBSP,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  _______,  _______,  _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
-        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  WN_SNAP,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  KC_PSCR,  _______,
+        _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_LGUI,  KC_INS,   _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
+        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_PSCR,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  WN_SNAP,  _______,
         _______,  C(KC_Z),  C(KC_X),  C(KC_C),  C(KC_V),  C(KC_Y),  BAT_LVL,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
