@@ -257,7 +257,7 @@ bool combo_should_trigger(uint16_t combo_index,
         case COMBO_WIN_ENG:
         case COMBO_WIN_RUS:
             // if (layer_state_is(_RUS) || layer_state_is(_ENG)) {
-            if (layer_state_is(WIN_BASE)) {
+            if (get_highest_layer(default_layer_state) == WIN_BASE) {
                 return true;
             }
             return false;
