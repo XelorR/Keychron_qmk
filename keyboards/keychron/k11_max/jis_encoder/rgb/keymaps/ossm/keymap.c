@@ -236,7 +236,7 @@ enum combos {
     COMBO_WIN_RUS,
     COMBO_GRAVE,
     COMBO_BACKSLASH,
-}
+};
 
 const uint16_t PROGMEM combo_eng[] = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_rus[] = {KC_U, KC_I, COMBO_END};
