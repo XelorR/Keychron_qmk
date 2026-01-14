@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR, G(KC_SPC), KC_INS,   _______,  _______,  _______,  KC_DEL,   _______,  _______,                      _______,
+        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR, G(KC_SPC), KC_INS,   _______,  _______,  IN_ROW_MAC, KC_DEL, _______,  _______,                      _______,
         _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  MC_SNAP,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
         _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL, KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   MC_GBSP,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
@@ -215,6 +215,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         } else if (keycode == IN_ROW_WIN) {
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_END) SS_LSFT(KC_ENT));
+            }
+            return false;
+        } else if (keycode == IN_ROW_MAC) {
+            if (record->event.pressed) {
+                SEND_STRING(SS_LGUI(KC_RGHT) SS_LSFT(KC_ENT));
             }
             return false;
         }
