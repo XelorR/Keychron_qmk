@@ -20,8 +20,8 @@
 
 #define LA_NAV_M MO(MAC_NAV)
 #define LA_NAV_W MO(WIN_NAV)
-#define LA_SYM_M LT(MAC_SYM,KC_ENT)
-#define LA_SYM_W LT(WIN_SYM,KC_ENT)
+#define LA_SYM_M MO(MAC_SYM)
+#define LA_SYM_W MO(WIN_SYM)
 
 #define WN_SNAP G(S(KC_S))
 #define MC_SNAP G(S(KC_4))
@@ -31,6 +31,10 @@
 #define WN_TABR (C(KC_TAB))
 #define MC_TABL G(S(KC_LBRC))
 #define MC_TABR G(S(KC_RBRC))
+#define WN_WSPL G(C(KC_LEFT))
+#define WN_WSPR G(C(KC_RGHT))
+#define MC_WSPL C(KC_LEFT)
+#define MC_WSPR C(KC_RGHT)
 #define UC_HYPR G(C(S(KC_LALT))) // Copylot/Office365 button
 
 #define MC_GBSP G(KC_BSPC)
@@ -56,6 +60,8 @@ enum custom_keycodes {
 
     IN_ROW_MAC,
     IN_ROW_WIN,
+
+    WN_GBSP, // windows version of Mac's Cmd-Backspace
 };
 
 // clang-format off
@@ -90,16 +96,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR, G(KC_SPC), KC_INS,   _______,  _______,  IN_ROW_MAC, KC_DEL, _______,  _______,                      _______,
-        _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  MC_SNAP,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
-        _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL, KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   MC_GBSP,  _______,  _______,  _______,
+        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR,  KC_ESC,   KC_INS,   _______,  _______,  IN_ROW_MAC, KC_DEL, _______,  _______,                      _______,
+        _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
+        _______,  MC_WSPL,  MC_WSPR, G(KC_SPC), MC_SNAP,  KC_TAB,   BAT_LVL, G(KC_LEFT), KC_PGDN, KC_PGUP,  G(KC_RGHT), MC_GBSP, _______, _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_LGUI,  KC_INS,   _______,  _______,  IN_ROW_WIN, KC_DEL, _______,  _______,                      _______,
-        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_PSCR,            KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  WN_SNAP,  _______,
-        _______,  C(KC_Z),  C(KC_X),  C(KC_C),  C(KC_V),  C(KC_Y),  BAT_LVL,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,  _______,  _______,
+        _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_ESC,   KC_INS,   _______,  _______,  IN_ROW_WIN, KC_DEL, _______,  _______,                      _______,
+        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  WN_SNAP,  _______,
+        _______,  WN_WSPL,  WN_WSPR,  KC_LGUI,  KC_PSCR,  KC_TAB,   BAT_LVL,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   WN_GBSP,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [MAC_MACRO] = LAYOUT_73_jis(
@@ -254,6 +260,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     set_mods(mods);
                     return false;
                 }
+                case WN_GBSP:
+                    tap_code16(LSFT(KC_HOME));
+                    tap_code(KC_BSPC);
+                    return false;
 
                 default:
                     break;
