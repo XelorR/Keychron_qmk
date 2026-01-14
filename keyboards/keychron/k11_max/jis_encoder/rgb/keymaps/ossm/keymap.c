@@ -192,11 +192,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         static deferred_token token = INVALID_DEFERRED_TOKEN;
         static report_mouse_t report = {0};
         if (token) {
-        // If jiggler is currently running, stop when any key is pressed.
-        cancel_deferred_exec(token);
-        token = INVALID_DEFERRED_TOKEN;
-        report = (report_mouse_t){};  // Clear the mouse.
-        host_mouse_send(&report);
+            // If jiggler is currently running, stop when any key is pressed.
+            cancel_deferred_exec(token);
+            token = INVALID_DEFERRED_TOKEN;
+            report = (report_mouse_t){};  // Clear the mouse.
+            host_mouse_send(&report);
         } else if (keycode == JIGGLE) {
             uint32_t jiggler_callback(uint32_t trigger_time, void* cb_arg) {
                 // Deltas to move in a circle of radius 20 pixels over 32 frames.
@@ -211,7 +211,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 host_mouse_send(&report);
                 return 16;  // Call the callback every 16 ms.
             }
-        token = defer_exec(1, jiggler_callback, NULL);  // Schedule callback.
+            token = defer_exec(1, jiggler_callback, NULL);  // Schedule callback.
         } else if (keycode == IN_ROW_WIN) {
             if (record->event.pressed) {
                 SEND_STRING(SS_TAP(X_END) SS_LSFT(KC_ENT));
