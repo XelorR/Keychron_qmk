@@ -218,15 +218,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     token = defer_exec(1, jiggler_callback, NULL);  // Schedule callback.
                 } break;
 
-                case IN_ROW_WIN:
-                    tap_code(KC_END);
+                case IN_ROW_WIN: {
+                    uint8_t mods = get_mods();
+                    bool shift_held = mods & MOD_MASK_SHIFT;
+                    clear_mods();
+                    // insert row below
+                    if (!shift_held) {
+                        tap_code(KC_END);
+                        tap_code16(LSFT(KC_ENT));
+                        return false;
+                    }
+                    // with shift - insert row above
+                    tap_code(KC_HOME);
                     tap_code16(LSFT(KC_ENT));
+                    tap_code(KC_UP);
+                    //
+                    set_mods(mods);
                     return false;
+                }
 
-                case IN_ROW_MAC:
-                    tap_code16(LGUI(KC_RGHT));
+                case IN_ROW_MAC: {
+                    uint8_t mods = get_mods();
+                    bool shift_held = mods & MOD_MASK_SHIFT;
+                    clear_mods();
+                    // insert row below
+                    if (!shift_held) {
+                        tap_code16(LGUI(KC_RGHT));
+                        tap_code16(LSFT(KC_ENT));
+                    }
+                    // with shift - insert row above
+                    tap_code16(LGUI(KC_LEFT));
                     tap_code16(LSFT(KC_ENT));
+                    tap_code(KC_UP);
+                    //
+                    set_mods(mods);
                     return false;
+                }
 
                 default:
                     break;
