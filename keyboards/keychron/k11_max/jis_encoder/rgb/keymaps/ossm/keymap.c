@@ -231,14 +231,37 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*'
     );
 
+enum combos {
+    COMBO_WIN_ENG,
+    COMBO_WIN_RUS,
+    COMBO_GRAVE,
+    COMBO_BACKSLASH,
+}
+
 const uint16_t PROGMEM combo_eng[] = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_rus[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_grave[] = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM combo_backslash[] = {KC_Y, KC_U, COMBO_END};
 combo_t key_combos[] = {
-    COMBO(combo_eng, KC_CAPS),
-    COMBO(combo_rus, S(KC_CAPS)),
-    COMBO(combo_grave, KC_GRV),
-    COMBO(combo_backslash, KC_BSLS),
+    [COMBO_WIN_ENG]   = COMBO(combo_eng, KC_CAPS),
+    [COMBO_WIN_RUS]   = COMBO(combo_rus, S(KC_CAPS)),
+    [COMBO_GRAVE]     = COMBO(combo_grave, KC_GRV),
+    [COMBO_BACKSLASH] = COMBO(combo_backslash, KC_BSLS),
 };
 
+bool combo_should_trigger(uint16_t combo_index,
+                          combo_t *combo,
+                          uint16_t keycode,
+                          keyrecord_t *record) {
+    switch (combo_index) {
+        case COMBO_WIN_ENG:
+        case COMBO_WIN_RUS:
+            // if (layer_state_is(_RUS) || layer_state_is(_ENG)) {
+            if (layer_state_is(WIN_BASE)) {
+                return true;
+            }
+            return false;
+        default:
+            return true;
+    }
+}
