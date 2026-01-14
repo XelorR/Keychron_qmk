@@ -96,14 +96,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR,  KC_ESC,   KC_INS,   _______,  _______,  IN_ROW_MAC, KC_DEL, _______,  _______,                      _______,
+        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR,  KC_ESC,   KC_INS,  G(KC_DOWN), G(KC_UP), IN_ROW_MAC, KC_DEL, _______, _______,                      _______,
         _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
         _______,  MC_WSPL,  MC_WSPR, G(KC_SPC), MC_SNAP,  KC_TAB,   BAT_LVL, G(KC_LEFT), KC_PGDN, KC_PGUP,  G(KC_RGHT), MC_GBSP, _______, _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_ESC,   KC_INS,   _______,  _______,  IN_ROW_WIN, KC_DEL, _______,  _______,                      _______,
+        _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_ESC,   KC_INS, C(KC_END), C(KC_HOME), IN_ROW_WIN, KC_DEL, _______, _______,                      _______,
         _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  KC_BSPC,  _______,  _______,  WN_SNAP,  _______,
         _______,  WN_WSPL,  WN_WSPR,  KC_LGUI,  KC_PSCR,  KC_TAB,   BAT_LVL,  KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   WN_GBSP,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
