@@ -260,6 +260,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     set_mods(mods);
                     return false;
                 }
+
                 case WN_GBSP:
                     tap_code16(LSFT(KC_HOME));
                     tap_code(KC_BSPC);
