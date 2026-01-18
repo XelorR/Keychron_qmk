@@ -276,6 +276,9 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*'
     );
 
+COMBO_REF_LAYER(BASE, GAM)
+COMBO_REF_LAYER(RUS, GAM)
+
 // Combo definitions
 enum combos {
     COMBO_ENG,
