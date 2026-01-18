@@ -18,8 +18,8 @@
 #include "keychron_common.h"
 #include "oneshot.h"
 
-#define LA_NAV_W MO(WIN_NAV)
-#define LA_SYM_W MO(WIN_SYM)
+#define LA_NAV_W MO(NAV)
+#define LA_SYM_W MO(SYM)
 
 #define WN_SNAP G(S(KC_S))
 
@@ -32,10 +32,10 @@
 #define MC_GBSP G(KC_BSPC)
 
 enum layers {
-    WIN_BASE,
-    WIN_SYM,
-    WIN_NAV,
-    WIN_MACRO,
+    BASE,
+    SYM,
+    NAV,
+    MACRO,
 };
 
 enum custom_keycodes {
@@ -54,28 +54,28 @@ enum custom_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [WIN_BASE] = LAYOUT_73_jis(
+    [BASE] = LAYOUT_73_jis(
         KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
         KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
         KC_LCTL,  KC_LWIN,  KC_RWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_RSFT,  KC_APP,   UC_HYPR,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [WIN_SYM] = LAYOUT_73_jis(
+    [SYM] = LAYOUT_73_jis(
         KC_TILD,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  _______,  _______,                      KC_INS,
         RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_MINS,            KC_PLUS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   KC_DQUO,  _______,  KC_PSCR,  KC_END,
         _______,  KC_BSLS,  KC_PIPE,  KC_LBRC,  KC_RBRC,  KC_UNDS,  BAT_LVL,  KC_EQL,   KC_LCBR,  KC_RCBR,  KC_QUOT,  KC_QUES,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
-    [WIN_NAV] = LAYOUT_73_jis(
+    [NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   _______, _______,             _______,
         _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  _______,  _______,  WN_SNAP,  _______,
         _______,  WN_WSPL,  WN_WSPR,  KC_LGUI,  KC_PSCR,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_PGUP, IN_ROW_WIN, KC_PGDN, WN_GBSP,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
-    [WIN_MACRO] = LAYOUT_73_jis(
+    [MACRO] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_F23,   KC_F24,                       _______,
         _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_F11,             KC_F12,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  JIGGLE,   _______,
@@ -85,10 +85,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #if defined(ENCODER_MAP_ENABLE)
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [WIN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
-        [WIN_MACRO]  = { ENCODER_CCW_CW(_______, _______)},
+        [BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [NAV]  = { ENCODER_CCW_CW(_______, _______)},
+        [MACRO]  = { ENCODER_CCW_CW(_______, _______)},
     };
 #endif // ENCODER_MAP_ENABLE
 
@@ -210,8 +210,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_MACRO);
-    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_MACRO);
+    state = update_tri_layer_state(state, SYM, NAV, MACRO);
     return state;
 }
 
@@ -226,16 +225,16 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 
 // Combo definitions
 enum combos {
-    COMBO_WIN_ENG,
-    COMBO_WIN_RUS,
+    COMBO_ENG,
+    COMBO_RUS,
     COMBO_GRAVE,
     COMBO_BACKSLASH,
-    COMBO_WIN_UNDO,
-    COMBO_WIN_CUT,
-    COMBO_WIN_COPY,
-    COMBO_WIN_PASTE,
-    COMBO_WIN_REDO,
-    COMBO_WIN_SELECTALL,
+    COMBO_UNDO,
+    COMBO_CUT,
+    COMBO_COPY,
+    COMBO_PASTE,
+    COMBO_REDO,
+    COMBO_SELECTALL,
 };
 
 // Combo positions
@@ -243,43 +242,24 @@ const uint16_t PROGMEM combo_eng[]           = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_rus[]           = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_grave[]         = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM combo_backslash[]     = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_win_undo[]      = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo_win_cut[]       = {KC_X, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_win_copy[]      = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_win_paste[]     = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_win_redo[]      = {KC_Z, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_win_selectall[] = {KC_Z, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_undo[]          = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_cut[]           = {KC_X, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_copy[]          = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_paste[]         = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_redo[]          = {KC_Z, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_selectall[]     = {KC_Z, KC_V, COMBO_END};
 
 // Combo assignments
 combo_t key_combos[] = {
-    [COMBO_WIN_ENG]       = COMBO(combo_eng,           KC_CAPS),
-    [COMBO_WIN_RUS]       = COMBO(combo_rus,           S(KC_CAPS)),
-    [COMBO_GRAVE]         = COMBO(combo_grave,         KC_GRV),
-    [COMBO_BACKSLASH]     = COMBO(combo_backslash,     KC_BSLS),
-    [COMBO_WIN_UNDO]      = COMBO(combo_win_undo,      C(KC_Z)),
-    [COMBO_WIN_CUT]       = COMBO(combo_win_cut,       C(KC_X)),
-    [COMBO_WIN_COPY]      = COMBO(combo_win_copy,      C(KC_C)),
-    [COMBO_WIN_PASTE]     = COMBO(combo_win_paste,     C(KC_V)),
-    [COMBO_WIN_REDO]      = COMBO(combo_win_redo,      C(KC_Y)),
-    [COMBO_WIN_SELECTALL] = COMBO(combo_win_selectall, C(KC_A)),
+    [COMBO_ENG]       = COMBO(combo_eng,           KC_CAPS),
+    [COMBO_RUS]       = COMBO(combo_rus,           S(KC_CAPS)),
+    [COMBO_GRAVE]     = COMBO(combo_grave,         KC_GRV),
+    [COMBO_BACKSLASH] = COMBO(combo_backslash,     KC_BSLS),
+    [COMBO_UNDO]      = COMBO(combo_undo,          C(KC_Z)),
+    [COMBO_CUT]       = COMBO(combo_cut,           C(KC_X)),
+    [COMBO_COPY]      = COMBO(combo_copy,          C(KC_C)),
+    [COMBO_PASTE]     = COMBO(combo_paste,         C(KC_V)),
+    [COMBO_REDO]      = COMBO(combo_redo,          C(KC_Y)),
+    [COMBO_SELECTALL] = COMBO(combo_selectall,     C(KC_A)),
 };
 
-/*
-// Combo restrictions
-bool combo_should_trigger(uint16_t combo_index,
-                          combo_t *combo,
-                          uint16_t keycode,
-                          keyrecord_t *record) {
-    switch (combo_index) {
-        case COMBO_WIN_ENG:
-        case COMBO_WIN_RUS:
-            // if (layer_state_is(_RUS) || layer_state_is(_ENG)) {
-            if (get_highest_layer(default_layer_state) == WIN_BASE) {
-                return true;
-            }
-            return false;
-        default:
-            return true;
-    }
-}
-*/
