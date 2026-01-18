@@ -46,7 +46,6 @@ enum custom_keycodes {
     OS_ALT,
     OS_CMD,
 
-    IN_ROW_MAC,
     IN_ROW_WIN,
 
     WN_GBSP, // windows version of Mac's Cmd-Backspace
