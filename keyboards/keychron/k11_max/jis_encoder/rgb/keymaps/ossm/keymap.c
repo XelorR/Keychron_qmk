@@ -262,38 +262,17 @@ enum combos {
     COMBO_ENG,
     COMBO_RUS,
     COMBO_GRAVE,
-    COMBO_BACKSLASH,
-    COMBO_UNDO,
-    COMBO_CUT,
-    COMBO_COPY,
-    COMBO_PASTE,
-    COMBO_REDO,
-    COMBO_SELECTALL,
 };
 
 // Combo positions
 const uint16_t PROGMEM combo_eng[]           = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_rus[]           = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_grave[]         = {KC_R, KC_T, COMBO_END};
-const uint16_t PROGMEM combo_backslash[]     = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM combo_undo[]          = {KC_Z, KC_X, COMBO_END};
-const uint16_t PROGMEM combo_cut[]           = {KC_X, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_copy[]          = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_paste[]         = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_redo[]          = {KC_Z, KC_C, COMBO_END};
-const uint16_t PROGMEM combo_selectall[]     = {KC_Z, KC_V, COMBO_END};
 
 // Combo assignments
 combo_t key_combos[] = {
     [COMBO_ENG]       = COMBO(combo_eng,           KC_CAPS),
     [COMBO_RUS]       = COMBO(combo_rus,           S(KC_CAPS)),
     [COMBO_GRAVE]     = COMBO(combo_grave,         KC_GRV),
-    [COMBO_BACKSLASH] = COMBO(combo_backslash,     KC_BSLS),
-    [COMBO_UNDO]      = COMBO(combo_undo,          C(KC_Z)),
-    [COMBO_CUT]       = COMBO(combo_cut,           C(KC_X)),
-    [COMBO_COPY]      = COMBO(combo_copy,          C(KC_C)),
-    [COMBO_PASTE]     = COMBO(combo_paste,         C(KC_V)),
-    [COMBO_REDO]      = COMBO(combo_redo,          C(KC_Y)),
-    [COMBO_SELECTALL] = COMBO(combo_selectall,     C(KC_A)),
 };
 
