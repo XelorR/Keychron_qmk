@@ -18,35 +18,23 @@
 #include "keychron_common.h"
 #include "oneshot.h"
 
-#define LA_NAV_M MO(MAC_NAV)
 #define LA_NAV_W MO(WIN_NAV)
-#define LA_SYM_M MO(MAC_SYM)
 #define LA_SYM_W MO(WIN_SYM)
 
 #define WN_SNAP G(S(KC_S))
-#define MC_SNAP G(S(KC_4))
-#define MC_PSCR G(S(KC_3))
 
 #define WN_TABL (C(S(KC_TAB)))
 #define WN_TABR (C(KC_TAB))
-#define MC_TABL G(S(KC_LBRC))
-#define MC_TABR G(S(KC_RBRC))
 #define WN_WSPL G(C(KC_LEFT))
 #define WN_WSPR G(C(KC_RGHT))
-#define MC_WSPL C(KC_LEFT)
-#define MC_WSPR C(KC_RGHT)
 #define UC_HYPR G(C(S(KC_LALT))) // Copylot/Office365 button
 
 #define MC_GBSP G(KC_BSPC)
 
 enum layers {
-    MAC_BASE,
     WIN_BASE,
-    MAC_SYM,
     WIN_SYM,
-    MAC_NAV,
     WIN_NAV,
-    MAC_MACRO,
     WIN_MACRO,
 };
 
@@ -66,12 +54,6 @@ enum custom_keycodes {
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [MAC_BASE] = LAYOUT_73_jis(
-        KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,   KC_MUTE,
-        KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
-        KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
-        KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LOPTN, KC_ROPTN, KC_LCMMD, KC_SPC,   LA_NAV_M,           LA_SYM_M,           KC_RSFT,  KC_RCMMD, KC_RCMMD,           KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [WIN_BASE] = LAYOUT_73_jis(
         KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
@@ -80,13 +62,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
         KC_LCTL,  KC_LWIN,  KC_RWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_RSFT,  KC_APP,   UC_HYPR,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [MAC_SYM] = LAYOUT_73_jis(
-        KC_TILD,  KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  _______,  _______,                      KC_INS,
-        RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_MINS,            KC_PLUS,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  KC_DQUO,  _______,  MC_PSCR,  KC_END,
-        _______,  KC_BSLS,  KC_PIPE,  KC_LBRC,  KC_RBRC,  KC_UNDS,  BAT_LVL,  KC_EQL,   KC_LCBR,  KC_RCBR,  KC_QUOT,  KC_QUES,  _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
-
     [WIN_SYM] = LAYOUT_73_jis(
         KC_TILD,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  _______,  _______,                      KC_INS,
@@ -94,25 +69,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  KC_BSLS,  KC_PIPE,  KC_LBRC,  KC_RBRC,  KC_UNDS,  BAT_LVL,  KC_EQL,   KC_LCBR,  KC_RCBR,  KC_QUOT,  KC_QUES,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
-    [MAC_NAV] = LAYOUT_73_jis(
-        KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_BSPC,  MC_TABL,  KC_TAB,   MC_TABR,  KC_ESC,             KC_ESC, G(KC_LEFT), KC_UP,  G(KC_RGHT), KC_DEL,   _______,  _______,            _______,
-        _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  _______,  _______,  MC_PSCR,  _______,
-        _______,  MC_WSPL,  MC_WSPR, G(KC_SPC), MC_SNAP,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_PGUP, IN_ROW_MAC, KC_PGDN, MC_GBSP,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
-
     [WIN_NAV] = LAYOUT_73_jis(
         KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   _______, _______,             _______,
         _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  _______,  _______,  WN_SNAP,  _______,
         _______,  WN_WSPL,  WN_WSPR,  KC_LGUI,  KC_PSCR,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_PGUP, IN_ROW_WIN, KC_PGDN, WN_GBSP,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
-
-    [MAC_MACRO] = LAYOUT_73_jis(
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-        _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_F23,   KC_F24,                       _______,
-        _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_F11,             KC_F12,   OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  JIGGLE,   _______,
-        _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    BAT_LVL,  KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [WIN_MACRO] = LAYOUT_73_jis(
@@ -125,21 +86,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #if defined(ENCODER_MAP_ENABLE)
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [MAC_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [MAC_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [MAC_NAV]  = { ENCODER_CCW_CW(_______, _______)},
         [WIN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
-        [MAC_MACRO]  = { ENCODER_CCW_CW(_______, _______)},
         [WIN_MACRO]  = { ENCODER_CCW_CW(_______, _______)},
     };
 #endif // ENCODER_MAP_ENABLE
 
 bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
-    case LA_SYM_M:
-    case LA_NAV_M:
     case LA_SYM_W:
     case LA_NAV_W:
         return true;
@@ -150,8 +105,6 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
 
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
-    case LA_SYM_M:
-    case LA_NAV_M:
     case LA_SYM_W:
     case LA_NAV_W:
     case KC_LSFT:
@@ -236,24 +189,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     }
                     // with shift - insert row above
                     tap_code(KC_HOME);
-                    tap_code16(LSFT(KC_ENT));
-                    tap_code(KC_UP);
-                    //
-                    set_mods(mods);
-                    return false;
-                }
-
-                case IN_ROW_MAC: {
-                    uint8_t mods = get_mods();
-                    bool shift_held = mods & MOD_MASK_SHIFT;
-                    clear_mods();
-                    // insert row below
-                    if (!shift_held) {
-                        tap_code16(LGUI(KC_RGHT));
-                        tap_code16(LSFT(KC_ENT));
-                    }
-                    // with shift - insert row above
-                    tap_code16(LGUI(KC_LEFT));
                     tap_code16(LSFT(KC_ENT));
                     tap_code(KC_UP);
                     //
