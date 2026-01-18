@@ -53,6 +53,10 @@ enum custom_keycodes {
     OS_ALT,
     OS_CMD,
 
+    SWITCH_US,
+    SWITCH_RU,
+    SWITCH_GAM,
+
     IN_ROW_WIN,
 
     WN_GBSP, // windows version of Mac's Cmd-Backspace
@@ -228,6 +232,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     return false;
                 }
 
+                case SWITCH_US:
+                    tap_code16(LG_US);
+                    tap_code16(DF(BASE));
+                    return false;
+
+                case SWITCH_RU:
+                    tap_code16(LG_RU);
+                    tap_code16(DF(RUS));
+                    return false;
+
+                case SWITCH_GAM:
+                    tap_code16(LG_US);
+                    tap_code16(DF(GAM));
+                    return false;
+
                 case WN_GBSP:
                     tap_code16(LSFT(KC_HOME));
                     tap_code(KC_BSPC);
@@ -261,18 +280,21 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
 enum combos {
     COMBO_ENG,
     COMBO_RUS,
+    COMBO_GAM,
     COMBO_GRAVE,
 };
 
 // Combo positions
 const uint16_t PROGMEM combo_eng[]           = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_rus[]           = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_gam[]           = {KC_U, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_grave[]         = {KC_R, KC_T, COMBO_END};
 
 // Combo assignments
 combo_t key_combos[] = {
-    [COMBO_ENG]       = COMBO(combo_eng,           KC_CAPS),
-    [COMBO_RUS]       = COMBO(combo_rus,           S(KC_CAPS)),
+    [COMBO_ENG]       = COMBO(combo_eng,           SWITCH_US),
+    [COMBO_RUS]       = COMBO(combo_rus,           SWITCH_RU),
+    [COMBO_GAM]       = COMBO(combo_gam,           SWITCH_GAM),
     [COMBO_GRAVE]     = COMBO(combo_grave,         KC_GRV),
 };
 
