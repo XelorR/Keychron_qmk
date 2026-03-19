@@ -18,14 +18,8 @@
 #include "keychron_common.h"
 #include "oneshot.h"
 
-#define LG_US KC_CAPS
-#define LG_RU S(KC_CAPS)
-
-#define LA_NAV_W MO(NAV)
-#define LA_SYM_W MO(SYM)
-#define LA_SYM_R MO(SYM_RU)
-
-#define WN_SNAP G(S(KC_S))
+#define LA_NAV_W MO(WIN_FN1)
+#define LA_NAV_M MO(MAC_FN1)
 
 #define WN_TABL (C(S(KC_TAB)))
 #define WN_TABR (C(KC_TAB))
@@ -36,13 +30,11 @@
 #define MC_GBSP G(KC_BSPC)
 
 enum layers {
-    BASE,
-    RUS,
-    GAM,
-    SYM,
-    SYM_RU,
-    NAV,
-    NUM,
+    MAC_BASE,
+    WIN_BASE,
+    MAC_FN1,
+    WIN_FN1,
+    FN2,
 };
 
 enum custom_keycodes {
@@ -53,84 +45,60 @@ enum custom_keycodes {
     OS_ALT,
     OS_CMD,
 
-    SWITCH_US,
-    SWITCH_RU,
-    SWITCH_GAM,
-
-    IN_ROW_WIN,
-
     WN_GBSP, // windows version of Mac's Cmd-Backspace
 };
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-
-    [BASE] = LAYOUT_73_jis(
-        KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
-        KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_QUOT,  KC_MINS,  KC_EQL,                       KC_DEL,
-        KC_CAPS,  KC_A,     KC_R,     KC_S,     KC_T,     KC_G,               KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     KC_BSLS,  KC_ENT,   KC_ENT,   KC_HOME,
-        KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,     KC_B,     KC_K,     KC_H,     KC_LBRC,  KC_RBRC,  KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_RWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_RSFT,  KC_APP,   UC_HYPR,            KC_LEFT,  KC_DOWN,  KC_RGHT),
-
-    [RUS] = LAYOUT_73_jis(
-        KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
-        KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_MINS,  KC_EQL,                       KC_DEL,
-        KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
-        KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_LBRC,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_RWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_R,           KC_RSFT,  KC_APP,   UC_HYPR,            KC_LEFT,  KC_DOWN,  KC_RGHT),
-
-    [GAM] = LAYOUT_73_jis(
-        KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
+    [MAC_BASE] = LAYOUT_73_jis(
+        KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_INT3,  KC_BSPC,   KC_MUTE,
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
-        KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
-        KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,  KC_LWIN,  KC_RWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_RSFT,  KC_APP,   UC_HYPR,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
+        KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INT1,  KC_RSFT,  KC_UP,
+        KC_LCTL,  KC_LOPTN, KC_LCMMD, KC_LNG2,  KC_SPC,             LA_NAV_M, MO(FN2),            KC_SPC,   KC_LNG1,  KC_RCMMD,           KC_LEFT,  KC_DOWN,  KC_RGHT),
 
-    [SYM] = LAYOUT_73_jis(
-        KC_TILD,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  _______,  _______,                      KC_INS,
-        RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_MINS,            KC_PLUS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   KC_DQUO,  _______,  KC_PSCR,  KC_END,
-        _______,  KC_BSLS,  KC_PIPE,  KC_LBRC,  KC_RBRC,  KC_UNDS,  BAT_LVL,  KC_EQL,   KC_LCBR,  KC_RCBR,  KC_QUOT,  KC_QUES,  _______,  _______,  KC_PGUP,
+    [WIN_BASE] = LAYOUT_73_jis(
+        KC_ESC,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,  KC_EQL,   KC_INT3,  KC_BSPC,  KC_MUTE,
+        KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_LBRC,  KC_RBRC,                      KC_DEL,
+        KC_CAPS,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,               KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,  KC_BSLS,  KC_ENT,   KC_HOME,
+        KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_INT1,  KC_RSFT,  KC_UP,
+        KC_LCTL,  KC_LWIN,  KC_LALT,  KC_INT5,  KC_SPC,             LA_NAV_W, MO(FN2),            KC_SPC,   KC_INT4,  KC_RALT,            KC_LEFT,  KC_DOWN,  KC_RGHT),
+
+    [MAC_FN1] = LAYOUT_73_jis(
+        KC_GRV,   KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, UG_VALD,  UG_VALU,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  UG_TOGG,
+        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
+        UG_TOGG,  UG_NEXT,  UG_VALU,  UG_HUEU,  UG_SATU,  UG_SPDU,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_END,
+        _______,  UG_PREV,  UG_VALD,  UG_HUED,  UG_SATD,  UG_SPDD,  _______,  NK_TOGG,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
-    [SYM_RU] = LAYOUT_73_jis(
-        KC_TILD,  KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  _______,  _______,                      KC_INS,
-        RGB_TOG,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_MINS,            KC_PLUS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   KC_DQUO,  _______,  KC_PSCR,  KC_END,
-        _______,  KC_BSLS,  KC_PIPE,  KC_LBRC,  KC_RBRC,  KC_UNDS,  BAT_LVL,  KC_EQL,   KC_LCBR,  KC_RCBR,  KC_QUOT,  KC_QUES,  _______,  _______,  KC_PGUP,
+    [WIN_FN1] = LAYOUT_73_jis(
+        KC_GRV,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_FILE,  UG_VALD,  UG_VALU,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  UG_TOGG,
+        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      KC_INS,
+        UG_TOGG,  UG_NEXT,  UG_VALU,  UG_HUEU,  UG_SATU,  UG_SPDU,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_END,
+        _______,  UG_PREV,  UG_VALD,  UG_HUED,  UG_SATD,  UG_SPDD,  _______,  NK_TOGG,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
-    [NAV] = LAYOUT_73_jis(
-        KC_GRV,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        _______,  KC_DEL,   WN_TABL,  KC_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_DEL,   _______, _______,             _______,
-        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_BSPC,  _______,  _______,  WN_SNAP,  _______,
-        _______,  WN_WSPL,  WN_WSPR,  KC_LGUI,  KC_PSCR,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_PGUP, IN_ROW_WIN, KC_PGDN, WN_GBSP,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
-
-    [NUM] = LAYOUT_73_jis(
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-        _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_F23,   KC_F24,                       _______,
-        _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_F11,             KC_F12,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  JIGGLE,   _______,
-        _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    BAT_LVL,  KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   _______,  _______,  _______,
+    [FN2] = LAYOUT_73_jis(
+        KC_TILD,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,                      _______,
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  BAT_LVL,  BAT_LVL,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______)
 };
 
 #if defined(ENCODER_MAP_ENABLE)
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-        [BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [RUS] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [GAM] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [SYM_RU]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [NAV]  = { ENCODER_CCW_CW(_______, _______)},
-        [NUM]  = { ENCODER_CCW_CW(_______, _______)},
+        [MAC_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
+        [MAC_FN1]  = { ENCODER_CCW_CW(UG_VALD, UG_VALU)},
+        [WIN_FN1]  = { ENCODER_CCW_CW(UG_VALD, UG_VALU)},
+        [FN2]      = { ENCODER_CCW_CW(_______, _______)},
     };
 #endif // ENCODER_MAP_ENABLE
 
 bool is_oneshot_cancel_key(uint16_t keycode) {
     switch (keycode) {
-    case LA_SYM_W:
-    case LA_SYM_R:
+    case LA_NAV_M:
     case LA_NAV_W:
         return true;
     default:
@@ -140,8 +108,7 @@ bool is_oneshot_cancel_key(uint16_t keycode) {
 
 bool is_oneshot_ignored_key(uint16_t keycode) {
     switch (keycode) {
-    case LA_SYM_W:
-    case LA_SYM_R:
+    case LA_NAV_M:
     case LA_NAV_W:
     case KC_LSFT:
     case KC_RSFT:
@@ -232,21 +199,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     return false;
                 }
 
-                case SWITCH_US:
-                    tap_code16(LG_US);
-                    tap_code16(DF(BASE));
-                    return false;
-
-                case SWITCH_RU:
-                    tap_code16(LG_RU);
-                    tap_code16(DF(RUS));
-                    return false;
-
-                case SWITCH_GAM:
-                    tap_code16(LG_US);
-                    tap_code16(DF(GAM));
-                    return false;
-
                 case WN_GBSP:
                     tap_code16(LSFT(KC_HOME));
                     tap_code(KC_BSPC);
@@ -261,43 +213,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state, SYM, NAV, NUM);
-    state = update_tri_layer_state(state, SYM_RU, NAV, NUM);
-    return state;
-}
-
-const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
-    LAYOUT_73_jis(
-        '*',  '*',  '*',  '*',  '*',  '*',     '*',     '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',
-        '*',  'L',  'L',  'L',  'L',  'L',              'R',  'R',  'R',  'R',  'R',  'R',  'R',  '*',
-        '*',  'L',  'L',  'L',  'L',  'L',              'R',  'R',  'R',  'R',  'R',  'R',  '*',  '*',  '*',
-        '*',  'L',  'L',  'L',  'L',  'L',     '*',     'R',  'R',  'R',  'R',  'R',  '*',  '*',  '*',
-        '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*'
-    );
-
-COMBO_REF_LAYER(BASE, GAM)
-COMBO_REF_LAYER(RUS, GAM)
-
-// Combo definitions
-enum combos {
-    COMBO_ENG,
-    COMBO_RUS,
-    COMBO_GAM,
-    COMBO_GRAVE,
-};
-
-// Combo positions
-const uint16_t PROGMEM combo_eng[]           = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_rus[]           = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_gam[]           = {KC_U, KC_O, COMBO_END};
-const uint16_t PROGMEM combo_grave[]         = {KC_R, KC_T, COMBO_END};
-
-// Combo assignments
-combo_t key_combos[] = {
-    [COMBO_ENG]       = COMBO(combo_eng,           SWITCH_US),
-    [COMBO_RUS]       = COMBO(combo_rus,           SWITCH_RU),
-    [COMBO_GAM]       = COMBO(combo_gam,           SWITCH_GAM),
-    [COMBO_GRAVE]     = COMBO(combo_grave,         KC_GRV),
-};
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//     state = update_tri_layer_state(state, SYM, NAV, NUM);
+//     state = update_tri_layer_state(state, SYM_RU, NAV, NUM);
+//     return state;
+// }
+//
+// const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+//     LAYOUT_73_jis(
+//         '*',  '*',  '*',  '*',  '*',  '*',     '*',     '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',
+//         '*',  'L',  'L',  'L',  'L',  'L',              'R',  'R',  'R',  'R',  'R',  'R',  'R',  '*',
+//         '*',  'L',  'L',  'L',  'L',  'L',              'R',  'R',  'R',  'R',  'R',  'R',  '*',  '*',  '*',
+//         '*',  'L',  'L',  'L',  'L',  'L',     '*',     'R',  'R',  'R',  'R',  'R',  '*',  '*',  '*',
+//         '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*',  '*'
+//     );
+//
+// COMBO_REF_LAYER(BASE, GAM)
+// COMBO_REF_LAYER(RUS, GAM)
+//
+// // Combo definitions
+// enum combos {
+//     COMBO_ENG,
+//     COMBO_RUS,
+//     COMBO_GAM,
+//     COMBO_GRAVE,
+// };
+//
+// // Combo positions
+// const uint16_t PROGMEM combo_eng[]           = {KC_E, KC_R, COMBO_END};
+// const uint16_t PROGMEM combo_rus[]           = {KC_U, KC_I, COMBO_END};
+// const uint16_t PROGMEM combo_gam[]           = {KC_U, KC_O, COMBO_END};
+// const uint16_t PROGMEM combo_grave[]         = {KC_R, KC_T, COMBO_END};
+//
+// // Combo assignments
+// combo_t key_combos[] = {
+//     [COMBO_ENG]       = COMBO(combo_eng,           SWITCH_US),
+//     [COMBO_RUS]       = COMBO(combo_rus,           SWITCH_RU),
+//     [COMBO_GAM]       = COMBO(combo_gam,           SWITCH_GAM),
+//     [COMBO_GRAVE]     = COMBO(combo_grave,         KC_GRV),
+// };
 
