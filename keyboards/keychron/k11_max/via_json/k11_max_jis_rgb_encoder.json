@@ -86,10 +86,6 @@
     {"name": "OS_CTRL", "title": "OSSM Control", "shortName": "CTRL"},
     {"name": "OS_ALT", "title": "OSSM Option", "shortName": "ALT"},
     {"name": "OS_CMD", "title": "OSSM Command", "shortName": "CMD"},
-    {"name": "Switch to US", "title": "Switch to US", "shortName": "US"},
-    {"name": "Switch to RU", "title": "Switch to RU", "shortName": "RU"},
-    {"name": "Switch to GAM", "title": "Switch to GAM", "shortName": "GAM"},
-    {"name": "Insert row, Win", "title": "Insert row, Win", "shortName": "+rowW"},
     {"name": "Cmd-Backspace Win", "title": "Windows version of Mac's Cmd-Backspace", "shortName": "GBSP"}
   ],
   "matrix": {"rows": 5, "cols": 16},
