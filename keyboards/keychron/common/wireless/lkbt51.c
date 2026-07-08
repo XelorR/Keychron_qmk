@@ -624,7 +624,6 @@ void lkbt51_write_customize_data(uint8_t* data, uint8_t len) {
 }
 #ifdef RAW_ENABLE
 void lkbt51_dfu_tx(uint8_t rsp, uint8_t* data, uint8_t len, uint8_t sn) {
-    uint16_t checksum = 0;
     uint8_t buf[RAW_EPSIZE] = {0};
     uint8_t i               = 0;
 
@@ -637,9 +636,6 @@ void lkbt51_dfu_tx(uint8_t rsp, uint8_t* data, uint8_t len, uint8_t sn) {
     buf[i++] = rsp;
     memcpy(&buf[i], data, len);
     i += len;
-
-    for (uint8_t k = 0; k < i; k++)
-        checksum += buf[i];
 
     raw_hid_send(buf, RAW_EPSIZE);
 
