@@ -128,8 +128,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [MAC_NAV]  = { ENCODER_CCW_CW(_______, _______)},
         [WIN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
-        [MAC_MACRO]  = { ENCODER_CCW_CW(_______, _______)},
-        [WIN_MACRO]  = { ENCODER_CCW_CW(_______, _______)},
+        [MAC_NUM]  = { ENCODER_CCW_CW(_______, _______)},
+        [WIN_NUM]  = { ENCODER_CCW_CW(_______, _______)},
     };
 #endif // ENCODER_MAP_ENABLE
 
@@ -223,7 +223,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_MACRO);
-    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_MACRO);
+    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_NUM);
+    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_NUM);
     return state;
 }
