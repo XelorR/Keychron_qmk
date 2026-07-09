@@ -40,7 +40,17 @@
 #define MC_EMOJ G(C(KC_SPC))
 #define WN_EMOJ G(KC_DOT)
 
-#define MC_GBSP G(KC_BSPC)
+#define MC_UNDO G(KC_Z)
+#define MC_CUT G(KC_X)
+#define MC_COPY G(KC_C)
+#define MC_PAST G(KC_V)
+#define MC_REDO G(S(KC_Z))
+
+#define WN_UNDO C(KC_Z)
+#define WN_CUT C(KC_X)
+#define WN_COPY C(KC_C)
+#define WN_PAST C(KC_V)
+#define WN_REDO C(KC_Y)
 
 enum layers {
     MAC_BASE,
@@ -61,8 +71,8 @@ enum custom_keycodes {
     OS_ALT,
     OS_CMD,
 
-    MC_TAB,
-    WN_TAB,
+    MC_TAB, // Cmd-Tab for Mac
+    WN_TAB, // Alt-Tab for Win
 };
 
 // clang-format off
@@ -99,14 +109,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         KC_I,     KC_BSPC,  MC_TABL,  MC_TAB,   MC_TABR,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
         MC_SNAP,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  MC_PSCR,  _______,
-        _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL, KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   MC_EMOJ,  _______,  _______,  KC_PGUP,
+        _______,  MC_UNDO,  MC_CUT,   MC_COPY,  MC_PAST,  MC_REDO,  BAT_LVL,  KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   MC_EMOJ,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         KC_I,     KC_DEL,   WN_TABL,  WN_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
         WN_SNAP,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  KC_PSCR,  _______,
-        _______,  C(KC_Z),  C(KC_X),  C(KC_C),  C(KC_V),  C(KC_Y),  BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   WN_EMOJ,  _______,  _______,  KC_PGUP,
+        _______,  WN_UNDO,  WN_CUT,   WN_COPY,  WN_PAST,  WN_REDO,  BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   WN_EMOJ,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
 
     [MAC_NUM] = LAYOUT_73_jis(
