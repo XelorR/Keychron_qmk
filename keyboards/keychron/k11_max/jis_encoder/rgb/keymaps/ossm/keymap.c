@@ -61,8 +61,8 @@ enum custom_keycodes {
     OS_ALT,
     OS_CMD,
 
-    MAC_TABBER,
-    WIN_TABBER,
+    MC_TAB,
+    WN_TAB,
 };
 
 // clang-format off
@@ -97,14 +97,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        KC_I,     KC_BSPC,  MC_TABL, MAC_TABBER, MC_TABR, KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
+        KC_I,     KC_BSPC,  MC_TABL,  MC_TAB,   MC_TABR,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
         MC_SNAP,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  MC_PSCR,  _______,
         _______,  G(KC_Z),  G(KC_X),  G(KC_C),  G(KC_V), G(S(KC_Z)), BAT_LVL, KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   MC_EMOJ,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
-        KC_I,     KC_DEL,   WN_TABL, WIN_TABBER, WN_TABR, KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
+        KC_I,     KC_DEL,   WN_TABL,  WN_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
         WN_SNAP,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  KC_PSCR,  _______,
         _______,  C(KC_Z),  C(KC_X),  C(KC_C),  C(KC_V),  C(KC_Y),  BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   WN_EMOJ,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
@@ -178,11 +178,11 @@ bool win_tabber_active = false;
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     update_swapper(
-        &mac_tabber_active, KC_LWIN, KC_TAB, MAC_TABBER, OS_SHFT,
+        &mac_tabber_active, KC_LWIN, KC_TAB, MC_TAB, OS_SHFT,
         keycode, record
     );
     update_swapper(
-        &win_tabber_active, KC_LALT, KC_TAB, WIN_TABBER, OS_SHFT,
+        &win_tabber_active, KC_LALT, KC_TAB, WN_TAB, OS_SHFT,
         keycode, record
     );
 
