@@ -95,14 +95,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_EXLM,  KC_LT,    KC_EQL,   KC_GT,    KC_ESC,             KC_ESC,   KC_LBRC,  KC_UNDS,  KC_RBRC,  _______,  _______,  _______,            KC_INS,
         RGB_TOG,  KC_BSLS,  KC_LPRN,  KC_MINS,  KC_RPRN,  KC_PLUS,            KC_PERC,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  KC_PSCR,  KC_END,
-        _______,  KC_ASTR,  KC_COLN,  KC_SLSH,  KC_HASH,  _______,  _______,  _______,  KC_PIPE,  KC_TILD,  KC_AMPR,  _______,  _______,  _______,  KC_PGUP,
+        _______,  KC_HASH,  KC_ASTR,  KC_COLN,  KC_SLSH,  _______,  _______,  _______,  KC_PIPE,  KC_TILD,  KC_AMPR,  _______,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
         KC_ESC,   BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_EXLM,  KC_LT,    KC_EQL,   KC_GT,    KC_ESC,             KC_ESC,   KC_LBRC,  KC_UNDS,  KC_RBRC,  _______,  _______,  _______,            KC_INS,
         RGB_TOG,  KC_BSLS,  KC_LPRN,  KC_MINS,  KC_RPRN,  KC_PLUS,            KC_PERC,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  KC_PSCR,  KC_END,
-        _______,  KC_ASTR,  KC_COLN,  KC_SLSH,  KC_HASH,  _______,  _______,  _______,  KC_PIPE,  KC_TILD,  KC_AMPR,  _______,  _______,  _______,  KC_PGUP,
+        _______,  KC_HASH,  KC_ASTR,  KC_COLN,  KC_SLSH,  _______,  _______,  _______,  KC_PIPE,  KC_TILD,  KC_AMPR,  _______,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
