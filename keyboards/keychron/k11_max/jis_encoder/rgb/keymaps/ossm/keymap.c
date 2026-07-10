@@ -73,6 +73,17 @@ enum custom_keycodes {
 
     MC_TAB, // Cmd-Tab for Mac
     WN_TAB, // Alt-Tab for Win
+
+    EN_EXLM,
+    EN_AT,
+    EN_HASH,
+    EN_DLR,
+    EN_PERC,
+    EN_CIRC,
+    EN_AMPR,
+    EN_ASTR,
+    EN_LPRN,
+    EN_RPRN,
 };
 
 // clang-format off
@@ -92,14 +103,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,  KC_LCTL,  KC_LWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_RSFT,  KC_RALT,  KC_RCTL,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [MAC_SYM] = LAYOUT_73_jis(
-        KC_NUM,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
+        KC_NUM,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_PSLS,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_PMNS,            KC_VOLU,  KC_GRV,   KC_QUOT,  KC_MINS,  KC_EQL,   _______,  _______,            KC_INS,
         RGB_TOG,  KC_PAST,  KC_KP_4,  KC_KP_5,  KC_KP_6,  KC_PPLS,            KC_VOLD,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  KC_PSCR,  KC_END,
         _______,  KC_KP_0,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_PDOT,  _______,  KC_MUTE,  KC_BSLS,  MC_LANG,  KC_LBRC,  KC_RBRC,  _______,  _______,  KC_PGUP,
         BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
-        KC_NUM,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
+        KC_NUM,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_PSLS,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_PMNS,            KC_VOLU,  KC_GRV,   KC_QUOT,  KC_MINS,  KC_EQL,   _______,  _______,            KC_INS,
         RGB_TOG,  KC_PAST,  KC_KP_4,  KC_KP_5,  KC_KP_6,  KC_PPLS,            KC_VOLD,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  KC_PSCR,  KC_END,
         _______,  KC_KP_0,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_PDOT,  _______,  KC_MUTE,  KC_BSLS,  WN_LANG,  KC_LBRC,  KC_RBRC,  _______,  _______,  KC_PGUP,
@@ -185,6 +196,57 @@ oneshot_state os_cmd_state = os_up_unqueued;
 bool mac_tabber_active = false;
 bool win_tabber_active = false;
 
+static bool process_english_shifted_symbol(uint16_t keycode, keyrecord_t *record) {
+    uint16_t symbol_keycode;
+
+    switch (keycode) {
+        case EN_EXLM:
+            symbol_keycode = KC_EXLM;
+            break;
+        case EN_AT:
+            symbol_keycode = KC_AT;
+            break;
+        case EN_HASH:
+            symbol_keycode = KC_HASH;
+            break;
+        case EN_DLR:
+            symbol_keycode = KC_DLR;
+            break;
+        case EN_PERC:
+            symbol_keycode = KC_PERC;
+            break;
+        case EN_CIRC:
+            symbol_keycode = KC_CIRC;
+            break;
+        case EN_AMPR:
+            symbol_keycode = KC_AMPR;
+            break;
+        case EN_ASTR:
+            symbol_keycode = KC_ASTR;
+            break;
+        case EN_LPRN:
+            symbol_keycode = KC_LPRN;
+            break;
+        case EN_RPRN:
+            symbol_keycode = KC_RPRN;
+            break;
+        default:
+            return true;
+    }
+
+    if (record->event.pressed) {
+        const uint16_t lang_keycode = layer_state_is(WIN_SYM) ? WN_LANG : MC_LANG;
+
+        tap_code16(lang_keycode);
+        wait_ms(50);
+        tap_code16(symbol_keycode);
+        wait_ms(50);
+        tap_code16(lang_keycode);
+    }
+
+    return false;
+}
+
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     update_swapper(
@@ -245,7 +307,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         token = defer_exec(1, jiggler_callback, NULL);  // Schedule callback.
     }
   }
-    return true;
+
+    return process_english_shifted_symbol(keycode, record);
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
