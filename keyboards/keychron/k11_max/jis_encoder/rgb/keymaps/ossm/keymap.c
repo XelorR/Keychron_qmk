@@ -92,18 +92,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,  KC_LCTL,  KC_LWIN,  KC_LALT,  KC_SPC,   LA_NAV_W,           LA_SYM_W,           KC_RSFT,  KC_RALT,  KC_RCTL,            KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [MAC_SYM] = LAYOUT_73_jis(
-        KC_NUM,   BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
+        KC_NUM,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_PSLS,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_PMNS,            KC_VOLU,  KC_GRV,   KC_QUOT,  KC_MINS,  KC_EQL,   _______,  _______,            KC_INS,
         RGB_TOG,  KC_PAST,  KC_KP_4,  KC_KP_5,  KC_KP_6,  KC_PPLS,            KC_VOLD,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  KC_PSCR,  KC_END,
         _______,  KC_KP_0,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_PDOT,  _______,  KC_MUTE,  KC_BSLS,  MC_LANG,  KC_LBRC,  KC_RBRC,  _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
+        BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
-        KC_NUM,   BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
+        KC_NUM,   KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_PSLS,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_PMNS,            KC_VOLU,  KC_GRV,   KC_QUOT,  KC_MINS,  KC_EQL,   _______,  _______,            KC_INS,
         RGB_TOG,  KC_PAST,  KC_KP_4,  KC_KP_5,  KC_KP_6,  KC_PPLS,            KC_VOLD,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  KC_PSCR,  KC_END,
         _______,  KC_KP_0,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_PDOT,  _______,  KC_MUTE,  KC_BSLS,  WN_LANG,  KC_LBRC,  KC_RBRC,  _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
+        BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
