@@ -39,18 +39,6 @@
 #define MC_EMOJ G(C(KC_SPC))
 #define WN_EMOJ G(KC_DOT)
 
-#define MC_UNDO G(KC_Z)
-#define MC_CUT G(KC_X)
-#define MC_COPY G(KC_C)
-#define MC_PAST G(KC_V)
-#define MC_REDO G(S(KC_Z))
-
-#define WN_UNDO C(KC_Z)
-#define WN_CUT C(KC_X)
-#define WN_COPY C(KC_C)
-#define WN_PAST C(KC_V)
-#define WN_REDO C(KC_Y)
-
 enum layers {
     MAC_BASE,
     WIN_BASE,
