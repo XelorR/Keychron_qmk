@@ -36,7 +36,6 @@
 #define WN_TABR C(KC_PGDN)
 #define MC_TABL G(S(KC_LBRC))
 #define MC_TABR G(S(KC_RBRC))
-#define UC_HYPR G(C(S(KC_LALT))) // Copylot/Office365 button
 #define MC_EMOJ G(C(KC_SPC))
 #define WN_EMOJ G(KC_DOT)
 
