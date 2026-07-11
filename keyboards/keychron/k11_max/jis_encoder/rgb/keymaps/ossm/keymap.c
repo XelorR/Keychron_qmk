@@ -96,29 +96,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
-        RGB_TOG,  KC_QUOT,  KC_RBRC,  KC_LBRC,  KC_GRV,   KC_MUTE,            KC_VOLU,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
-        _______,  KC_NUBS,  KC_BSLS,  KC_EQL,   KC_MINS,  KC_MPLY,  BAT_LVL,  KC_VOLD,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  KC_PGUP,
+        RGB_TOG,  KC_QUOT,  KC_GRV,   KC_LBRC,  KC_RBRC,  KC_MUTE,            KC_VOLU,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
+        _______,  KC_BSLS,  KC_MINS,  KC_EQL,   MC_EMOJ,  KC_MPLY,  BAT_LVL,  KC_VOLD,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
-        RGB_TOG,  KC_QUOT,  KC_RBRC,  KC_LBRC,  KC_GRV,   KC_MUTE,            KC_VOLU,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
-        _______,  KC_NUBS,  KC_BSLS,  KC_EQL,   KC_MINS,  KC_MPLY,  BAT_LVL,  KC_VOLD,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  KC_PGUP,
+        RGB_TOG,  KC_QUOT,  KC_GRV,   KC_LBRC,  KC_RBRC,  KC_MUTE,            KC_VOLU,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
+        _______,  KC_BSLS,  KC_MINS,  KC_EQL,   WN_EMOJ,  KC_MPLY,  BAT_LVL,  KC_VOLD,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         KC_I,     KC_BSPC,  MC_TABL,  MC_TAB,   MC_TABR,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
-        KC_J,     KC_INS,   MC_PSCR,  JIGGLE,   MC_SNAP,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   MC_EMOJ,  _______,  _______,  KC_PGUP,
+        KC_J,     JIGGLE,   KC_WBAK,  MC_PSCR,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         KC_I,     KC_DEL,   WN_TABL,  WN_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
-        KC_J,     KC_INS,   KC_PSCR,  JIGGLE,   WN_SNAP,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   WN_EMOJ,  _______,  _______,  KC_PGUP,
+        KC_J,     JIGGLE,   KC_WBAK,  KC_PSCR,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
 
     [MAC_NUM] = LAYOUT_73_jis(
