@@ -80,6 +80,9 @@ enum custom_keycodes {
     EN_QUOT,
     EN_PIPE,
     EN_GRV,
+
+    NAV_ENC_CCW, // 5x backspace
+    NAV_ENC_CW,  // 5x minus
 };
 
 // clang-format off
@@ -162,8 +165,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [MAC_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [EN_SYM]  = { ENCODER_CCW_CW(_______, _______)},
-        [MAC_NAV]  = { ENCODER_CCW_CW(_______, _______)},
-        [WIN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
+        [MAC_NAV] = { ENCODER_CCW_CW(NAV_ENC_CCW, NAV_ENC_CW)},
+        [WIN_NAV] = { ENCODER_CCW_CW(NAV_ENC_CCW, NAV_ENC_CW)},
         [MOUSE]  = { ENCODER_CCW_CW(_______, _______)},
         [MAC_NUM]  = { ENCODER_CCW_CW(_______, _______)},
         [WIN_NUM]  = { ENCODER_CCW_CW(_______, _______)},
@@ -334,6 +337,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         token = defer_exec(1, jiggler_callback, NULL);  // Schedule callback.
     }
   }
+
+    if (record->event.pressed) {
+        switch (keycode) {
+            case NAV_ENC_CCW:
+                for (uint8_t i = 0; i < 5; i++) {
+                    tap_code(KC_BSPC);
+                }
+                return false;
+            case NAV_ENC_CW:
+                for (uint8_t i = 0; i < 5; i++) {
+                    tap_code(KC_MINS);
+                }
+                return false;
+        }
+    }
 
     return process_english_shifted_symbol(keycode, record);
 }
