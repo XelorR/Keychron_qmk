@@ -44,6 +44,7 @@ enum layers {
     WIN_BASE,
     MAC_SYM,
     WIN_SYM,
+    EN_SYM,
     MAC_NAV,
     WIN_NAV,
     MOUSE,
@@ -76,6 +77,7 @@ enum custom_keycodes {
     EN_RBRC,
     EN_QUOT,
     EN_PIPE,
+    EN_GRV,
 };
 
 // clang-format off
@@ -99,28 +101,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
         RGB_TOG,  KC_GRV,   KC_QUOT,  KC_LBRC,  KC_RBRC,  KC_MUTE,            KC_VOLU,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
         _______,  MC_EMOJ,  KC_BSLS,  KC_MINS,  KC_EQL,   KC_MPLY,  BAT_LVL,  KC_VOLD,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
+        _______,  _______,  _______,  _______,  _______,            _______,  _______,         MO(EN_SYM),  _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  RGB_TOG,
         _______,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
         RGB_TOG,  KC_GRV,   KC_QUOT,  KC_LBRC,  KC_RBRC,  KC_MUTE,            KC_VOLU,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
         _______,  WN_EMOJ,  KC_BSLS,  KC_MINS,  KC_EQL,   KC_MPLY,  BAT_LVL,  KC_VOLD,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  KC_PGDN,  _______),
+        _______,  _______,  _______,  _______,  _______,            _______,  _______,          MO(EN_SYM),  _______,  _______,            _______,  KC_PGDN,  _______),
+
+    [EN_SYM] = LAYOUT_73_jis(
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  _______,  _______,            _______,
+        _______,  EN_GRV,   EN_QUOT,  EN_LBRC,  EN_RBRC,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  EN_PIPE,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,  _______,            _______,  _______,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         KC_I,     KC_BSPC,  MC_TABL,  MC_TAB,   MC_TABR,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
         KC_J,     JIGGLE,   KC_WBAK,  MC_PSCR,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,  MO(MOUSE),          _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
+        _______,  _______,  _______,  _______,  MO(MOUSE), _______,           _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
         KC_I,     KC_DEL,   WN_TABL,  WN_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
         KC_J,     JIGGLE,   KC_WBAK,  KC_PSCR,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  _______,  MO(MOUSE),          _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
+        _______,  _______,  _______,  _______,  MO(MOUSE), _______,           _______,            _______,  _______,  _______,            KC_HOME,  KC_PGDN,   KC_END),
 
     [MOUSE] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
@@ -151,6 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [MAC_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [MAC_NAV]  = { ENCODER_CCW_CW(_______, _______)},
+        [EN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
         [WIN_NAV]  = { ENCODER_CCW_CW(_______, _______)},
         [MOUSE]  = { ENCODER_CCW_CW(_______, _______)},
         [MAC_NUM]  = { ENCODER_CCW_CW(_______, _______)},
@@ -241,6 +251,9 @@ static bool process_english_shifted_symbol(uint16_t keycode, keyrecord_t *record
             break;
         case EN_PIPE:
             symbol_keycode = KC_PIPE;
+            break;
+        case EN_GRV:
+            symbol_keycode = KC_GRV;
             break;
         default:
             return true;
