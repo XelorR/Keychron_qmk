@@ -41,6 +41,13 @@
 #define MC_EMOJ G(C(KC_SPC))
 #define WN_EMOJ G(KC_DOT)
 
+#define MC_UNDO G(KC_Z)
+#define MC_REDO G(S(KC_Z))
+#define WN_UNDO C(KC_Z)
+#define WN_REDO C(KC_Y)
+#define MC_SAVE G(KC_S)
+#define WN_SAVE C(KC_S)
+
 enum layers {
     MAC_BASE,
     WIN_BASE,
@@ -81,8 +88,8 @@ enum custom_keycodes {
     EN_PIPE,
     EN_GRV,
 
-    NAV_ENC_CCW, // 5x backspace
-    NAV_ENC_CW,  // 5x minus
+    BSPC_5, // 5x backspace
+    MINS_5,  // 5x minus
 };
 
 // clang-format off
@@ -123,14 +130,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
-        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
+        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  MC_SAVE,
         KC_I,     KC_BSPC,  MC_TABL,  MC_TAB,   MC_TABR,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
         KC_J,     JIGGLE,   KC_WBAK,  MC_SNAP,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
-        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
+        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
         KC_I,     KC_DEL,   WN_TABL,  WN_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
         KC_J,     JIGGLE,   KC_WBAK,  KC_PSCR,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
@@ -162,14 +169,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         [MAC_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
-        [MAC_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [WIN_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [MAC_SYM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
+        [WIN_SYM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
         [EN_SYM]  = { ENCODER_CCW_CW(_______, _______)},
-        [MAC_NAV] = { ENCODER_CCW_CW(NAV_ENC_CCW, NAV_ENC_CW)},
-        [WIN_NAV] = { ENCODER_CCW_CW(NAV_ENC_CCW, NAV_ENC_CW)},
+        [MAC_NAV] = { ENCODER_CCW_CW(MC_UNDO, MC_REDO)},
+        [WIN_NAV] = { ENCODER_CCW_CW(WN_UNDO, WN_REDO)},
         [MOUSE]  = { ENCODER_CCW_CW(_______, _______)},
-        [MAC_NUM]  = { ENCODER_CCW_CW(_______, _______)},
-        [WIN_NUM]  = { ENCODER_CCW_CW(_______, _______)},
+        [MAC_NUM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [WIN_NUM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     };
 #endif // ENCODER_MAP_ENABLE
 
@@ -340,12 +347,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (record->event.pressed) {
         switch (keycode) {
-            case NAV_ENC_CCW:
+            case BSPC_5:
                 for (uint8_t i = 0; i < 5; i++) {
                     tap_code(KC_BSPC);
                 }
                 return false;
-            case NAV_ENC_CW:
+            case MINS_5:
                 for (uint8_t i = 0; i < 5; i++) {
                     tap_code(KC_MINS);
                 }
