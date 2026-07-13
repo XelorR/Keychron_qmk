@@ -57,8 +57,8 @@ enum layers {
     MAC_NAV,
     WIN_NAV,
     MOUSE,
-    MAC_NUM,
-    WIN_NUM,
+    MAC_FUN,
+    WIN_FUN,
 };
 
 enum custom_keycodes {
@@ -150,14 +150,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
 
-    [MAC_NUM] = LAYOUT_73_jis(
+    [MAC_FUN] = LAYOUT_73_jis(
         KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     _______,  _______,            _______,
         _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_F11,             KC_F12,   OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  _______,  _______,
         _______,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    BAT_LVL,  KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
-    [WIN_NUM] = LAYOUT_73_jis(
+    [WIN_FUN] = LAYOUT_73_jis(
         KC_ESC,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,               KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     _______,  _______,            _______,
         _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_F11,             KC_F12,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
@@ -175,8 +175,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [MAC_NAV] = { ENCODER_CCW_CW(MC_UNDO, MC_REDO)},
         [WIN_NAV] = { ENCODER_CCW_CW(WN_UNDO, WN_REDO)},
         [MOUSE]  = { ENCODER_CCW_CW(_______, _______)},
-        [MAC_NUM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-        [WIN_NUM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [MAC_FUN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [WIN_FUN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     };
 #endif // ENCODER_MAP_ENABLE
 
@@ -364,7 +364,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_NUM);
-    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_NUM);
+    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_FUN);
+    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_FUN);
     return state;
 }
