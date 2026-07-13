@@ -23,7 +23,7 @@
 #define LA_NAV_W MO(WIN_NAV)
 #define LA_SYM_M MO(MAC_SYM)
 #define LA_SYM_W MO(WIN_SYM)
-#define LA_SYM_E MO(EN_SYM)
+#define LA_SYM_E MO(MAC_NUM)
 #define LA_MOUSE MO(MOUSE)
 
 #define WN_SNAP G(S(KC_S))
@@ -53,7 +53,8 @@ enum layers {
     WIN_BASE,
     MAC_SYM,
     WIN_SYM,
-    EN_SYM,
+    MAC_NUM,
+    WIN_NUM,
     MAC_NAV,
     WIN_NAV,
     MOUSE,
@@ -122,7 +123,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  WN_EMOJ,  KC_BSLS,  KC_MINS,  KC_EQL,   KC_MPLY,  BAT_LVL,  KC_VOLD,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  LA_SYM_E,           _______,  _______,            _______,  KC_PGDN,  _______),
 
-    [EN_SYM] = LAYOUT_73_jis(
+    [MAC_NUM] = LAYOUT_73_jis(
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  _______,  _______,            _______,
+        _______,  EN_GRV,   EN_QUOT,  EN_LBRC,  EN_RBRC,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  EN_PIPE,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
+
+    [WIN_NUM] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  _______,  _______,            _______,
         _______,  EN_GRV,   EN_QUOT,  EN_LBRC,  EN_RBRC,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
@@ -171,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [WIN_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
         [MAC_SYM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
         [WIN_SYM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
-        [EN_SYM]  = { ENCODER_CCW_CW(_______, _______)},
+        [MAC_NUM]  = { ENCODER_CCW_CW(_______, _______)},
         [MAC_NAV] = { ENCODER_CCW_CW(MC_UNDO, MC_REDO)},
         [WIN_NAV] = { ENCODER_CCW_CW(WN_UNDO, WN_REDO)},
         [MOUSE]  = { ENCODER_CCW_CW(_______, _______)},
