@@ -41,6 +41,7 @@
 #define MC_TABR G(S(KC_RBRC))
 #define MC_EMOJ G(C(KC_SPC))
 #define WN_EMOJ G(KC_DOT)
+#define MC_APP S(KC_F10)
 
 #define MC_UNDO G(KC_Z)
 #define MC_REDO G(S(KC_Z))
@@ -164,16 +165,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_FUN] = LAYOUT_73_jis(
         KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  KC_F12,   KC_F7,    KC_F8,    KC_F9,    MC_LOCK,            KC_SCRL,  KC_VOLD,  KC_MUTE,  KC_VOLU,  _______,  _______,  _______,            _______,
+        _______,  KC_F12,   KC_F7,    KC_F8,    KC_F9,    MC_LOCK,            KC_SCRL,  KC_VOLD,  KC_MUTE,  KC_VOLU,  QK_BOOT,  _______,  _______,            _______,
         _______,  KC_F11,   KC_F4,    KC_F5,    KC_F6,    MC_PSCR,            KC_CAPS,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  _______,  _______,
-        _______,  KC_F10,   KC_F1,    KC_F2,    KC_F3,    KC_BRK,   BAT_LVL,  KC_NUM,   KC_MPRV,  KC_MPLY,  KC_MNXT,  _______,  _______,  _______,  _______,
+        _______,  KC_F10,   KC_F1,    KC_F2,    KC_F3,    MC_APP,   BAT_LVL,  KC_NUM,   KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_BRK,   _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [WIN_FUN] = LAYOUT_73_jis(
         KC_ESC,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  KC_F12,   KC_F7,    KC_F8,    KC_F9,    WN_LOCK,            KC_SCRL,  KC_VOLD,  KC_MUTE,  KC_VOLU,  _______,  _______,  _______,            _______,
+        _______,  KC_F12,   KC_F7,    KC_F8,    KC_F9,    WN_LOCK,            KC_SCRL,  KC_VOLD,  KC_MUTE,  KC_VOLU,  QK_BOOT,  _______,  _______,            _______,
         _______,  KC_F11,   KC_F4,    KC_F5,    KC_F6,    KC_PSCR,            KC_CAPS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
-        _______,  KC_F10,   KC_F1,    KC_F2,    KC_F3,    KC_BRK,   BAT_LVL,  KC_NUM,   KC_MPRV,  KC_MPLY,  KC_MNXT,  _______,  _______,  _______,  _______,
+        _______,  KC_F10,   KC_F1,    KC_F2,    KC_F3,    KC_APP,   BAT_LVL,  KC_NUM,   KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_BRK,   _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______)
 };
 
