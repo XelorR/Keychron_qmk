@@ -42,6 +42,7 @@
 #define MC_EMOJ G(C(KC_SPC))
 #define WN_EMOJ G(KC_DOT)
 #define MC_APP S(KC_F10)
+#define UC_SNUB S(KC_NUBS)
 
 #define MC_UNDO G(KC_Z)
 #define MC_REDO G(S(KC_Z))
@@ -116,30 +117,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  MC_SAVE,
-        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            KC_NUM,   KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
+        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            _______,  KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
         RGB_TOG,  KC_DQUO,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_UNDS,            KC_PLUS,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
-        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  _______,  KC_PSLS,  MC_EMOJ,  KC_PDOT,  _______,  _______,  _______,  KC_PGUP,
+        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  _______,  KC_PSLS,  MC_EMOJ,  KC_PDOT,  UC_SNUB,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  WN_SAVE,
-        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            KC_NUM,   KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
+        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            _______,  KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
         RGB_TOG,  KC_DQUO,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_UNDS,            KC_PLUS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
-        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  _______,  KC_PSLS,  WN_EMOJ,  KC_PDOT,  _______,  _______,  _______,  KC_PGUP,
+        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  _______,  KC_PSLS,  WN_EMOJ,  KC_PDOT,  UC_SNUB,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  KC_PGDN,  _______),
 
     [MAC_NUM] = LAYOUT_73_jis(
         _______,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_KP_4,  KC_KP_5,            KC_KP_6,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_KP_0,  _______,  _______,  _______,  _______,  MC_SAVE,
         _______,  KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,            _______,  KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
         _______,  KC_QUOT,  KC_4,     KC_5,     KC_6,     KC_MINS,            KC_EQL,   OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  _______,  _______,
-        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  _______,  KC_PSLS,  MC_EMOJ,  KC_PDOT,  _______,  _______,  _______,  _______,
+        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  _______,  KC_PSLS,  MC_EMOJ,  KC_PDOT,  KC_NUBS,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  KC_0,     _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [WIN_NUM] = LAYOUT_73_jis(
         _______,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_KP_4,  KC_KP_5,            KC_KP_6,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_KP_0,  _______,  _______,  _______,  _______,  WN_SAVE,
         _______,  KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,            _______,  KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
         _______,  KC_QUOT,  KC_4,     KC_5,     KC_6,     KC_MINS,            KC_EQL,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
-        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  _______,  KC_PSLS,  WN_EMOJ,  KC_PDOT,  _______,  _______,  _______,  _______,
+        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  _______,  KC_PSLS,  WN_EMOJ,  KC_PDOT,  KC_NUBS,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  KC_0,     _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
