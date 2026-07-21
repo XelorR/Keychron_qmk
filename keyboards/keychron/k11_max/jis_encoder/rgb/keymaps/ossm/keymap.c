@@ -30,8 +30,6 @@
 #define WN_SNAP G(S(KC_S))
 #define MC_SNAP G(S(KC_4))
 #define MC_PSCR G(S(KC_3))
-#define MC_HOME G(KC_LEFT)
-#define MC_END G(KC_RGHT)
 #define WN_LANG G(KC_SPC)
 #define MC_LANG C(KC_SPC)
 
@@ -85,6 +83,11 @@ enum custom_keycodes {
     MC_TAB, // Cmd-Tab for Mac
     WN_TAB, // Alt-Tab for Win
     CT_TAB, // Ctl-Tab for Tab navigation
+
+    MC_HOME,
+    MC_END,
+    MC_PGUP,
+    MC_PGDN,
 
     EN_EXLM,
     EN_AT,
@@ -152,8 +155,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         MC_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  MC_SAVE,
-        KC_I,     KC_BSPC,  MC_TAB,   CT_TAB,   MC_MCTL,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
-        KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
+        KC_I,     KC_BSPC,  MC_TAB,   CT_TAB,   MC_MCTL,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   MC_PGUP,  _______,  _______,            _______,
+        KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  MC_PGDN,  _______,  _______,  _______,  _______,
         KC_J,     JIGGLE,   KC_WBAK,  MC_SNAP,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
@@ -376,19 +379,78 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
   }
 
-    if (record->event.pressed) {
-        switch (keycode) {
-            case BSPC_5:
+    switch (keycode) {
+        case BSPC_5:
+            if (record->event.pressed) {
                 for (uint8_t i = 0; i < 5; i++) {
                     tap_code(KC_BSPC);
                 }
-                return false;
-            case MINS_5:
+            }
+            return false;
+
+        case MINS_5:
+            if (record->event.pressed) {
                 for (uint8_t i = 0; i < 5; i++) {
                     tap_code(KC_MINS);
                 }
-                return false;
-        }
+            }
+            return false;
+
+        case MC_HOME:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_GUI) {
+                    del_mods(MOD_MASK_GUI);
+                    tap_code16(G(KC_UP)); // Document start
+                    set_mods(mods);
+                } else {
+                    tap_code16(G(KC_LEFT)); // Row start
+                }
+            }
+            return false;
+
+        case MC_END:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_GUI) {
+                    del_mods(MOD_MASK_GUI);
+                    tap_code16(G(KC_DOWN)); // Document end
+                    set_mods(mods);
+                } else {
+                    tap_code16(G(KC_RGHT)); // Row end
+                }
+            }
+            return false;
+
+        case MC_PGUP:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_GUI) {
+                    del_mods(MOD_MASK_GUI);
+                    tap_code16(MC_TABL); // Cmd+Shift+[ — previous tab
+                    set_mods(mods);
+                } else {
+                    register_code(KC_PGUP); // Standard Page Up
+                }
+            } else {
+                unregister_code(KC_PGUP);
+            }
+            return false;
+
+        case MC_PGDN:
+            if (record->event.pressed) {
+                uint8_t mods = get_mods();
+                if (mods & MOD_MASK_GUI) {
+                    del_mods(MOD_MASK_GUI);
+                    tap_code16(MC_TABR); // Cmd+Shift+] — next tab
+                    set_mods(mods);
+                } else {
+                    register_code(KC_PGDN); // Standard Page Down
+                }
+            } else {
+                unregister_code(KC_PGDN);
+            }
+            return false;
     }
 
     return process_english_shifted_symbol(keycode, record);
