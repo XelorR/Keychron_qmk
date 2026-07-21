@@ -35,6 +35,9 @@
 #define WN_LANG G(KC_SPC)
 #define MC_LANG C(KC_SPC)
 
+#define MC_MCTL C(KC_UP)
+#define WN_MCTL G(KC_TAB)
+
 #define WN_TABL C(KC_PGUP)
 #define WN_TABR C(KC_PGDN)
 #define MC_TABL G(S(KC_LBRC))
@@ -81,6 +84,7 @@ enum custom_keycodes {
 
     MC_TAB, // Cmd-Tab for Mac
     WN_TAB, // Alt-Tab for Win
+    CT_TAB, // Ctl-Tab for Tab navigation
 
     EN_EXLM,
     EN_AT,
@@ -148,14 +152,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         MC_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  MC_SAVE,
-        KC_I,     KC_BSPC,  MC_TABL,  MC_TAB,   MC_TABR,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
+        KC_I,     KC_BSPC,  MC_TAB,   CT_TAB,   MC_MCTL,  KC_ESC,             KC_ESC,   MC_HOME,  KC_UP,    MC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
         KC_J,     JIGGLE,   KC_WBAK,  MC_SNAP,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  MC_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
-        KC_I,     KC_DEL,   WN_TABL,  WN_TAB,   WN_TABR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
+        KC_I,     KC_DEL,   WN_TAB,   CT_TAB,   WN_MCTL,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
         KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,  _______,  _______,  _______,
         KC_J,     JIGGLE,   KC_WBAK,  WN_SNAP,  KC_WFWD,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
@@ -239,6 +243,7 @@ oneshot_state os_cmd_state = os_up_unqueued;
 
 bool mac_tabber_active = false;
 bool win_tabber_active = false;
+bool ctl_tabber_active = false;
 
 static bool process_english_shifted_symbol(uint16_t keycode, keyrecord_t *record) {
     uint16_t symbol_keycode;
@@ -314,6 +319,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     );
     update_swapper(
         &win_tabber_active, KC_LALT, KC_TAB, WN_TAB, OS_SHFT,
+        keycode, record
+    );
+    update_swapper(
+        &ctl_tabber_active, KC_LCTL, KC_TAB, CT_TAB, OS_SHFT,
         keycode, record
     );
 
