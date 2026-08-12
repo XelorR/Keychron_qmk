@@ -22,7 +22,6 @@
 #define LA_MOUSE LT(MOUSE,KC_TAB)
 #define LA_NUM LT(NUM,KC_ENT)
 #define LA_SYM LT(SYM,KC_BSPC)
-#define LA_FUN LT(SYM,KC_DEL)
 
 #define WN_LANG G(KC_SPC)
 #define MC_LANG C(KC_SPC)
