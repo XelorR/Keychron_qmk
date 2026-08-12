@@ -101,13 +101,13 @@ enum layers {
     EXTRA,
     TAP,
     SHORTCUT,
-    BUTTON,
     NAV,
     MOUSE,
     NUM,
     SYM,
     NUM_EXTRA,
     SYM_EXTRA,
+    NEDIA,
 };
 
 enum custom_keycodes {
@@ -147,13 +147,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LA_MEDIA, MTB_A,    MTB_R,    MTB_S,    MTB_T,    KC_D,               KC_H,     MTB_N,    MTB_E,    MTB_I,    MTB_O,    KC_SCLN,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_B,     KC_K,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,  KC_RSFT,  KC_UP,
         KC_LCTL,  KC_LCTL,  KC_LWIN,  KC_LALT,  LA_NAV,   LA_MOUSE,           LA_SYM,   LA_NUM,             KC_RALT,  KC_RCTL,            KC_LEFT,  KC_DOWN,  KC_RGHT),
-
-    [BUTTON] = LAYOUT_73_jis(
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_WHLL,  MS_UP,    MS_WHLR,  MS_WHLU,  _______,  _______,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_LEFT,  MS_DOWN,  MS_RGHT,  MS_WHLD,  _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
 
     [NAV] = LAYOUT_73_jis(
         WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
