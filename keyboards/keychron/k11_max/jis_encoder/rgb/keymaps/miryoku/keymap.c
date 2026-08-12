@@ -22,6 +22,9 @@
 #define LA_MOUSE LT(MOUSE,KC_TAB)
 #define LA_NUM LT(NUM,KC_ENT)
 #define LA_SYM LT(SYM,KC_BSPC)
+#define TO_TAP DF(TAP)
+#define TO_EXTRA DF(EXTRA)
+#define TO_BASE DF(BASE)
 
 #define WN_LANG G(KC_SPC)
 #define MC_LANG C(KC_SPC)
@@ -38,6 +41,10 @@
 #define WN_LOCK G(KC_L)
 #define MC_KILL G(A(KC_ESC))
 #define WN_KILL C(S(KC_ESC))
+
+#define U_HISTL A(KC_LEFT)
+#define U_HISTR A(KC_RGHT)
+#define WN_SNAP G(S(KC_S))
 
 #define UC_MC0 QK_MACRO_0
 #define UC_MC1 QK_MACRO_1
@@ -149,16 +156,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NAV] = LAYOUT_73_jis(
         WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
-        KC_I,     KC_DEL,   WN_TAB,   CT_TAB,   WN_MCTL,  KC_ESC,             KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
-        KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  UC_MC2,   UC_MC3,   _______,  _______,
-        KC_J,     WN_WINL,  WN_WINR,  JIGGLE,   WN_SNAP,  KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
+        KC_I,     _______,  TO_TAP,   TO_EXTRA, TO_BASE,  _______,            KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
+        KC_M,     KC_LWIN,  KC_LALT,  KC_LCTL,  KC_LSFT,  WN_SNAP,            KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  UC_MC2,   UC_MC3,   _______,  _______,
+        KC_J,     U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [MOUSE] = LAYOUT_73_jis(
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_WHLL,  MS_UP,    MS_WHLR,  MS_WHLU,  _______,  _______,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_LEFT,  MS_DOWN,  MS_RGHT,  MS_WHLD,  _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,  _______,
+        WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  _______,
+        KC_I,     _______,  TO_TAP,   TO_EXTRA, TO_BASE,  _______,            _______,  MS_WHLL,  MS_WHLD,  MS_WHLU,  MS_WHLR,  _______,  _______,            _______,
+        KC_M,     KC_LWIN,  KC_LALT,  KC_LCTL,  KC_LSFT,  WN_SNAP,            JIGGLE,   MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
+        KC_J,     U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    BAT_LVL,  _______,  KC_BSPC,  U_HISTL,  U_HISTR,  KC_DEL,   _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
 
     [NUM] = LAYOUT_73_jis(
@@ -174,6 +181,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RGB_TOG,  KC_DQUO,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_UNDS,            KC_PLUS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
         _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  UC_SNUB,  KC_PSLS,  WN_EMOJ,  KC_PDOT,  UC_SNUH,  _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  KC_PGDN,  _______),
+
+    [MEDIA] = LAYOUT_73_jis(
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,  _______,            _______,
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
 };
 
