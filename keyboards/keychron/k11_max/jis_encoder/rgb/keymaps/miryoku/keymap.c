@@ -42,6 +42,8 @@
 #define MC_KILL G(A(KC_ESC))
 #define WN_KILL C(S(KC_ESC))
 
+#define U_WORDL C(KC_LEFT)
+#define U_WORDR C(KC_RGHT)
 #define U_HISTL A(KC_LEFT)
 #define U_HISTR A(KC_RGHT)
 #define WN_SNAP G(S(KC_S))
@@ -156,9 +158,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NAV] = LAYOUT_73_jis(
         WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
-        _______,  _______,  TO_TAP,   TO_EXTRA, TO_BASE,  _______,            KC_ESC,   KC_HOME,  KC_UP,    KC_END,   KC_PGUP,  _______,  _______,            _______,
-        _______,  KC_LWIN,  KC_LALT,  KC_LCTL,  KC_LSFT,  WN_SNAP,            KC_ENT,   KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  UC_MC2,   UC_MC3,   _______,  _______,
-        _______,  U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    BAT_LVL,  KC_TAB,   KC_BSPC,  WN_LANG,  KC_DEL,   KC_INS,   _______,  _______,  KC_PGUP,
+        _______,  _______,  TO_TAP,   TO_EXTRA, TO_BASE,  _______,            KC_INS,   KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,            _______,
+        _______,  KC_LWIN,  KC_LALT,  KC_LCTL,  KC_LSFT,  WN_SNAP,            _______,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  UC_MC2,   UC_MC3,   _______,  _______,
+        _______,  U_UND,    U_CUT,    U_CPY,    U_PST,    U_RDO,    BAT_LVL,  _______,  KC_BSPC,  U_WORDL,  U_WORDR,  KC_DEL,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [MOUSE] = LAYOUT_73_jis(
