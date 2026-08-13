@@ -172,10 +172,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [NUM] = LAYOUT_73_jis(
         _______,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_KP_4,  KC_KP_5,            KC_KP_6,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_KP_0,  _______,  _______,  _______,  _______,  WN_SAVE,
-        _______,  KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,            KC_NUM,   KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
-        _______,  KC_QUOT,  KC_4,     KC_5,     KC_6,     KC_MINS,            KC_EQL,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
-        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  KC_NUBS,  KC_PSLS,  WN_EMOJ,  KC_PDOT,  KC_NUHS,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  KC_0,     _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
+        _______,  KC_SLSH,  KC_7,     KC_8,     KC_9,     KC_MINS,            KC_NUM,   KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
+        KC_EQL,   KC_ASTR,  KC_4,     KC_5,     KC_6,     KC_PLUS,            KC_EQL,   KC_LSFT,  KC_LCTL,  KC_LALT,  KC_LWIN,  _______,  _______,  _______,  _______,
+        _______,  KC_0,     KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  KC_NUBS,  KC_PSLS,  WN_EMOJ,  KC_PDOT,  KC_NUHS,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  KC_SPC,   _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  WN_SAVE,
