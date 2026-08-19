@@ -219,7 +219,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [WIN_NUM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
         [MAC_NAV] = { ENCODER_CCW_CW(MC_UNDO, MC_REDO)},
         [WIN_NAV] = { ENCODER_CCW_CW(WN_UNDO, WN_REDO)},
-        [MOUSE]  = { ENCODER_CCW_CW(_______, _______)},
+        [MOUSE]  = { ENCODER_CCW_CW(MS_WHLU, MS_WHLD)},
         [MAC_FUN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [WIN_FUN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     };
