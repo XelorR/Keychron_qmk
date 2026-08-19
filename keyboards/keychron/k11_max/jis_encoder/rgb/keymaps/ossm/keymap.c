@@ -147,30 +147,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  MC_SAVE,
-        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            KC_NUM,   KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
-        RGB_TOG,  KC_DQUO,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_UNDS,            KC_PLUS,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
-        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  UC_SNUB,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
+        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            UC_SNUB,  KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
+        RGB_TOG,  KC_COLN,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_UNDS,            KC_PLUS,  OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
+        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  KC_DQUO,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  KC_PGDN,  _______),
 
     [WIN_SYM] = LAYOUT_73_jis(
         KC_ESC,   EN_EXLM,  EN_AT,    EN_HASH,  EN_DLR,   EN_PERC,            EN_CIRC,  EN_AMPR,  EN_ASTR,  EN_LPRN,  EN_RPRN,  KC_UNDS,  KC_PLUS,  _______,  _______,  WN_SAVE,
-        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            KC_NUM,   KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
-        RGB_TOG,  KC_DQUO,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_UNDS,            KC_PLUS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
-        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  UC_SNUB,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
+        _______,  KC_LCBR,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RCBR,            UC_SNUB,  KC_LCBR,  KC_RCBR,  KC_LPRN,  KC_RPRN,  EN_LBRC,  EN_RBRC,            KC_INS,
+        RGB_TOG,  KC_COLN,  KC_DLR,   KC_PERC,  KC_CIRC,  KC_UNDS,            KC_PLUS,  OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   EN_QUOT,  EN_PIPE,  KC_PSCR,  KC_END,
+        _______,  KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_PIPE,  BAT_LVL,  KC_DQUO,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,            _______,  _______,            _______,  KC_PGDN,  _______),
 
     [MAC_NUM] = LAYOUT_73_jis(
         _______,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_KP_4,  KC_KP_5,            KC_KP_6,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_KP_0,  _______,  _______,  _______,  _______,  MC_SAVE,
-        _______,  KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,            KC_NUM,   KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
-        _______,  KC_QUOT,  KC_4,     KC_5,     KC_6,     KC_MINS,            KC_EQL,   OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  _______,  _______,
-        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  KC_NUBS,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
+        _______,  KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,            KC_NUBS,  KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
+        _______,  KC_SCLN,  KC_4,     KC_5,     KC_6,     KC_MINS,            KC_EQL,   OS_SHFT,  OS_CMD,   OS_ALT,   OS_CTRL,  _______,  _______,  _______,  _______,
+        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  KC_QUOT,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
         _______,  _______,  _______,  _______,  KC_0,     _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [WIN_NUM] = LAYOUT_73_jis(
         _______,  KC_KP_1,  KC_KP_2,  KC_KP_3,  KC_KP_4,  KC_KP_5,            KC_KP_6,  KC_KP_7,  KC_KP_8,  KC_KP_9,  KC_KP_0,  _______,  _______,  _______,  _______,  WN_SAVE,
-        _______,  KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,            KC_NUM,   KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
-        _______,  KC_QUOT,  KC_4,     KC_5,     KC_6,     KC_MINS,            KC_EQL,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
-        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  KC_NUBS,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
+        _______,  KC_LBRC,  KC_7,     KC_8,     KC_9,     KC_RBRC,            KC_NUBS,  KC_LBRC,  KC_RBRC,  KC_LPRN,  KC_RPRN,  _______,  _______,            _______,
+        _______,  KC_SCLN,  KC_4,     KC_5,     KC_6,     KC_MINS,            KC_EQL,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
+        _______,  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_BSLS,  _______,  KC_QUOT,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
         _______,  _______,  _______,  _______,  KC_0,     _______,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [MAC_NAV] = LAYOUT_73_jis(
@@ -178,14 +178,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_I,     KC_BSPC,  MC_TAB,   CT_TAB,   MC_MCTL,  KC_ESC,             KC_ESC,   KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,            _______,
         KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  UC_MC0,   UC_MC1,   _______,  _______,
         KC_J,     MC_EMOJ,  MC_CUT,   MC_CPY,   MC_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
+        _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  MC_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
         KC_I,     KC_DEL,   WN_TAB,   CT_TAB,   WN_MCTL,  KC_ESC,             KC_ESC,   KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,            _______,
         KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  UC_MC2,   UC_MC3,   _______,  _______,
         KC_J,     WN_EMOJ,  WN_CUT,   WN_CPY,   WN_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  _______,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
+        _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  WN_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [MOUSE] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
