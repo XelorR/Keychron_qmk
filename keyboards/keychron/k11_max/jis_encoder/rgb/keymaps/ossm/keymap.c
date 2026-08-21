@@ -189,16 +189,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_MEDIA] = LAYOUT_73_jis(
         KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            KC_VOLU,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
+        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_NO,              QK_BOOT,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
         _______,  OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  CW_TOGG,            KC_MUTE,  MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
-        _______,  _______,  KC_MPRV,  KC_MPLY,  KC_MNXT,  MC_APP,   BAT_LVL,  KC_VOLD,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
+        _______,  MC_APP,   KC_MPRV,  KC_MPLY,  KC_MNXT,  QK_BOOT,  BAT_LVL,  KC_MPLY,  KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
 
     [WIN_MEDIA] = LAYOUT_73_jis(
         KC_ESC,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            KC_VOLU,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
+        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    KC_NO,              QK_BOOT,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
         _______,  OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  CW_TOGG,            KC_MUTE,  MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
-        _______,  _______,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_APP,   BAT_LVL,  KC_VOLD,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
+        _______,  KC_APP,   KC_MPRV,  KC_MPLY,  KC_MNXT,  QK_BOOT,  BAT_LVL,  KC_MPLY,  KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  _______,  _______,  _______,
         _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
 
 };
