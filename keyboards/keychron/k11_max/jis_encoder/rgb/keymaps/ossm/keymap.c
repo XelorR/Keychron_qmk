@@ -175,14 +175,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_NAV] = LAYOUT_73_jis(
         MC_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  MC_SAVE,
-        KC_I,     KC_BSPC,  MC_TAB,   CT_TAB,   MC_MCTL,  KC_ESC,             KC_ESC,   MC_HOME,  MC_PGDN,  MC_PGUP,  MC_END,   _______,  _______,            _______,
+        KC_I,     KC_BSPC,  MC_TAB,   CT_TAB,   MC_SNAP,  KC_ESC,             KC_ESC,   MC_HOME,  MC_PGDN,  MC_PGUP,  MC_END,   _______,  _______,            _______,
         KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  UC_MC0,   UC_MC1,   _______,  _______,
         KC_J,     JIGGLE,   MC_CUT,   MC_CPY,   MC_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  MC_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
-        KC_I,     KC_DEL,   WN_TAB,   CT_TAB,   WN_MCTL,  KC_ESC,             KC_ESC,   KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,            _______,
+        KC_I,     KC_DEL,   WN_TAB,   CT_TAB,   KC_PSCR,  KC_ESC,             KC_ESC,   KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,            _______,
         KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  UC_MC2,   UC_MC3,   _______,  _______,
         KC_J,     JIGGLE,   WN_CUT,   WN_CPY,   WN_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
         _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  WN_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
