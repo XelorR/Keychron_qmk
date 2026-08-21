@@ -188,7 +188,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,  _______,  _______,  _______,  LA_MOUWN, _______,            _______,  WN_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [MAC_MOUSE] = LAYOUT_73_jis(
-        KC_ESC,   KC_BRID,  KC_BRIU,  KC_TASK,  KC_MYCM,  RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
+        KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
         _______,  CW_TOGG,  KC_VOLD,  KC_MUTE,  KC_VOLU,  _______,            _______,  MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
         _______,  KC_APP,   KC_MPRV,  KC_MPLY,  KC_MNXT,  _______,  BAT_LVL,  _______,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
