@@ -173,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,           KC_BRID,           KC_BRIU,           KC_TASK,           KC_MYCM,           RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              RGB_TOG,           RGB_MOD,           RGB_HUI,           RGB_SAI,           RGB_VAI,              _______,  _______,            _______,
         _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MPRV,           KC_VOLD,           KC_VOLU,           KC_MNXT,              _______,  _______,  _______,  _______,
-        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_FUN),    TD(U_TD_U_MEDIA),  U_NA,    BAT_LVL,  OU_AUTO,           BT_HST1,           BT_HST2,           BT_HST3,           P2P4G,                _______,  _______,  _______,
+        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_FUN),    TD(U_TD_U_MEDIA),  U_NA,    BAT_LVL,  U_NU,              BT_HST1,           BT_HST2,           BT_HST3,           P2P4G,                _______,  _______,  _______,
         _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           _______,                                           _______,  _______,  _______),
 
     [U_NUM] = LAYOUT_73_jis(
