@@ -179,14 +179,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [U_NUM] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           KC_TASK,           KC_MYCM,           RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  _______,
         _______,           KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
-        _______,           KC_QUOT,           KC_4,              KC_5,              KC_6,              KC_EQL,            U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
+        KC_NUBS,           KC_QUOT,           KC_4,              KC_5,              KC_6,              KC_EQL,            U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
         _______,           KC_GRV,            KC_1,              KC_2,              KC_3,              KC_BSLS, BAT_LVL,  U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    KC_ALGR,           U_NA,                 _______,  _______,  _______,
         _______,           _______,           _______,           KC_DOT,            KC_0,              KC_MINS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
     [U_SYM] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           KC_TASK,           KC_MYCM,           RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  _______,
         _______,           KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
-        _______,           KC_DQUO,           KC_DLR,            KC_PERC,           KC_CIRC,           KC_PLUS,           TD(U_TD_GAM),      KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
+        S(KC_NUBS),        KC_DQUO,           KC_DLR,            KC_PERC,           KC_CIRC,           KC_PLUS,           TD(U_TD_GAM),      KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
         _______,           KC_TILD,           KC_EXLM,           KC_AT,             KC_HASH,           KC_PIPE, BAT_LVL,  U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  KC_ALGR,           U_NA,                 _______,  _______,  _______,
         _______,           _______,           _______,           KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
