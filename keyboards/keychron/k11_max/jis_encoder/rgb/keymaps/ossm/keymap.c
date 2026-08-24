@@ -15,6 +15,7 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "keychron_common.h"
 #define U_NP KC_NO // key is not present
 #define U_NA KC_NO // present but not available for use
 #define U_NU KC_NO // available but not used
@@ -106,7 +107,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [U_TD_U_BASE]   = ACTION_TAP_DANCE_FN(u_td_fn_U_BASE),
     [U_TD_U_TAP]    = ACTION_TAP_DANCE_FN(u_td_fn_U_TAP),
     [U_TD_U_EXTRA]  = ACTION_TAP_DANCE_FN(u_td_fn_U_EXTRA),
-    [U_TD_GAM]      = ACTION_TAP_DANCE_FN(u_td_fn_GAM),
     [U_TD_U_NAV]    = ACTION_TAP_DANCE_FN(u_td_fn_U_NAV),
     [U_TD_U_MOUSE]  = ACTION_TAP_DANCE_FN(u_td_fn_U_MOUSE),
     [U_TD_U_MEDIA]  = ACTION_TAP_DANCE_FN(u_td_fn_U_MEDIA),
@@ -269,4 +269,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     }
 
+    return true;
 }
