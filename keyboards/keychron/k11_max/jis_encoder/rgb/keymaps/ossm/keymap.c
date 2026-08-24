@@ -155,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,                                           _______,  _______,  _______),
 
     [U_NAV] = LAYOUT_73_jis(
-        _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,              _______,  _______,  _______,  _______,  _______,
+        _______,           KC_F1,             KC_F2,             KC_F3,             KC_F4,             KC_F5,             KC_F6,             KC_F7,             KC_F8,             KC_F9,             KC_F10,               KC_F11,   KC_F12,   _______,  _______,  C(KC_S),
         _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,  _______,            _______,
         _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,              _______,  _______,  _______,  _______,
         _______,           U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,    _______,  KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,               _______,  _______,  _______,
