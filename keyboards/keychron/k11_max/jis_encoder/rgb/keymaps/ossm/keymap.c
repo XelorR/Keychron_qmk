@@ -167,6 +167,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_U,           KC_MS_R,              _______,  _______,  _______,  _______,
         _______,           U_NA,              KC_ALGR,           TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,    BAT_LVL,  U_NU,              KC_WH_L,           KC_WH_D,           KC_WH_U,           KC_WH_R,              _______,  _______,  _______,
         _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           _______,                                           _______,  _______,  _______),
+
+    [U_MEDIA] = LAYOUT_73_jis(
+        _______,           KC_F1,             KC_F2,             KC_F3,             KC_F4,             KC_F5,             KC_F6,             KC_F7,             KC_F8,             KC_F9,             KC_F10,               KC_F11,   KC_F12,   _______,  _______,  C(KC_S),
+        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              RGB_TOG,           RGB_MOD,           RGB_HUI,           RGB_SAI,           RGB_VAI,              _______,  _______,            _______,
+        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MPRV,           KC_VOLD,           KC_VOLU,           KC_MNXT,              _______,  _______,  _______,  _______,
+        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_FUN),    TD(U_TD_U_MEDIA),  U_NA,    BAT_LVL,  OU_AUTO,           U_NU,              U_NU,              U_NU,              U_NU,                 _______,  _______,  _______,
+        _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           _______,                                           _______,  _______,  _______),
 };
 
 #if defined(ENCODER_MAP_ENABLE)
