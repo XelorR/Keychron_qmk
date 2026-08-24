@@ -190,6 +190,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,           KC_TILD,           KC_EXLM,           KC_AT,             KC_HASH,           KC_PIPE, BAT_LVL,  U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  KC_ALGR,           U_NA,                 _______,  _______,  _______,
         _______,           _______,           _______,           KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
+    [U_FUN] = LAYOUT_73_jis(
+        _______,           KC_BRID,           KC_BRIU,           KC_TASK,           KC_MYCM,           RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
+        _______,           KC_F12,            KC_F7,             KC_F8,             KC_F9,             KC_PSCR,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
+        _______,           KC_F11,            KC_F4,             KC_F5,             KC_F6,             KC_SCRL,           TD(U_TD_GAM),      KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
+        _______,           KC_F10,            KC_F1,             KC_F2,             KC_F3,             KC_PAUS, BAT_LVL,  U_NA,              TD(U_TD_U_FUN),    TD(U_TD_U_MEDIA),  KC_ALGR,           U_NA,                 _______,  _______,  _______,
+        _______,           _______,           _______,           KC_APP,            KC_SPC,            KC_TAB,            U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
+
 };
 
 #if defined(ENCODER_MAP_ENABLE)
