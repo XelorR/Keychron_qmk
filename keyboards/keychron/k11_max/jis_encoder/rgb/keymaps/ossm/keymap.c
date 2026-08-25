@@ -120,6 +120,11 @@ enum custom_keycodes {
 
     BSPC_5, // 5x backspace
     MINS_5,  // 5x minus
+
+    CO_BASE_GUI,  // combo: switch default layer to U_BASE  + send GUI-Space
+    CO_EXTRA_GUI, // combo: switch default layer to U_EXTRA + send GUI-Space
+    CO_BASE_CTL,  // combo: switch default layer to U_BASE  + send Ctrl-Space
+    CO_EXTRA_CTL, // combo: switch default layer to U_EXTRA + send Ctrl-Space
 };
 
 // _______
@@ -214,7 +219,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     };
 #endif // ENCODER_MAP_ENABLE
 
-// clang-format on
+#if defined(COMBO_ENABLE)
+COMBO_REF_LAYER(U_BASE,  U_TAP)
+COMBO_REF_LAYER(U_EXTRA, U_TAP)
+
+const uint16_t PROGMEM combo_wr[]  = {KC_W, KC_R, COMBO_END};   // w+r
+const uint16_t PROGMEM combo_uo[]  = {KC_U, KC_O, COMBO_END};   // u+o
+const uint16_t PROGMEM combo_xv[]  = {KC_X, KC_V, COMBO_END};   // x+v
+const uint16_t PROGMEM combo_mdot[] = {KC_M, KC_DOT, COMBO_END}; // m+.
+const uint16_t PROGMEM combo_ui[]  = {KC_U, KC_I, COMBO_END};   // u+i
+const uint16_t PROGMEM combo_io[]  = {KC_I, KC_O, COMBO_END};   // i+o
+
+combo_t key_combos[] = {
+    COMBO(combo_wr,   CO_BASE_GUI),
+    COMBO(combo_uo,   CO_EXTRA_GUI),
+    COMBO(combo_xv,   CO_BASE_CTL),
+    COMBO(combo_mdot, CO_EXTRA_CTL),
+    COMBO(combo_ui,   KC_LBRC),
+    COMBO(combo_io,   KC_RBRC),
+};
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    switch (get_highest_layer(layer_state)) {
+        case U_BASE:
+        case U_EXTRA:
+            return true;
+        default:
+            return false;
+    }
+}
+#endif // COMBO_ENABLE
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (!process_record_keychron_common(keycode, record)) {
@@ -264,6 +299,34 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 for (uint8_t i = 0; i < 5; i++) {
                     tap_code(KC_MINS);
                 }
+            }
+            return false;
+
+        case CO_BASE_GUI:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_BASE);
+                tap_code16(LGUI(KC_SPC));
+            }
+            return false;
+
+        case CO_EXTRA_GUI:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_EXTRA);
+                tap_code16(LGUI(KC_SPC));
+            }
+            return false;
+
+        case CO_BASE_CTL:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_BASE);
+                tap_code16(LCTL(KC_SPC));
+            }
+            return false;
+
+        case CO_EXTRA_CTL:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_EXTRA);
+                tap_code16(LCTL(KC_SPC));
             }
             return false;
 

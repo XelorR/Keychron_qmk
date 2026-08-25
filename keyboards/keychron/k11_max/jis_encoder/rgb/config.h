@@ -45,6 +45,7 @@
 
 #endif
 
+#define COMBO_SHOULD_TRIGGER
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
 
