@@ -223,12 +223,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 COMBO_REF_LAYER(U_BASE,  U_TAP)
 COMBO_REF_LAYER(U_EXTRA, U_TAP)
 
-const uint16_t PROGMEM combo_wr[]  = {KC_W, KC_R, COMBO_END};   // w+r
-const uint16_t PROGMEM combo_uo[]  = {KC_U, KC_O, COMBO_END};   // u+o
-const uint16_t PROGMEM combo_xv[]  = {KC_X, KC_V, COMBO_END};   // x+v
-const uint16_t PROGMEM combo_mdot[] = {KC_M, KC_DOT, COMBO_END}; // m+.
-const uint16_t PROGMEM combo_ui[]  = {KC_U, KC_I, COMBO_END};   // u+i
-const uint16_t PROGMEM combo_io[]  = {KC_I, KC_O, COMBO_END};   // i+o
+const uint16_t PROGMEM combo_wr[]  = {KC_W, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_uo[]  = {KC_U, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_xv[]  = {KC_X, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_mdot[] = {KC_M, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_ui[]  = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_io[]  = {KC_I, KC_O, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_wr,   CO_BASE_GUI),
