@@ -247,7 +247,7 @@ combo_t key_combos[] = {
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state | default_layer_state)) {
         case U_BASE:
         case U_EXTRA:
             return true;
