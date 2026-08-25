@@ -220,8 +220,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #endif // ENCODER_MAP_ENABLE
 
 #if defined(COMBO_ENABLE)
-COMBO_REF_LAYER(U_BASE,  U_TAP)
-COMBO_REF_LAYER(U_EXTRA, U_TAP)
+uint8_t combo_ref_from_layer(uint8_t layer) {
+    switch (layer) {
+        case U_BASE:
+        case U_EXTRA:
+            return U_TAP;
+        default:
+            return layer;
+    }
+}
 
 const uint16_t PROGMEM combo_wr[]  = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_uo[]  = {KC_U, KC_O, COMBO_END};
