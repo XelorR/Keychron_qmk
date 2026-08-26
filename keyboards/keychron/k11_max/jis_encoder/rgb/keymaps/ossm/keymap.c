@@ -296,6 +296,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     switch (keycode) {
+
         case BSPC_5:
             if (record->event.pressed) {
                 for (uint8_t i = 0; i < 5; i++) {
