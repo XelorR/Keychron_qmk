@@ -125,7 +125,6 @@ enum custom_keycodes {
     CO_EXTRA_GUI, // combo: switch default layer to U_EXTRA + send GUI-Space
     CO_BASE_CTL,  // combo: switch default layer to U_BASE  + send Ctrl-Space
     CO_EXTRA_CTL, // combo: switch default layer to U_EXTRA + send Ctrl-Space
-    CO_QUOT_GRAVE, // sends KC_QUOT on EXTRA layer bubut KC_GRV in BASE layer
 };
 
 // _______
@@ -238,6 +237,8 @@ const uint16_t PROGMEM combo_mdot[] = {KC_M, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_ui[]  = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_io[]  = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_we[]  = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_we[]  = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_er[]  = {KC_E, KC_R, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_wr,   CO_BASE_GUI),
@@ -246,7 +247,8 @@ combo_t key_combos[] = {
     COMBO(combo_mdot, CO_EXTRA_CTL),
     COMBO(combo_ui,   KC_LBRC),
     COMBO(combo_io,   KC_RBRC),
-    COMBO(combo_we,   CO_QUOT_GRAVE),
+    COMBO(combo_we,   KC_QUOT),
+    COMBO(combo_er,   KC_GRV),
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
@@ -338,19 +340,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 default_layer_set(1UL << U_EXTRA);
                 tap_code16(LCTL(KC_SPC));
-            }
-            return false;
-
-        case CO_QUOT_GRAVE:
-            if (record->event.pressed) {
-                switch (get_highest_layer(default_layer_state)) {
-                    case U_BASE:
-                        tap_code(KC_GRV);
-                        break;
-                    case U_EXTRA:
-                        tap_code(KC_QUOT);
-                        break;
-                }
             }
             return false;
 
