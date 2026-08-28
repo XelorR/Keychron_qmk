@@ -125,6 +125,8 @@ enum custom_keycodes {
     CO_EXTRA_GUI, // combo: switch default layer to U_EXTRA + send GUI-Space
     CO_BASE_CTL,  // combo: switch default layer to U_BASE  + send Ctrl-Space
     CO_EXTRA_CTL, // combo: switch default layer to U_EXTRA + send Ctrl-Space
+
+    CO_TAP_BASE,
 };
 
 // _______
@@ -230,6 +232,18 @@ uint8_t combo_ref_from_layer(uint8_t layer) {
     }
 }
 
+enum combos {
+    CO_WR,
+    CO_UO,
+    CO_XV,
+    CO_MDOT,
+    CO_UI,
+    CO_IO,
+    CO_WE,
+    CO_ER,
+    CO_QP,
+};
+
 const uint16_t PROGMEM combo_wr[]  = {KC_W, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_uo[]  = {KC_U, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_xv[]  = {KC_X, KC_V, COMBO_END};
@@ -238,28 +252,35 @@ const uint16_t PROGMEM combo_ui[]  = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_io[]  = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_we[]  = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM combo_er[]  = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_qp[]  = {KC_Q, KC_P, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(combo_wr,   CO_BASE_GUI),
-    COMBO(combo_uo,   CO_EXTRA_GUI),
-    COMBO(combo_xv,   CO_BASE_CTL),
-    COMBO(combo_mdot, CO_EXTRA_CTL),
-    COMBO(combo_ui,   KC_LBRC),
-    COMBO(combo_io,   KC_RBRC),
-    COMBO(combo_we,   KC_QUOT),
-    COMBO(combo_er,   KC_GRV),
+    [CO_WR]   = COMBO(combo_wr,   CO_BASE_GUI),
+    [CO_UO]   = COMBO(combo_uo,   CO_EXTRA_GUI),
+    [CO_XV]   = COMBO(combo_xv,   CO_BASE_CTL),
+    [CO_MDOT] = COMBO(combo_mdot, CO_EXTRA_CTL),
+    [CO_UI]   = COMBO(combo_ui,   KC_LBRC),
+    [CO_IO]   = COMBO(combo_io,   KC_RBRC),
+    [CO_WE]   = COMBO(combo_we,   KC_QUOT),
+    [CO_ER]   = COMBO(combo_er,   KC_GRV),
+    [CO_QP]   = COMBO(combo_qp,   CO_TAP_BASE),
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
-    switch (get_highest_layer(layer_state | default_layer_state)) {
-        case U_BASE:
-        case U_EXTRA:
-            return true;
+    switch (combo_index) {
+        case CO_QP:
+            return get_highest_layer(layer_state | default_layer_state) == U_TAP;
+
         default:
-            return false;
+            switch (get_highest_layer(layer_state | default_layer_state)) {
+                case U_BASE:
+                case U_EXTRA:
+                    return true;
+                default:
+                    return false;
+            }
     }
 }
-#endif // COMBO_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
@@ -341,6 +362,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(LCTL(KC_SPC));
             }
             return false;
+
+        case CO_TAP_BASE:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_BASE);
+            }
+            return false;
+
 
     }
 
