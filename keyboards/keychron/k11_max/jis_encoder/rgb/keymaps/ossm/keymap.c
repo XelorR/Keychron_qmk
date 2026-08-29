@@ -64,6 +64,7 @@ enum layers {
     U_NUM,
     U_SYM,
     U_FUN,
+    U_GAM_FN,
 };
 
 enum {
@@ -153,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,            KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,              KC_I,              KC_O,              KC_P,                 KC_LBRC,  KC_RBRC,            KC_DEL,
         KC_CAPS,           KC_A,              KC_S,              KC_D,              KC_F,              KC_G,              KC_H,              KC_J,              KC_K,              KC_L,              KC_SCLN,              KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,           KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,     KC_B,    KC_N,              KC_M,              KC_COMM,           KC_DOT,            KC_SLSH,              KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,           KC_LCTL,           KC_LWIN,           KC_LALT,           KC_SPC,            LT(U_NAV,KC_TAB),  LT(U_NUM,KC_ENT),  KC_SPC,            KC_RALT,           KC_RCTL,                                           KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,           KC_LCTL,           KC_LWIN,           KC_LALT,           KC_SPC,            MO(U_GAM_FN),      LT(U_NUM,KC_ENT),  KC_SPC,            KC_RALT,           KC_RCTL,                                           KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [U_BUTTON] = LAYOUT_73_jis(
         _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,              _______,  _______,  _______,  _______,  _______,
@@ -164,9 +165,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [U_NAV] = LAYOUT_73_jis(
         _______,           KC_F1,             KC_F2,             KC_F3,             KC_F4,             KC_F5,             KC_F6,             KC_F7,             KC_F8,             KC_F9,             KC_F10,               KC_F11,      KC_F12,      _______,  _______,  RGB_TOG,
-        KC_J,              TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,     _______,               _______,
-        KC_I,              KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,              QK_MACRO_0,  QK_MACRO_1,  _______,  _______,
-        KC_M,              U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,    BAT_LVL,  KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,               QK_MACRO_2,  QK_MACRO_3,  _______,
+        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,     _______,               _______,
+        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,              QK_MACRO_0,  QK_MACRO_1,  _______,  _______,
+        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,    BAT_LVL,  KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,               QK_MACRO_2,  QK_MACRO_3,  _______,
         _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            _______,                                              _______,     _______,  _______),
 
     [U_MOUSE] = LAYOUT_73_jis(
@@ -204,6 +205,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,           KC_F10,            KC_F1,             KC_F2,             KC_F3,             KC_PAUS, BAT_LVL,  U_NA,              TD(U_TD_U_FUN),    TD(U_TD_U_MEDIA),  KC_ALGR,           U_NA,                 _______,  _______,  _______,
         _______,           _______,           _______,           KC_APP,            KC_SPC,            KC_TAB,            U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
+    [U_GAM_FN] = LAYOUT_73_jis(
+        _______,           KC_F1,             KC_F2,             KC_F3,             KC_F4,             KC_F5,             KC_F6,             KC_F7,             KC_F8,             KC_F9,             KC_F10,               KC_F11,   KC_F12,   _______,  _______,  RGB_TOG,
+        _______,           KC_ESC,            KC_7,              KC_8,              KC_9,              KC_DOT,            U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,  _______,            _______,
+        KC_J,              KC_I,              KC_4,              KC_5,              KC_6,              KC_COMM,           CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,              _______,  _______,  _______,  _______,
+        _______,           KC_M,              KC_1,              KC_2,              KC_3,              KC_SLSH, BAT_LVL,  KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,               _______,  _______,  _______,
+        _______,           _______,           _______,           KC_ENT,            KC_0,              _______,           GF(U_BASE),        KC_PSCR,           U_NA,              _______,                                           _______,  _______,  _______),
+
 };
 
 #if defined(ENCODER_MAP_ENABLE)
@@ -218,6 +226,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [U_SYM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
         [U_NUM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
         [U_FUN]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
+        [U_GAM_FN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     };
 #endif // ENCODER_MAP_ENABLE
 
