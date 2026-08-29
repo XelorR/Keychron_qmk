@@ -210,7 +210,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_J,              KC_DOT,            KC_7,              KC_8,              KC_9,              KC_GRV,            U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,  _______,            _______,
         KC_I,              KC_COMM,           KC_4,              KC_5,              KC_6,              KC_H,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,              _______,  _______,  _______,  _______,
         KC_M,              KC_SLSH,           KC_1,              KC_2,              KC_3,              KC_MUTE, BAT_LVL,  KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,               _______,  _______,  _______,
-        _______,           _______,           _______,           KC_ENT,            KC_0,              _______,           GF(U_BASE),        KC_PSCR,           U_NA,              _______,                                           _______,  _______,  _______),
+        _______,           _______,           _______,           KC_ENT,            KC_0,              _______,           DF(U_BASE),        KC_PSCR,           U_NA,              _______,                                           _______,  _______,  _______),
 
 };
 
