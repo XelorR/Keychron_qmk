@@ -182,6 +182,7 @@ if [[ "$UDEV_RULES_FOUND" == false ]]; then
         "QMK udev installer not found: $QMK_REPO/util/install_udev.sh"
 
     sudo "$QMK_REPO/util/install_udev.sh"
+    sudo cp ./util/udev/50-qmk.rules /etc/udev/rules.d/
 
     # Reload rules immediately.
     sudo udevadm control --reload-rules
@@ -227,12 +228,6 @@ if ! qmk list-keymaps -kb "$KEYBOARD" | grep -Fxq "$KEYMAP"; then
     echo
     die "Keymap '$KEYMAP' was not found for '$KEYBOARD'."
 fi
-
-# ------------------------------------------------------------
-# Udev rules
-# ------------------------------------------------------------
-
-sudo cp ./util/udev/50-qmk.rules /etc/udev/rules.d/
 
 # ------------------------------------------------------------
 # Compile
