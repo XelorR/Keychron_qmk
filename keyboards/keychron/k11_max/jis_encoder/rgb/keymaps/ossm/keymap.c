@@ -223,9 +223,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [U_NAV] = { ENCODER_CCW_CW(U_UND, U_RDO)},
         [U_MOUSE] = { ENCODER_CCW_CW(U_UND, U_RDO)},
         [U_MEDIA]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
-        [U_SYM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
-        [U_NUM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
-        [U_FUN]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
+        [U_SYM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [U_NUM]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
+        [U_FUN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [U_GAM_FN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     };
 #endif // ENCODER_MAP_ENABLE
