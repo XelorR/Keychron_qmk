@@ -16,42 +16,32 @@
 
 #include QMK_KEYBOARD_H
 #include "keychron_common.h"
+
 #define U_NP KC_NO // key is not present
 #define U_NA KC_NO // present but not available for use
 #define U_NU KC_NO // available but not used
 
-#define MIRYOKU_CLIPBOARD_INS
-#if defined (MIRYOKU_CLIPBOARD_FUN)
-  #define U_RDO KC_AGIN
-  #define U_PST KC_PSTE
-  #define U_CPY KC_COPY
-  #define U_CUT KC_CUT
-  #define U_UND KC_UNDO
-#elif defined (MIRYOKU_CLIPBOARD_MAC)
+#define MODE_WIN
+#if defined MODE_WIN
+  #define U_RDO C(KC_Y)
+  #define U_PST S(KC_INS)
+  #define U_CPY C(KC_INS)
+  #define U_CUT C(KC_X)
+  #define U_UND C(KC_Z)
+  #define U_WIN KC_LGUI
+  #define U_ALT KC_LALT
+  #define U_CMD KC_RCTL
+#if defined MODE_MAC
   #define U_RDO SCMD(KC_Z)
   #define U_PST LCMD(KC_V)
   #define U_CPY LCMD(KC_C)
   #define U_CUT LCMD(KC_X)
   #define U_UND LCMD(KC_Z)
-#elif defined (MIRYOKU_CLIPBOARD_WIN)
-  #define U_RDO C(KC_Y)
-  #define U_PST C(KC_V)
-  #define U_CPY C(KC_C)
-  #define U_CUT C(KC_X)
-  #define U_UND C(KC_Z)
-#elif defined (MIRYOKU_CLIPBOARD_INS)
-  #define U_RDO C(KC_Y)
-  #define U_PST S(KC_INS)
-  #define U_CPY C(KC_INS)
-  #define U_CUT C(KC_X)
-  #define U_UND C(KC_Z)
-#else
-  #define U_RDO KC_AGIN
-  #define U_PST S(KC_INS)
-  #define U_CPY C(KC_INS)
-  #define U_CUT S(KC_DEL)
-  #define U_UND KC_UNDO
+  #define U_WIN KC_LALT
+  #define U_ALT KC_LGUI
+  #define U_CMD KC_RGUI
 #endif
+
 
 enum layers {
     U_BASE,
@@ -140,21 +130,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,            KC_B,              KC_L,              KC_D,              KC_C,              KC_V,              KC_J,              KC_F,              KC_O,              KC_U,              KC_COMM,              KC_LBRC,  KC_RBRC,            KC_DEL,
         LT(U_MEDIA,KC_ESC),LGUI_T(KC_N),      LALT_T(KC_R),      LCTL_T(KC_T),      LSFT_T(KC_S),      KC_G,              KC_Y,              LSFT_T(KC_H),      LCTL_T(KC_A),      LALT_T(KC_E),      LGUI_T(KC_I),         KC_SLSH,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,           LT(U_BUTTON,KC_X), ALGR_T(KC_Q),      KC_M,              KC_W,              KC_Z,     KC_Z,    KC_K,              KC_P,              KC_QUOT,           ALGR_T(KC_SCLN),   LT(U_BUTTON,KC_DOT),  KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,           KC_LCTL,           KC_LWIN,           KC_LALT,           LT(U_NAV,KC_SPC),  LT(U_MOUSE,KC_TAB),LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC), LT(U_FUN,KC_DEL),  KC_RCTL,                                           KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,           U_CMD,             U_WIN,             U_ALT,             LT(U_NAV,KC_SPC),  LT(U_MOUSE,KC_TAB),LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC), LT(U_FUN,KC_DEL),  U_CMD,                                             KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [U_EXTRA] = LAYOUT_73_jis(
         KC_GRV,            KC_1,              KC_2,              KC_3,              KC_4,              KC_5,              KC_6,              KC_7,              KC_8,              KC_9,              KC_0,                 KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,            KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,              KC_I,              KC_O,              KC_P,                 KC_LBRC,  KC_RBRC,            KC_DEL,
         LT(U_MEDIA,KC_ESC),LGUI_T(KC_A),      LALT_T(KC_S),      LCTL_T(KC_D),      LSFT_T(KC_F),      KC_G,              KC_H,              LSFT_T(KC_J),      LCTL_T(KC_K),      LALT_T(KC_L),      LGUI_T(KC_SCLN),      KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,           LT(U_BUTTON,KC_Z), ALGR_T(KC_X),      KC_C,              KC_V,              KC_B,     KC_B,    KC_N,              KC_M,              KC_COMM,           ALGR_T(KC_DOT),    LT(U_BUTTON,KC_SLSH), KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,           KC_LCTL,           KC_LWIN,           KC_LALT,           LT(U_NAV,KC_SPC),  LT(U_MOUSE,KC_TAB),LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC), LT(U_FUN,KC_DEL),  KC_RCTL,                                           KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,           U_CMD,             U_WIN,             U_ALT,             LT(U_NAV,KC_SPC),  LT(U_MOUSE,KC_TAB),LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC), LT(U_FUN,KC_DEL),  U_CMD,                                             KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [U_TAP] = LAYOUT_73_jis(
         KC_ESC,            KC_1,              KC_2,              KC_3,              KC_4,              KC_5,              KC_6,              KC_7,              KC_8,              KC_9,              KC_0,                 KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
         KC_TAB,            KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,              KC_I,              KC_O,              KC_P,                 KC_LBRC,  KC_RBRC,            KC_DEL,
         KC_CAPS,           KC_A,              KC_S,              KC_D,              KC_F,              KC_G,              KC_H,              KC_J,              KC_K,              KC_L,              KC_SCLN,              KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
         KC_LSFT,           KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,     KC_B,    KC_N,              KC_M,              KC_COMM,           KC_DOT,            KC_SLSH,              KC_RSFT,  KC_RSFT,  KC_UP,
-        KC_LCTL,           KC_LCTL,           KC_LWIN,           KC_LALT,           KC_SPC,            MO(U_GAM_FN),      LT(U_NUM,KC_ENT),  KC_SPC,            KC_RALT,           KC_RCTL,                                           KC_LEFT,  KC_DOWN,  KC_RGHT),
+        KC_LCTL,           U_CMD,             U_WIN,             U_ALT,             KC_SPC,            MO(U_GAM_FN),      LT(U_NUM,KC_ENT),  KC_SPC,            KC_RALT,           U_CMD,                                             KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [U_BUTTON] = LAYOUT_73_jis(
         _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,           _______,              _______,  _______,  _______,  _______,  _______,
