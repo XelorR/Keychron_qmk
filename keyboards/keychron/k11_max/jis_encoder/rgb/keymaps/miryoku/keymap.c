@@ -33,7 +33,7 @@
   #define U_CMD KC_RCTL
   #define U_MCTL KC_TASK
   #define U_MYCM KC_MYCM
-#if defined MODE_MAC
+#elif defined MODE_MAC
   #define U_RDO SCMD(KC_Z)
   #define U_PST LCMD(KC_V)
   #define U_CPY LCMD(KC_C)
