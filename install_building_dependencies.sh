@@ -263,4 +263,9 @@ else
     info "Flash skipped (use --flash to flash the keyboard)."
 fi
 
+# compile and flash with:
 # qmk compile -kb keychron/k11_max/jis_encoder/rgb -km miryoku
+# qmk flash keychron_k11_max_jis_encoder_rgb_miryoku.bin
+#
+# or just:
+# qmk flash -kb keychron/k11_max/jis_encoder/rgb -km miryoku
