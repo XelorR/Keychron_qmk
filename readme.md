@@ -2,16 +2,17 @@
 
 ## Artefacts
 
-- [Keymap](./keyboards/keychron/k11_max/jis_encoder/rgb/keymaps/miryoku/keymap.c)
-- [Build script](./build.sh) (only Arch Linux supported to install dependencies)
+- [Keymap](./keyboards/keychron/k11_max/jis_encoder/rgb/keymaps/miryoku/keymap.c) - read it first
+- [Build script](./build.sh) — currently supports Arch Linux for dependency installation
 
-## Key features
+## Key Features
 
-- Full [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference), all features + all default layers
-- Esc/Media moved to CapsLock
-- TAP layer considered as gaming and have access to special Gaming Fn layer. Q+P combo to return to BASE layer
-- BASE is [Gallium v2](https://github.com/GalileoBlues/Gallium/), feel free to change to your favarite alpha layout
-- EXTRA layer is also used for second language support. I use BASE for US typinr and EXTRA for RU typing
-- Combos added to switch between BASE/EXTRA, changing system layout at the same time
-- Linux/Windows oriented config. You can define MODE_MAC to adopt it to MacOS
-- :; changed to /? for NUM/SYM layers to work fine with [Gallium](https://github.com/GalileoBlues/Gallium/) which doesn't contain /? in 3x5 block
+- Full [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference) implementation, including all features and default layers
+- Esc/Media layer moved to Caps Lock
+- TAP layer is intended for gaming and provides access to a dedicated Gaming Fn layer
+- Q + P combo returns to the BASE layer from TAP
+- BASE uses [Gallium v2](https://github.com/GalileoBlues/Gallium/) as the alpha layout. Feel free to replace it with your preferred layout
+- EXTRA is also used as a second-language layer. I use BASE for US English and EXTRA for Russian
+- Combos switch between BASE and EXTRA while also switching the system keyboard layout
+- Linux/Windows-oriented configuration. Set "MODE_MAC" to adapt the keymap for macOS
+- ":;" is changed to "/?" in the NUM and SYM layers to work better with [Gallium](https://github.com/GalileoBlues/Gallium/), which does not include "/?" in its 3×5 block
