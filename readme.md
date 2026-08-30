@@ -1,5 +1,7 @@
 # [Keychron K11 Max](./keyboards/keychron/k11_max) JIS [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference) [keymap](./keyboards/keychron/k11_max/jis_encoder/rgb/keymaps/miryoku/keymap.c)
 
+![](./pic/k11max_jis.jpg)
+
 ## Artefacts
 
 - [Keymap](./keyboards/keychron/k11_max/jis_encoder/rgb/keymaps/miryoku/keymap.c) - read it first
