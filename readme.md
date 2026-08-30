@@ -7,7 +7,7 @@
 
 ## Key features
 
-- Full [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference), all features
+- Full [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference), all features + all default layers
 - Esc/Media moved to CapsLock
 - TAP layer considered as gaming and have access to special Gaming Fn layer. Q+P combo to return to BASE layer
 - BASE is [Gallium v2](https://github.com/GalileoBlues/Gallium/), feel free to change to your favarite alpha layout
