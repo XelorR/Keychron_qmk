@@ -21,19 +21,8 @@
 #define U_NA KC_NO // present but not available for use
 #define U_NU KC_NO // available but not used
 
-#define MODE_WIN
-#if defined MODE_WIN
-  #define U_RDO C(KC_Y)
-  #define U_PST S(KC_INS)
-  #define U_CPY C(KC_INS)
-  #define U_CUT C(KC_X)
-  #define U_UND C(KC_Z)
-  #define U_WIN KC_LGUI
-  #define U_ALT KC_LALT
-  #define U_CMD KC_RCTL
-  #define U_MCTL KC_TASK
-  #define U_MYCM KC_MYCM
-#elif defined MODE_MAC
+// #define MODE_MAC
+#if defined MODE_MAC
   #define U_RDO SCMD(KC_Z)
   #define U_PST LCMD(KC_V)
   #define U_CPY LCMD(KC_C)
@@ -44,6 +33,17 @@
   #define U_CMD KC_RGUI
   #define U_MCTL KC_MCTRL
   #define U_MYCM KC_LNPAD
+#else
+  #define U_RDO C(KC_Y)
+  #define U_PST S(KC_INS)
+  #define U_CPY C(KC_INS)
+  #define U_CUT C(KC_X)
+  #define U_UND C(KC_Z)
+  #define U_WIN KC_LGUI
+  #define U_ALT KC_LALT
+  #define U_CMD KC_RCTL
+  #define U_MCTL KC_TASK
+  #define U_MYCM KC_MYCM
 #endif
 
 
