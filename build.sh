@@ -43,7 +43,7 @@ case "${1:-}" in
 esac
 
 # ------------------------------------------------------------
-# Check repository / OS
+# Check environment
 # ------------------------------------------------------------
 
 [[ -f /etc/arch-release ]] || {
@@ -90,12 +90,14 @@ command -v qmk >/dev/null 2>&1 || {
 echo "==> QMK: $(qmk --version)"
 
 # ------------------------------------------------------------
-# QMK setup
+# Configure QMK home
 # ------------------------------------------------------------
 
-echo "==> Running QMK setup"
+QMK_HOME="$(qmk config -ro user.qmk_home 2>/dev/null || true)"
 
-qmk setup -H "$(pwd)" -y
+if [[ "$QMK_HOME" != "$(pwd)" ]]; then
+    qmk config user.qmk_home="$(pwd)"
+fi
 
 # ------------------------------------------------------------
 # udev rules
