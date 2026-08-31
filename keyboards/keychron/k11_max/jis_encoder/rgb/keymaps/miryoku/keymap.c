@@ -282,7 +282,6 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
             }
     }
 }
-
 #endif // COMBO_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
