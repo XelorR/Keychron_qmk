@@ -12,9 +12,9 @@
 - Full [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference) implementation, including all features and default layers
 - Esc/Media layer moved to Caps Lock
 - TAP layer is intended for gaming and provides access to a dedicated Gaming Fn layer
-- Q + P combo returns to the BASE layer from TAP
-- BASE uses [Gallium v2](https://github.com/GalileoBlues/Gallium/) as the alpha layout. Feel free to replace it with your preferred layout
-- EXTRA is also used as a second-language layer. I use BASE for US English and EXTRA for Russian
-- Combos switch between BASE and EXTRA while also switching the system keyboard layout
+- BASE layer is qwerty for easier software layout selection
+- EXTRA uses [Gallium v2](https://github.com/GalileoBlues/Gallium/) as the alpha layout. Feel free to replace it with your preferred layout
+- BACK/EXTRA pair can also used as a second-language layer.
+- Combos switch between BASE and EXTRA while also switching the system keyboard layout. Disabled by default, set `COMBO_ENABLE = yes` in rules.mk to enable combos.
 - Linux/Windows-oriented configuration. Set "MODE_MAC" to adapt the keymap for macOS
-- ":;" is changed to "/?" in the NUM and SYM layers to work better with [Gallium](https://github.com/GalileoBlues/Gallium/), which does not include "/?" in its 3×5 block
+- ":;" is changed to "/?" in the NUM and SYM layers to work better with [Gallium](https://github.com/GalileoBlues/Gallium/), which does not include "/?" in its 3×5 block. It also allows to keep BASE as plain QWERTY, enabling correct software layout selection.
