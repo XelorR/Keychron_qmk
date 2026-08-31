@@ -55,9 +55,9 @@
 #define QUICK_TAP_TERM 0
 
 // Auto Shift
-#define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
-#define AUTO_SHIFT_NO_SETUP
+// #define NO_AUTO_SHIFT_ALPHA
+// #define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+// #define AUTO_SHIFT_NO_SETUP
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
