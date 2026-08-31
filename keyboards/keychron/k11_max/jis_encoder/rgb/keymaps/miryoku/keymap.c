@@ -116,10 +116,10 @@ enum custom_keycodes {
     BSPC_5, // 5x backspace
     MINS_5,  // 5x minus
 
-    // CO_BASE_GUI,  // combo: switch default layer to U_BASE  + send GUI-Space
-    // CO_EXTRA_GUI, // combo: switch default layer to U_EXTRA + send GUI-Space
-    // CO_BASE_CTL,  // combo: switch default layer to U_BASE  + send Ctrl-Space
-    // CO_EXTRA_CTL, // combo: switch default layer to U_EXTRA + send Ctrl-Space
+    CO_BASE_GUI,  // combo: switch default layer to U_BASE  + send GUI-Space
+    CO_EXTRA_GUI, // combo: switch default layer to U_EXTRA + send GUI-Space
+    CO_BASE_CTL,  // combo: switch default layer to U_BASE  + send Ctrl-Space
+    CO_EXTRA_CTL, // combo: switch default layer to U_EXTRA + send Ctrl-Space
 
     CO_TAP_BASE,
 };
@@ -130,17 +130,17 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [U_BASE] = LAYOUT_73_jis(
-        LT(U_MEDIA,KC_ESC),KC_1,              KC_2,              KC_3,              KC_4,              KC_5,              KC_6,              KC_7,              KC_8,              KC_9,              KC_0,                 KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
-        KC_TAB,            KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,              KC_I,              KC_O,              KC_P,                 KC_LBRC,  KC_RBRC,            KC_DEL,
-        KC_GRV,            LGUI_T(KC_A),      LALT_T(KC_S),      LCTL_T(KC_D),      LSFT_T(KC_F),      KC_G,              KC_H,              LSFT_T(KC_J),      LCTL_T(KC_K),      LALT_T(KC_L),      LGUI_T(KC_SCLN),      KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
-        KC_LSFT,           LT(U_BUTTON,KC_Z), ALGR_T(KC_X),      KC_C,              KC_V,              KC_B,     KC_B,    KC_N,              KC_M,              KC_COMM,           ALGR_T(KC_DOT),    LT(U_BUTTON,KC_SLSH), KC_RSFT,  KC_RSFT,  KC_UP,
+        KC_GRV,            KC_1,              KC_2,              KC_3,              KC_4,              KC_5,              KC_6,              KC_7,              KC_8,              KC_9,              KC_0,                 KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
+        KC_TAB,            KC_B,              KC_L,              KC_D,              KC_C,              KC_V,              KC_J,              KC_F,              KC_O,              KC_U,              KC_COMM,              KC_LBRC,  KC_RBRC,            KC_DEL,
+        LT(U_MEDIA,KC_ESC),LGUI_T(KC_N),      LALT_T(KC_R),      LCTL_T(KC_T),      LSFT_T(KC_S),      KC_G,              KC_Y,              LSFT_T(KC_H),      LCTL_T(KC_A),      LALT_T(KC_E),      LGUI_T(KC_I),         KC_SLSH,  KC_ENT,   KC_ENT,   KC_HOME,
+        KC_LSFT,           LT(U_BUTTON,KC_X), ALGR_T(KC_Q),      KC_M,              KC_W,              KC_Z,     KC_Z,    KC_K,              KC_P,              KC_QUOT,           ALGR_T(KC_SCLN),   LT(U_BUTTON,KC_DOT),  KC_RSFT,  KC_RSFT,  KC_UP,
         KC_LCTL,           U_CMD,             U_WIN,             U_ALT,             LT(U_NAV,KC_SPC),  LT(U_MOUSE,KC_TAB),LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC), LT(U_FUN,KC_DEL),  U_CMD,                                             KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [U_EXTRA] = LAYOUT_73_jis(
-        LT(U_MEDIA,KC_ESC),KC_1,              KC_2,              KC_3,              KC_4,              KC_5,              KC_6,              KC_7,              KC_8,              KC_9,              KC_0,                 KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
-        KC_TAB,            KC_B,              KC_L,              KC_D,              KC_C,              KC_V,              KC_J,              KC_F,              KC_O,              KC_U,              KC_COMM,              KC_LBRC,  KC_RBRC,            KC_DEL,
-        KC_GRV,            LGUI_T(KC_N),      LALT_T(KC_R),      LCTL_T(KC_T),      LSFT_T(KC_S),      KC_G,              KC_Y,              LSFT_T(KC_H),      LCTL_T(KC_A),      LALT_T(KC_E),      LGUI_T(KC_I),         KC_SLSH,  KC_ENT,   KC_ENT,   KC_HOME,
-        KC_LSFT,           LT(U_BUTTON,KC_X), ALGR_T(KC_Q),      KC_M,              KC_W,              KC_Z,     KC_Z,    KC_K,              KC_P,              KC_QUOT,           ALGR_T(KC_SCLN),   LT(U_BUTTON,KC_DOT),  KC_RSFT,  KC_RSFT,  KC_UP,
+        KC_GRV,            KC_1,              KC_2,              KC_3,              KC_4,              KC_5,              KC_6,              KC_7,              KC_8,              KC_9,              KC_0,                 KC_MINS,  KC_EQL,   KC_BSPC,  KC_BSPC,  KC_MUTE,
+        KC_TAB,            KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,              KC_I,              KC_O,              KC_P,                 KC_LBRC,  KC_RBRC,            KC_DEL,
+        LT(U_MEDIA,KC_ESC),LGUI_T(KC_A),      LALT_T(KC_S),      LCTL_T(KC_D),      LSFT_T(KC_F),      KC_G,              KC_H,              LSFT_T(KC_J),      LCTL_T(KC_K),      LALT_T(KC_L),      LGUI_T(KC_SCLN),      KC_QUOT,  KC_ENT,   KC_ENT,   KC_HOME,
+        KC_LSFT,           LT(U_BUTTON,KC_Z), ALGR_T(KC_X),      KC_C,              KC_V,              KC_B,     KC_B,    KC_N,              KC_M,              KC_COMM,           ALGR_T(KC_DOT),    LT(U_BUTTON,KC_SLSH), KC_RSFT,  KC_RSFT,  KC_UP,
         KC_LCTL,           U_CMD,             U_WIN,             U_ALT,             LT(U_NAV,KC_SPC),  LT(U_MOUSE,KC_TAB),LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC), LT(U_FUN,KC_DEL),  U_CMD,                                             KC_LEFT,  KC_DOWN,  KC_RGHT),
 
     [U_TAP] = LAYOUT_73_jis(
@@ -181,14 +181,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [U_NUM] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,           KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
-        KC_NUBS,           KC_SCLN,           KC_4,              KC_5,              KC_6,              KC_EQL,            U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
+        KC_NUBS,           KC_SLSH,           KC_4,              KC_5,              KC_6,              KC_EQL,            U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
         _______,           KC_GRV,            KC_1,              KC_2,              KC_3,              KC_BSLS, BAT_LVL,  U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    KC_ALGR,           U_NA,                 _______,  _______,  _______,
         _______,           _______,           _______,           KC_DOT,            KC_0,              KC_MINS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
     [U_SYM] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,           KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
-        S(KC_NUBS),        KC_COLN,           KC_DLR,            KC_PERC,           KC_CIRC,           KC_PLUS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
+        S(KC_NUBS),        KC_QUES,           KC_DLR,            KC_PERC,           KC_CIRC,           KC_PLUS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
         _______,           KC_TILD,           KC_EXLM,           KC_AT,             KC_HASH,           KC_PIPE, BAT_LVL,  U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  KC_ALGR,           U_NA,                 _______,  _______,  _______,
         _______,           _______,           _______,           KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
@@ -236,36 +236,36 @@ uint8_t combo_ref_from_layer(uint8_t layer) {
 }
 
 enum combos {
-    // CO_WR,
-    // CO_UO,
-    // CO_XV,
-    // CO_MDOT,
-    // CO_UI,
-    // CO_IO,
-    // CO_WE,
-    // CO_ER,
+    CO_WR,
+    CO_UO,
+    CO_XV,
+    CO_MDOT,
+    CO_UI,
+    CO_IO,
+    CO_WE,
+    CO_ER,
     CO_QP,
 };
 
-// const uint16_t PROGMEM combo_wr[]  = {KC_W, KC_R, COMBO_END};
-// const uint16_t PROGMEM combo_uo[]  = {KC_U, KC_O, COMBO_END};
-// const uint16_t PROGMEM combo_xv[]  = {KC_X, KC_V, COMBO_END};
-// const uint16_t PROGMEM combo_mdot[] = {KC_M, KC_DOT, COMBO_END};
-// const uint16_t PROGMEM combo_ui[]  = {KC_U, KC_I, COMBO_END};
-// const uint16_t PROGMEM combo_io[]  = {KC_I, KC_O, COMBO_END};
-// const uint16_t PROGMEM combo_we[]  = {KC_W, KC_E, COMBO_END};
-// const uint16_t PROGMEM combo_er[]  = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_wr[]  = {KC_W, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_uo[]  = {KC_U, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_xv[]  = {KC_X, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_mdot[] = {KC_M, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_ui[]  = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_io[]  = {KC_I, KC_O, COMBO_END};
+const uint16_t PROGMEM combo_we[]  = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM combo_er[]  = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_qp[]  = {KC_Q, KC_P, COMBO_END};
 
 combo_t key_combos[] = {
-    // [CO_WR]   = COMBO(combo_wr,   CO_BASE_GUI),
-    // [CO_UO]   = COMBO(combo_uo,   CO_EXTRA_GUI),
-    // [CO_XV]   = COMBO(combo_xv,   CO_BASE_CTL),
-    // [CO_MDOT] = COMBO(combo_mdot, CO_EXTRA_CTL),
-    // [CO_UI]   = COMBO(combo_ui,   KC_LBRC),
-    // [CO_IO]   = COMBO(combo_io,   KC_RBRC),
-    // [CO_WE]   = COMBO(combo_we,   KC_QUOT),
-    // [CO_ER]   = COMBO(combo_er,   KC_GRV),
+    [CO_WR]   = COMBO(combo_wr,   CO_BASE_GUI),
+    [CO_UO]   = COMBO(combo_uo,   CO_EXTRA_GUI),
+    [CO_XV]   = COMBO(combo_xv,   CO_BASE_CTL),
+    [CO_MDOT] = COMBO(combo_mdot, CO_EXTRA_CTL),
+    [CO_UI]   = COMBO(combo_ui,   KC_LBRC),
+    [CO_IO]   = COMBO(combo_io,   KC_RBRC),
+    [CO_WE]   = COMBO(combo_we,   KC_QUOT),
+    [CO_ER]   = COMBO(combo_er,   KC_GRV),
     [CO_QP]   = COMBO(combo_qp,   CO_TAP_BASE),
 };
 
@@ -338,39 +338,39 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
 
-        // case CO_BASE_GUI:
-        //     if (record->event.pressed) {
-        //         default_layer_set(1UL << U_BASE);
-        //         tap_code16(LGUI(KC_SPC));
-        //     }
-        //     return false;
-        //
-        // case CO_EXTRA_GUI:
-        //     if (record->event.pressed) {
-        //         default_layer_set(1UL << U_EXTRA);
-        //         tap_code16(LGUI(KC_SPC));
-        //     }
-        //     return false;
-        //
-        // case CO_BASE_CTL:
-        //     if (record->event.pressed) {
-        //         default_layer_set(1UL << U_BASE);
-        //         tap_code16(LCTL(KC_SPC));
-        //     }
-        //     return false;
-        //
-        // case CO_EXTRA_CTL:
-        //     if (record->event.pressed) {
-        //         default_layer_set(1UL << U_EXTRA);
-        //         tap_code16(LCTL(KC_SPC));
-        //     }
-        //     return false;
-        //
-        // case CO_TAP_BASE:
-        //     if (record->event.pressed) {
-        //         default_layer_set(1UL << U_BASE);
-        //     }
-        //     return false;
+        case CO_BASE_GUI:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_BASE);
+                tap_code16(LGUI(KC_SPC));
+            }
+            return false;
+
+        case CO_EXTRA_GUI:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_EXTRA);
+                tap_code16(LGUI(KC_SPC));
+            }
+            return false;
+
+        case CO_BASE_CTL:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_BASE);
+                tap_code16(LCTL(KC_SPC));
+            }
+            return false;
+
+        case CO_EXTRA_CTL:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_EXTRA);
+                tap_code16(LCTL(KC_SPC));
+            }
+            return false;
+
+        case CO_TAP_BASE:
+            if (record->event.pressed) {
+                default_layer_set(1UL << U_BASE);
+            }
+            return false;
 
 
     }
