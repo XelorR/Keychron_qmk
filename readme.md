@@ -10,7 +10,6 @@
 ## Key Features
 
 - Full [Miryoku](https://github.com/manna-harbour/miryoku/tree/master/docs/reference) implementation, including all features and default layers
-- Esc/Media layer moved to Caps Lock
 - TAP layer is intended for gaming and provides access to a dedicated Gaming Fn layer
 - BASE layer is qwerty for easier software layout selection
 - EXTRA uses [Gallium v2](https://github.com/GalileoBlues/Gallium/) as the alpha layout. Feel free to replace it with your preferred layout
