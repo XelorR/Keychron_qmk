@@ -157,22 +157,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [U_NAV] = LAYOUT_73_jis(
         _______,           KC_F1,             KC_F2,             KC_F3,             KC_F4,             KC_F5,             KC_F6,             KC_F7,             KC_F8,             KC_F9,             KC_F10,               KC_F11,      KC_F12,      _______,  _______,  RGB_TOG,
-        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,     _______,               _______,
-        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,              QK_MACRO_0,  QK_MACRO_1,  _______,  _______,
-        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,    BAT_LVL,  KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,               QK_MACRO_2,  QK_MACRO_3,  _______,
+        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,              _______,     _______,               _______,
+        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,              QK_MACRO_0,  QK_MACRO_1,  _______,  _______,
+        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,    BAT_LVL,  U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                QK_MACRO_2,  QK_MACRO_3,  _______,
         _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            _______,                                              _______,     _______,  _______),
 
     [U_MOUSE] = LAYOUT_73_jis(
         _______,           KC_F1,             KC_F2,             KC_F3,             KC_F4,             KC_F5,             KC_F6,             KC_F7,             KC_F8,             KC_F9,             KC_F10,               KC_F11,   KC_F12,   _______,  _______,  RGB_TOG,
-        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,  _______,            _______,
-        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              JIGGLE,            KC_MS_L,           KC_MS_D,           KC_MS_U,           KC_MS_R,              _______,  _______,  _______,  _______,
-        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,    BAT_LVL,  U_NU,              KC_WH_L,           KC_WH_D,           KC_WH_U,           KC_WH_R,              _______,  _______,  _______,
+        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,              _______,  _______,            _______,
+        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              JIGGLE,            KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,              _______,  _______,  _______,  _______,
+        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,    BAT_LVL,  U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,  _______,  _______,
         _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           _______,                                           _______,  _______,  _______),
 
     [U_MEDIA] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              RGB_TOG,           RGB_MOD,           RGB_HUI,           RGB_SAI,           RGB_VAI,              _______,  _______,            _______,
-        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MPRV,           KC_VOLD,           KC_VOLU,           KC_MNXT,              _______,  _______,  _______,  _______,
+        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              RGB_TOG,           RGB_MOD,           KC_VOLU,           RGB_HUI,           RGB_SAI,              _______,  _______,            _______,
+        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MPRV,           KC_VOLD,           KC_MNXT,           RGB_VAI,              _______,  _______,  _______,  _______,
         _______,           U_NA,              KC_ALGR,           TD(U_TD_U_FUN),    TD(U_TD_U_MEDIA),  U_NA,    BAT_LVL,  U_NU,              BT_HST1,           BT_HST2,           BT_HST3,           P2P4G,                _______,  _______,  _______,
         _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           _______,                                           _______,  _______,  _______),
 
