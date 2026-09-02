@@ -110,6 +110,29 @@ tap_dance_action_t tap_dance_actions[] = {
     [U_TD_U_FUN]    = ACTION_TAP_DANCE_FN(u_td_fn_U_FUN),
 };
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LGUI_T(KC_A):
+            return TAPPING_TERM - 10;
+        case LALT_T(KC_S):
+            return TAPPING_TERM - 20;
+        case LCTL_T(KC_D):
+            return TAPPING_TERM - 30;
+        case LSFT_T(KC_F):
+            return TAPPING_TERM - 40;
+        case LSFT_T(KC_J):
+            return TAPPING_TERM - 40;
+        case LCTL_T(KC_K):
+            return TAPPING_TERM - 30;
+        case LALT_T(KC_L):
+            return TAPPING_TERM - 20;
+        case LGUI_T(KC_SCLN):
+            return TAPPING_TERM - 10;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 enum custom_keycodes {
     JIGGLE = NEW_SAFE_RANGE,
 
