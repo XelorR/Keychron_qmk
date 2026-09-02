@@ -113,21 +113,21 @@ tap_dance_action_t tap_dance_actions[] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LGUI_T(KC_A):
-            return TAPPING_TERM - 10;
-        case LALT_T(KC_S):
-            return TAPPING_TERM - 20;
-        case LCTL_T(KC_D):
-            return TAPPING_TERM - 30;
-        case LSFT_T(KC_F):
-            return TAPPING_TERM - 40;
-        case LSFT_T(KC_J):
-            return TAPPING_TERM - 40;
-        case LCTL_T(KC_K):
-            return TAPPING_TERM - 30;
-        case LALT_T(KC_L):
-            return TAPPING_TERM - 20;
         case LGUI_T(KC_SCLN):
             return TAPPING_TERM - 10;
+
+        case LALT_T(KC_S):
+        case LALT_T(KC_L):
+            return TAPPING_TERM - 20;
+
+        case LCTL_T(KC_D):
+        case LCTL_T(KC_K):
+            return TAPPING_TERM - 30;
+
+        case LSFT_T(KC_F):
+        case LSFT_T(KC_J):
+            return TAPPING_TERM - 40;
+
         default:
             return TAPPING_TERM;
     }
