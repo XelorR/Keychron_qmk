@@ -116,18 +116,23 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LGUI_T(KC_A):
         case LGUI_T(KC_SCLN):
+        case LGUI_T(KC_BSLS):
             return TAPPING_TERM - 20;
 
         case LALT_T(KC_S):
         case LALT_T(KC_L):
+        case LALT_T(KC_RBRC):
             return TAPPING_TERM - 30;
 
         case LCTL_T(KC_D):
         case LCTL_T(KC_K):
+        case LCTL_T(KC_SCLN):
+        case LCTL_T(KC_DLR):
             return TAPPING_TERM - 30;
 
         case LSFT_T(KC_F):
         case LSFT_T(KC_J):
+        case LSFT_T(KC_LBRC):
             return TAPPING_TERM - 60;
 
         default:
@@ -203,24 +208,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [U_NUM] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,           KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
-        KC_NUBS,           KC_QUOT,           KC_4,              KC_5,              KC_6,              KC_EQL,            U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
-        _______,           KC_GRV,            KC_1,              KC_2,              KC_3,              KC_BSLS, BAT_LVL,  U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    KC_ALGR,           U_NA,                 _______,  _______,  _______,
-        _______,           _______,           _______,           KC_DOT,            KC_0,              KC_MINS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
+        _______,           KC_SLSH,           KC_7,              KC_8,              KC_9,              KC_MINS,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
+        KC_NUBS,           KC_ASTR,           KC_4,              KC_5,              KC_6,              KC_PLUS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
+        _______,           KC_EQL,            KC_1,              KC_2,              KC_3,              KC_DOT,  BAT_LVL,  U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    KC_ALGR,           U_NA,                 _______,  _______,  _______,
+        _______,           _______,           _______,           _______,           KC_SPC,            KC_0,              U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
     [U_SYM] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,           KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
-        S(KC_NUBS),        KC_DQT,            KC_DLR,            KC_PERC,           KC_CIRC,           KC_PLUS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
-        _______,           KC_TILD,           KC_EXLM,           KC_AT,             KC_HASH,           KC_PIPE, BAT_LVL,  U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  KC_ALGR,           U_NA,                 _______,  _______,  _______,
-        _______,           _______,           _______,           KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
+        _______,           KC_GRV,            KC_LABK,           KC_EQL,            KC_RABK,           KC_DQT,            KC_CIRC,           KC_LCBR,           KC_DLR,            KC_RCBR,           TD(U_TD_BOOT),        _______,  _______,            _______,
+        S(KC_NUBS),        KC_ASTR,           KC_LPRN,           KC_MINS,           KC_RPRN,           KC_PLUS,           KC_PERC,           LSFT_T(KC_LBRC),   LCTL_T(KC_SCLN),   LALT_T(KC_RBRC),   LGUI_T(KC_BSLS),      _______,  _______,  _______,  _______,
+        _______,           KC_HASH,           KC_EXLM,           KC_COLN,           KC_SLSH,           KC_AT,   BAT_LVL,  U_NA,              KC_PIPE,           KC_TILD,           KC_AMPR,           U_NA,                 _______,  _______,  _______,
+        _______,           _______,           _______,           _______,           KC_SPC,            KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
     [U_SYM_EX] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
-        _______,           KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),        _______,  _______,            _______,
-        S(KC_NUBS),        KC_DQT,            KC_DLR,            KC_PERC,           KC_CIRC,           KC_PLUS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,              _______,  _______,  _______,  _______,
-        _______,           KC_TILD,           KC_EXLM,           KC_AT,             KC_HASH,           KC_PIPE, BAT_LVL,  U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  KC_ALGR,           U_NA,                 _______,  _______,  _______,
-        _______,           _______,           _______,           KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
+        _______,           KC_GRV,            KC_AMPR,           KC_EQL,            KC_RABK,           KC_AT,             KC_CIRC,           KC_LCBR,           KC_DLR,            KC_RCBR,           TD(U_TD_BOOT),        _______,  _______,            _______,
+        S(KC_NUBS),        KC_ASTR,           KC_LPRN,           KC_MINS,           KC_RPRN,           KC_PLUS,           KC_PERC,           LSFT_T(KC_LBRC),   LCTL_T(KC_DLR),    LALT_T(KC_RBRC),   LGUI_T(KC_BSLS),      _______,  _______,  _______,  _______,
+        _______,           KC_HASH,           KC_EXLM,           KC_CIRC,           KC_PIPE,           KC_AT,   BAT_LVL,  U_NA,              S(KC_NUBS),        KC_TILD,           KC_AMPR,           U_NA,                 _______,  _______,  _______,
+        _______,           _______,           _______,           _______,           KC_SPC,            KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
     [U_FUN] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
