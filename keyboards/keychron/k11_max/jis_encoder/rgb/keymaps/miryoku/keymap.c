@@ -33,6 +33,7 @@
   #define U_CMD KC_RGUI
   #define U_MCTL KC_MCTRL
   #define U_MYCM KC_LNPAD
+  #define U_LANG C(KC_SPC)
 #else
   #define U_RDO C(KC_Y)
   #define U_PST S(KC_INS)
@@ -44,6 +45,7 @@
   #define U_CMD KC_RCTL
   #define U_MCTL KC_TASK
   #define U_MYCM KC_MYCM
+  #define U_LANG G(KC_SPC)
 #endif
 
 
