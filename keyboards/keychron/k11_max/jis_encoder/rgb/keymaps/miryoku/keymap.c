@@ -189,9 +189,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [U_MOUSE] = LAYOUT_73_jis(
         _______,           KC_F1,             KC_F2,             KC_F3,             KC_F4,             KC_F5,             KC_F6,             KC_F7,             KC_F8,             KC_F9,             KC_F10,               KC_F11,   KC_F12,   _______,  _______,  RGB_TOG,
-        _______,           TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,              _______,  _______,            _______,
-        _______,           KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              JIGGLE,            KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,              _______,  _______,  _______,  _______,
-        _______,           U_NA,              KC_ALGR,           TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,    BAT_LVL,  U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,  _______,  _______,
+        KC_J,              KC_GRV,            KC_7,              KC_8,              KC_9,              KC_0,              U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,              _______,  _______,            _______,
+        KC_I,              KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           KC_H,              JIGGLE,            KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,              _______,  _______,  _______,  _______,
+        KC_M,              KC_L,              KC_DOT,            KC_COMM,           KC_SLSH,           KC_MUTE, BAT_LVL,  U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,                _______,  _______,  _______,
         _______,           _______,           _______,           _______,           U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           _______,                                           _______,  _______,  _______),
 
     [U_MEDIA] = LAYOUT_73_jis(
