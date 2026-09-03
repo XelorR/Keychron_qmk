@@ -127,7 +127,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LCTL_T(KC_D):
         case LCTL_T(KC_K):
         case LCTL_T(KC_SCLN):
-        case LCTL_T(KC_DLR):
             return TAPPING_TERM - 30;
 
         case LSFT_T(KC_F):
@@ -223,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [U_SYM_EX] = LAYOUT_73_jis(
         _______,           KC_BRID,           KC_BRIU,           U_MCTL,            U_MYCM,            RGB_VAD,           RGB_VAI,           KC_MPRV,           KC_MPLY,           KC_MNXT,           KC_MUTE,              KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
         _______,           KC_GRV,            KC_AMPR,           KC_EQL,            KC_RABK,           KC_AT,             KC_CIRC,           KC_LCBR,           KC_DLR,            KC_RCBR,           TD(U_TD_BOOT),        _______,  _______,            _______,
-        S(KC_NUBS),        KC_ASTR,           KC_LPRN,           KC_MINS,           KC_RPRN,           KC_PLUS,           KC_PERC,           LSFT_T(KC_LBRC),   LCTL_T(KC_DLR),    LALT_T(KC_RBRC),   LGUI_T(KC_BSLS),      _______,  _______,  _______,  _______,
+        S(KC_NUBS),        KC_ASTR,           KC_LPRN,           KC_MINS,           KC_RPRN,           KC_PLUS,           KC_PERC,           LSFT_T(KC_LBRC),   LCTL_T(KC_SCLN),   LALT_T(KC_RBRC),   LGUI_T(KC_BSLS),      _______,  _______,  _______,  _______,
         _______,           KC_HASH,           KC_EXLM,           KC_CIRC,           KC_PIPE,           KC_AT,   BAT_LVL,  U_NA,              S(KC_NUBS),        KC_TILD,           KC_AMPR,           U_NA,                 _______,  _______,  _______,
         _______,           _______,           _______,           _______,           KC_SPC,            KC_UNDS,           U_NA,              U_NA,              U_NA,              _______,                                           _______,  _______,  _______),
 
