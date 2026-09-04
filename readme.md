@@ -17,3 +17,9 @@
 - Combos switch between BASE and EXTRA while also switching the system keyboard layout. Disabled by default, set `COMBO_ENABLE = yes` in rules.mk to enable combos.
 - Linux/Windows-oriented configuration. Set "MODE_MAC" to adapt the keymap for macOS
 - ":;" is changed to "/?" in the NUM and SYM layers to work better with [Gallium](https://github.com/GalileoBlues/Gallium/), which does not include "/?" in its 3×5 block. It also allows to keep BASE as plain QWERTY, enabling correct software layout selection.
+
+## todo
+
+- [ ] question mark to sym layer
+- [ ] modtaps for shifted symbols
+- [ ] missing en symbols for ru (extra) -- release in [sortware](https://github.com/OneDeadKey/kalamine), as ralt layer
