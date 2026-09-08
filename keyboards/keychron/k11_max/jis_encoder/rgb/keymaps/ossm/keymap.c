@@ -110,22 +110,6 @@ enum custom_keycodes {
     MC_PGUP,
     MC_PGDN,
 
-    EN_EXLM,
-    EN_AT,
-    EN_HASH,
-    EN_DLR,
-    EN_PERC,
-    EN_CIRC,
-    EN_AMPR,
-    EN_ASTR,
-    EN_LPRN,
-    EN_RPRN,
-    EN_LBRC,
-    EN_RBRC,
-    EN_QUOT,
-    EN_PIPE,
-    EN_GRV,
-
     BSPC_5, // 5x backspace
     MINS_5,  // 5x minus
 };
@@ -257,71 +241,6 @@ bool mac_tabber_active = false;
 bool win_tabber_active = false;
 bool ctl_tabber_active = false;
 
-static bool process_english_shifted_symbol(uint16_t keycode, keyrecord_t *record) {
-    uint16_t symbol_keycode;
-
-    switch (keycode) {
-        case EN_EXLM:
-            symbol_keycode = KC_EXLM;
-            break;
-        case EN_AT:
-            symbol_keycode = KC_AT;
-            break;
-        case EN_HASH:
-            symbol_keycode = KC_HASH;
-            break;
-        case EN_DLR:
-            symbol_keycode = KC_DLR;
-            break;
-        case EN_PERC:
-            symbol_keycode = KC_PERC;
-            break;
-        case EN_CIRC:
-            symbol_keycode = KC_CIRC;
-            break;
-        case EN_AMPR:
-            symbol_keycode = KC_AMPR;
-            break;
-        case EN_ASTR:
-            symbol_keycode = KC_ASTR;
-            break;
-        case EN_LPRN:
-            symbol_keycode = KC_LPRN;
-            break;
-        case EN_RPRN:
-            symbol_keycode = KC_RPRN;
-            break;
-        case EN_LBRC:
-            symbol_keycode = KC_LBRC;
-            break;
-        case EN_RBRC:
-            symbol_keycode = KC_RBRC;
-            break;
-        case EN_QUOT:
-            symbol_keycode = KC_QUOT;
-            break;
-        case EN_PIPE:
-            symbol_keycode = KC_PIPE;
-            break;
-        case EN_GRV:
-            symbol_keycode = KC_GRV;
-            break;
-        default:
-            return true;
-    }
-
-    if (record->event.pressed) {
-        const uint16_t lang_keycode = layer_state_is(WIN_SYM) ? WN_LANG : MC_LANG;
-
-        tap_code16(lang_keycode);
-        wait_ms(50);
-        tap_code16(symbol_keycode);
-        wait_ms(50);
-        tap_code16(lang_keycode);
-    }
-
-    return false;
-}
 
 // clang-format on
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -462,11 +381,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 
-    return process_english_shifted_symbol(keycode, record);
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    state = update_tri_layer_state(state, MAC_SYM, MAC_NAV, MAC_FUN);
-    state = update_tri_layer_state(state, WIN_SYM, WIN_NAV, WIN_FUN);
+    state = update_tri_layer_state(state, MAC_NUM, MAC_NAV, MAC_FUN);
+    state = update_tri_layer_state(state, WIN_NUM, WIN_NAV, WIN_FUN);
     return state;
 }
