@@ -23,7 +23,8 @@
 #define LA_NAV_W MO(WIN_NAV)
 #define LA_NUM_M MO(MAC_NUM)
 #define LA_NUM_W MO(WIN_NUM)
-#define LA_MOUSE MO(MOUSE)
+#define LA_MOU_M MO(MAC_MOU)
+#define LA_MOU_W MO(WIN_MOU)
 
 #define WN_SNAP G(S(KC_S))
 #define MC_SNAP G(S(KC_4))
@@ -83,7 +84,8 @@ enum layers {
     WIN_NUM,
     MAC_NAV,
     WIN_NAV,
-    MOUSE,
+    MAC_MOU,
+    WIN_MOU,
     MAC_FUN,
     WIN_FUN,
 };
@@ -160,16 +162,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_I,     KC_BSPC,  MC_TAB,   CT_TAB,   MC_MCTL,  KC_ESC,             KC_ESC,   MC_HOME,  MC_PGDN,  MC_PGUP,  MC_END,   _______,  _______,            _______,
         KC_M,     OS_CTRL,  OS_ALT,   OS_CMD,   OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  UC_MC0,   UC_MC1,   _______,  _______,
         KC_J,     JIGGLE,   MC_CUT,   MC_CPY,   MC_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  MC_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
+        _______,  _______,  _______,  _______,  LA_MOU_M, _______,            _______,  MC_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
     [WIN_NAV] = LAYOUT_73_jis(
         WN_LOCK,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_F11,   KC_F12,   _______,  _______,  WN_SAVE,
         KC_I,     KC_DEL,   WN_TAB,   CT_TAB,   WN_MCTL,  KC_ESC,             KC_ESC,   KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   _______,  _______,            _______,
         KC_M,     OS_CMD,   OS_ALT,   OS_CTRL,  OS_SHFT,  KC_ENT,             KC_ENT,   KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  UC_MC2,   UC_MC3,   _______,  _______,
         KC_J,     JIGGLE,   WN_CUT,   WN_CPY,   WN_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  KC_PGUP,
-        _______,  _______,  _______,  _______,  LA_MOUSE, _______,            _______,  WN_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
+        _______,  _______,  _______,  _______,  LA_MOU_W, _______,            _______,  WN_LANG,            _______,  _______,            KC_HOME,  KC_PGDN,  KC_END),
 
-    [MOUSE] = LAYOUT_73_jis(
+    [MAC_MOU] = LAYOUT_73_jis(
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
+        _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,  BAT_LVL,  _______,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
+
+    [WIN_MOU] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
@@ -199,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [WIN_NUM]  = { ENCODER_CCW_CW(BSPC_5, MINS_5)},
         [MAC_NAV] = { ENCODER_CCW_CW(MC_UNDO, MC_REDO)},
         [WIN_NAV] = { ENCODER_CCW_CW(WN_UNDO, WN_REDO)},
-        [MOUSE]  = { ENCODER_CCW_CW(MS_WHLU, MS_WHLD)},
+        [MAC_MOU]  = { ENCODER_CCW_CW(MS_WHLU, MS_WHLD)},
         [MAC_FUN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
         [WIN_FUN]  = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
     };
