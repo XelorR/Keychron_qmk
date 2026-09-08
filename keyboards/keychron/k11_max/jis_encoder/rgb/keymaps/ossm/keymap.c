@@ -176,17 +176,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [MAC_MOU] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  BAT_LVL,  _______,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
+        _______,  MS_WHLU,  MS_WHLL,  MS_UP,    MS_WHLR,  KC_ESC,             KC_ESC,   MC_MCTL,  CT_TAB,   MC_TAB,   MC_CWIN,  _______,  _______,            _______,
+        _______,  MS_WHLD,  MS_LEFT,  MS_DOWN,  MS_RGHT,  KC_ENT,             KC_ENT,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
+        _______,  KC_BSPC,  MC_CUT,   MC_CPY,   MC_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   MC_PST,   MC_CPY,   MC_CUT,   KC_BSPC,  _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  MS_BTN1,  MS_BTN2,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [WIN_MOU] = LAYOUT_73_jis(
         _______,  _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-        _______,  BT_HST1,  BT_HST2,  BT_HST3,  P2P4G,    _______,            _______,  MS_WHLL,  MS_WHLU,  MS_WHLD,  MS_WHLR,  _______,  _______,            _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            _______,  MS_LEFT,  MS_DOWN,  MS_UP,    MS_RGHT,  _______,  _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,  BAT_LVL,  _______,  KC_BSPC,  UC_LAN1,  UC_LAN2,  KC_DEL,   _______,  _______,  _______,
-        _______,  _______,  _______,  _______,  _______,  _______,            MS_BTN2,  MS_BTN1,            _______,  _______,            _______,  _______,  _______),
+        _______,  MS_WHLU,  MS_WHLL,  MS_UP,    MS_WHLR,  KC_ESC,             KC_ESC,   WN_MCTL,  CT_TAB,   WN_TAB,   WN_CWIN,  _______,  _______,            _______,
+        _______,  MS_WHLD,  MS_LEFT,  MS_DOWN,  MS_RGHT,  KC_ENT,             KC_ENT,   OS_SHFT,  OS_CTRL,  OS_ALT,   OS_CMD,   _______,  _______,  _______,  _______,
+        _______,  KC_DEL,   WN_CUT,   WN_CPY,   WN_PST,   KC_TAB,   BAT_LVL,  KC_TAB,   WN_PST,   WN_CPY,   WN_CUT,   KC_DEL,   _______,  _______,  _______,
+        _______,  _______,  _______,  _______,  MS_BTN1,  MS_BTN2,            _______,  _______,            _______,  _______,            _______,  _______,  _______),
 
     [MAC_FUN] = LAYOUT_73_jis(
         KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTRL, KC_LNPAD, RGB_VAD,            RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,  _______,  RGB_TOG,
