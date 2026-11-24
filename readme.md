@@ -5,7 +5,7 @@
 ## Artefacts
 
 - [Keymap](./keyboards/keychron/k11_max/jis_encoder/rgb/keymaps/miryoku/keymap.c) - read it first
-- [Build script](./build.sh) — currently supports Arch Linux for dependency installation
+- [Build script](./build.sh) — currently supports Arch Linux for dependency installation. On a new machine the first run needs network access: it installs the QMK CLI/toolchains, restores the pinned submodules, and installs udev rules when flashing. Keep the `.git` directory when copying the repository so the pinned submodules can be restored.
 
 ## Key Features
 
